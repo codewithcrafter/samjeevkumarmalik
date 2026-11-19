@@ -6,27 +6,75 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Sticky Navbar Elevation on Scroll
   const navbar = document.getElementById('navbar');
+  const siteHeader = document.getElementById('siteHeader') || document.querySelector('.site-header-full, .header-wrapper');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
       navbar?.classList.add('scrolled');
+      siteHeader?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
+      siteHeader?.classList.remove('scrolled');
     }
   });
 
-  // 2. Active Route Highlighting
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  // 2. Active Route Highlighting (Universal Clean URLs)
+  const normPath = (p) => {
+    if (!p) return '';
+    let clean = p.split('?')[0].split('#')[0];
+    clean = clean.replace(/\.html$/, '').replace(/\/index$/, '');
+    if (clean.endsWith('/') && clean.length > 1) clean = clean.slice(0, -1);
+    return clean || '/';
+  };
+
+  const currentClean = normPath(window.location.pathname);
+  const currentLast = currentClean.split('/').pop() || 'index';
   const navLinks = document.querySelectorAll('.nav-link, .mega-item, .mobile-nav-drawer a');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    if (href) {
-      const linkFile = href.split('/').pop();
-      if (linkFile === currentPath || (currentPath === '' && linkFile === 'index.html')) {
+    if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+      const linkClean = normPath(href);
+      const linkLast = linkClean.split('/').pop() || 'index';
+      if (linkClean === currentClean || (currentClean === '/' && (linkClean === '/' || linkClean === '')) || (linkLast !== '' && linkLast !== 'index' && linkLast === currentLast)) {
         link.classList.add('active');
       }
     }
   });
+
+  // 2a. Address Bar Clean URLs: Strip .html and trailing slashes in real-time
+  if (window.location.protocol !== 'file:') {
+    let path = window.location.pathname;
+    let clean = path.replace(/\.html$/, '').replace(/\/index$/, '');
+    if (clean.length > 1 && clean.endsWith('/')) {
+      clean = clean.slice(0, -1);
+    }
+    if (clean !== path) {
+      window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+    }
+  }
+
+  // 2b. Local file:// Protocol Offline Navigation Helper
+  if (window.location.protocol === 'file:') {
+    document.addEventListener('click', function(e) {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.endsWith('.html') || href.endsWith('.css') || href.endsWith('.js') || href.endsWith('.png') || href.endsWith('.jpg') || href.endsWith('.svg') || href.endsWith('.webp')) return;
+      
+      e.preventDefault();
+      const current = window.location.href;
+      const isInSubfolder = current.includes('/services/') || current.includes('/blogs/');
+      
+      if (href === '/' || href === '') {
+        window.location.href = isInSubfolder ? '../index.html' : 'index.html';
+      } else if (href.startsWith('/')) {
+        const clean = href.slice(1);
+        window.location.href = isInSubfolder ? '../' + clean + '.html' : clean + '.html';
+      } else {
+        window.location.href = href + '.html';
+      }
+    });
+  }
 
   // 2b. Services Mega-Menu Click-Lock & Hover Bridge Controller
   const allNavItems = document.querySelectorAll('.nav-dropdown, .nav-item');
@@ -298,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Delegated Click Handler for all Modal Open Triggers
   document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('.open-booking-modal, #navBookCta, a[href$="contact-us.html"].btn-primary, a[href="../contact-us.html"].btn-primary, [data-modal="booking"]');
+    const trigger = e.target.closest('.open-booking-modal, #navBookCta, a[href*="contact-us"].btn-primary, [data-modal="booking"]');
     if (trigger) {
       // Don't intercept if submitting the contact-us main page form
       if (trigger.getAttribute('type') === 'submit') return;
@@ -426,4 +474,225 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 700);
     });
   }
+
+  // 12. Floating Action Buttons (WhatsApp & Call at Bottom-Right)
+  function initFloatingActions() {
+    if (document.getElementById('floatingContactWidget')) return;
+
+    const widget = document.createElement('div');
+    widget.id = 'floatingContactWidget';
+    widget.className = 'floating-contact-widget';
+    widget.setAttribute('aria-label', 'Quick Contact Actions');
+
+    widget.innerHTML = `
+      <a href="tel:+919718604362" 
+         class="floating-action-btn fab-call" 
+         aria-label="Call Sanjeev Kumar Malik Directly">
+        <span class="fab-tooltip">Call +91 97186 04362</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span class="fab-btn-label">Call Now</span>
+      </a>
+
+      <a href="https://wa.me/919718604362?text=Hello%20Sanjeev,%20I%20would%20like%20to%20discuss%20a%20website%20project." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="floating-action-btn fab-whatsapp" 
+         aria-label="Chat on WhatsApp with Sanjeev Kumar Malik">
+        <span class="fab-tooltip">Chat on WhatsApp</span>
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="fab-btn-label">WhatsApp</span>
+      </a>
+    `;
+
+    document.body.appendChild(widget);
+  }
+  initFloatingActions();
+
+  // 13. Dramatic 3-Second Automatic Popup Modal
+  function init3SecondAutoPopup() {
+    let popupOverlay = document.getElementById('autoPopupModal');
+    
+    if (!popupOverlay) {
+      popupOverlay = document.createElement('div');
+      popupOverlay.id = 'autoPopupModal';
+      popupOverlay.className = 'auto-popup-overlay';
+      popupOverlay.setAttribute('aria-hidden', 'true');
+      popupOverlay.setAttribute('role', 'dialog');
+
+      popupOverlay.innerHTML = `
+        <div class="auto-popup-card">
+          <button type="button" class="popup-close-btn" id="closeAutoPopupBtn" aria-label="Close modal">&times;</button>
+          
+          <div class="popup-badge">
+            <span class="radar-dot" style="width: 6px; height: 6px;"></span>
+            <span>Direct Founder Access • 15+ Yrs Experience</span>
+          </div>
+          
+          <h3 class="popup-title">Plan Your High-Speed Website With Sanjeev</h3>
+          <p class="popup-desc">Get an upfront technical review, sprint milestone roadmap, and clear pricing directly from Sanjeev Kumar Malik — no sales reps.</p>
+
+          <form class="popup-form" id="autoPopupForm">
+            <div class="form-group">
+              <label for="popupName">Your Name *</label>
+              <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label for="popupEmail">Email Address *</label>
+              <input type="email" id="popupEmail" class="form-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="popupContact">Phone / WhatsApp *</label>
+              <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label for="popupMessage">Project Scope or Message (Optional)</label>
+              <textarea id="popupMessage" class="form-textarea" rows="2" placeholder="Tell us what you want to build or improve..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-popup-submit" id="popupSubmitBtn">
+              <span>Claim Free Architecture Discovery →</span>
+            </button>
+            <p class="popup-footer-note">🔒 100% Confidential • Direct founder review &lt; 4 hours</p>
+          </form>
+
+          <div class="popup-success-banner" id="popupSuccessBanner">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Request Received!</h4>
+            <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+              Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect with you on WhatsApp/Phone within 4 hours.
+            </p>
+            <button type="button" class="btn-primary" id="popupSuccessCloseBtn" style="width: 100%; justify-content: center;">
+              Continue Browsing
+            </button>
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(popupOverlay);
+    }
+
+    const openPopup = () => {
+      popupOverlay.classList.add('open');
+      popupOverlay.setAttribute('aria-hidden', 'false');
+      const firstInput = popupOverlay.querySelector('#popupName');
+      if (firstInput) setTimeout(() => firstInput.focus(), 300);
+    };
+
+    const closePopup = () => {
+      popupOverlay.classList.remove('open');
+      popupOverlay.setAttribute('aria-hidden', 'true');
+    };
+
+    // Close Button
+    const closeBtn = document.getElementById('closeAutoPopupBtn');
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+
+    const successCloseBtn = document.getElementById('popupSuccessCloseBtn');
+    if (successCloseBtn) successCloseBtn.addEventListener('click', closePopup);
+
+    // Backdrop Click
+    popupOverlay.addEventListener('click', (e) => {
+      if (e.target === popupOverlay) closePopup();
+    });
+
+    // ESC Key Listener
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popupOverlay.classList.contains('open')) {
+        closePopup();
+      }
+    });
+
+    // Form Submit Handler
+    const form = document.getElementById('autoPopupForm');
+    const successBanner = document.getElementById('popupSuccessBanner');
+    const submitBtn = document.getElementById('popupSubmitBtn');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>⚡ Securing Architecture Session...</span>';
+        }
+
+        setTimeout(() => {
+          form.style.display = 'none';
+          if (successBanner) successBanner.classList.add('visible');
+          showToast('Consultation request sent successfully to Sanjeev!');
+        }, 600);
+      });
+    }
+
+    // Trigger precisely 3 seconds after page load or refresh
+    setTimeout(openPopup, 3000);
+  }
+  init3SecondAutoPopup();
+
+  // 14. Service Hero Forms Submission Handler
+  function initServiceHeroForms() {
+    const serviceForms = document.querySelectorAll('.service-form');
+    serviceForms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('.btn-service-submit, button[type="submit"]');
+        const origText = submitBtn ? submitBtn.innerHTML : 'Submit';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>⚡ Submitting to Sanjeev...</span>';
+        }
+
+        setTimeout(() => {
+          const successDiv = form.parentElement.querySelector('.service-form-success');
+          if (successDiv) {
+            form.style.display = 'none';
+            successDiv.style.display = 'block';
+          }
+          showToast('Project requirements received! Sanjeev will contact you within 4 hours.');
+        }, 600);
+      });
+    });
+  }
+  initServiceHeroForms();
+
+  // 15. Article Table of Contents (TOC) Scroll-Spy & Active Link Sync
+  function initTocScrollSpy() {
+    const tocLinks = document.querySelectorAll('.toc-link');
+    if (tocLinks.length === 0) return;
+
+    const headingIds = Array.from(tocLinks).map(link => {
+      const href = link.getAttribute('href');
+      return href && href.startsWith('#') ? href.substring(1) : null;
+    }).filter(Boolean);
+
+    const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 140;
+      let currentId = '';
+
+      headings.forEach(heading => {
+        if (heading.offsetTop <= scrollPos) {
+          currentId = heading.id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, { passive: true });
+  }
+  initTocScrollSpy();
 });
+

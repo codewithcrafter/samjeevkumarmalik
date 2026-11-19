@@ -1,0 +1,21 @@
+{
+  "name": "sanjeev-kumar-malik-platform",
+  "version": "2.0.0",
+  "description": "High-Performance Digital Architecture Platform & Services for Sanjeev Kumar Malik",
+  "main": "assets/js/app.js",
+  "scripts": {
+    "generate": "node scripts/generate-sitemap-llms.js",
+    "watch": "node scripts/watch-and-sync.js",
+    "build": "node scripts/generate-sitemap-llms.js"
+  },
+  "keywords": [
+    "web-development",
+    "nextjs",
+    "wordpress",
+    "delhi-ncr",
+    "sanjeev-kumar-malik"
+  ],
+  "author": "Sanjeev Kumar Malik",
+  "license": "ISC"
+}
+

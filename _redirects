@@ -1,0 +1,8 @@
+# Netlify & Cloudflare Pages Clean URLs Redirection Rules
+# Strictly NO .html and NO trailing slashes
+/index.html                     /                               301!
+/about-sanjeev-kumar-malik/     /about-sanjeev-kumar-malik      301!
+/blogs/                         /blogs                          301!
+/contact-us/                    /contact-us                     301!
+/services/*                     /services/:splat                301!
+/blogs/*                        /blogs/:splat                   301!
