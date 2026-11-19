@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://sanjeevkumarmalik.in/web-development-for-startups-smes">>>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=4.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -1059,73 +1059,68 @@
   </footer>
 
   
-  <!-- Interactive Booking Modal (Antigravity Light) -->
+    <!-- Interactive Booking Modal (Ultra-Compact Antigravity Light) -->
   <div id="bookingModal" class="booking-modal-overlay" aria-hidden="true" role="dialog">
-    <div class="booking-modal-card">
-      <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal">&times;</button>
+    <div class="booking-modal-card" style="max-width: 380px !important; width: 90% !important; padding: 1.1rem 1.25rem 1rem !important; border-radius: 16px !important; max-height: 84vh !important; overflow-y: auto !important; box-sizing: border-box !important;">
+      <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal" style="top: 0.75rem !important; right: 0.75rem !important; width: 28px !important; height: 28px !important; font-size: 1.15rem !important;">&times;</button>
       
-      <div class="modal-header">
-        <span class="modal-badge">🟢 Direct Founder Access</span>
-        <h3 class="modal-title">Book Direct Founder Session</h3>
-        <p class="modal-subtitle">Speak directly with Sanjeev Kumar Malik — Senior Full-Stack Architect (15+ Years). Zero sales layers.</p>
+      <div class="modal-header" style="margin-bottom: 0.45rem !important;">
+        <span class="modal-badge" style="margin-bottom: 0.25rem !important; padding: 0.12rem 0.55rem !important; font-size: 0.68rem !important;">🟢 Direct Founder Access</span>
+        <h3 class="modal-title" style="font-size: 1.05rem !important; margin-bottom: 0.15rem !important; line-height: 1.2 !important;">Book Founder Session</h3>
+        <p class="modal-subtitle" style="font-size: 0.74rem !important; color: #64748B !important; line-height: 1.35 !important; margin: 0 !important;">Speak directly with Sanjeev Kumar Malik (15+ Years). Zero sales layers.</p>
       </div>
 
-      <form class="modal-form" id="founderBookingForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="modalName">Your Name *</label>
-            <input type="text" id="modalName" required placeholder="e.g. Rohit Malhotra" class="form-input">
+      <form class="modal-form" id="founderBookingForm" style="gap: 0.38rem !important;">
+        <div class="form-row" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important;">
+          <div class="form-group" style="gap: 0.12rem !important;">
+            <label for="modalName" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Your Name *</label>
+            <input type="text" id="modalName" required placeholder="e.g. Rohit" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
           </div>
-          <div class="form-group">
-            <label for="modalPhone">Phone / WhatsApp *</label>
-            <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
+          <div class="form-group" style="gap: 0.12rem !important;">
+            <label for="modalPhone" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Phone / WhatsApp *</label>
+            <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="modalEmail">Email Address *</label>
-            <input type="email" id="modalEmail" required placeholder="rohit@company.com" class="form-input">
+        <div class="form-row" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important;">
+          <div class="form-group" style="gap: 0.12rem !important;">
+            <label for="modalEmail" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Email *</label>
+            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
           </div>
-          <div class="form-group">
-            <label for="modalService">Project Interest *</label>
-            <select id="modalService" required class="form-select">
-              <option value="">Select Service Area</option>
+          <div class="form-group" style="gap: 0.12rem !important;">
+            <label for="modalService" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Interest *</label>
+            <select id="modalService" required class="form-select" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+              <option value="">Select Service</option>
               <option value="WordPress Development">WordPress Development</option>
-              <option value="E-Commerce Development">E-Commerce Development</option>
+              <option value="E-Commerce Development">E-Commerce Store</option>
               <option value="Custom Web Applications">Custom Web Applications</option>
               <option value="Website Redesign & Speed">Website Redesign & Speed</option>
-              <option value="High-Converting Landing Page">High-Converting Landing Page</option>
-              <option value="UI/UX & Frontend Architecture">UI/UX & Frontend Architecture</option>
-              <option value="Startups & SMEs Architecture">Startups & SMEs Architecture</option>
+              <option value="Landing Page CRO">Landing Page CRO</option>
+              <option value="UI/UX Design Services">UI/UX Design Services</option>
+              <option value="Startups & SMEs">Startups & SMEs</option>
             </select>
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="modalNotes">Project Scope or Goal (Optional)</label>
-          <input type="text" id="modalNotes" placeholder="e.g. Target launch date or main requirement" class="form-input">
-        </div>
-
-        <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
+        <button type="submit" class="btn-submit-modal" id="modalSubmitBtn" style="padding: 0.55rem 0.85rem !important; height: 38px !important; font-size: 0.84rem !important; font-weight: 800 !important; border-radius: 9px !important; margin-top: 0.2rem !important;">
           <span>Confirm Architecture Session →</span>
         </button>
-        <p class="modal-footer-note">🔒 Direct 1-on-1 review with Sanjeev • Response in &lt; 4 hours</p>
+        <p class="modal-footer-note" style="font-size: 0.65rem !important; color: #64748B !important; text-align: center !important; margin: 0.25rem 0 0 0 !important;">🔒 Direct 1-on-1 review with Sanjeev • Response &lt; 4 hours</p>
       </form>
 
       <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
-        <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Session Requested!</h4>
-        <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
-          Thank you! Sanjeev Kumar Malik has received your request and will connect with you directly on Phone/WhatsApp within 4 hours.
+        <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🎉</div>
+        <h4 style="font-size: 1.15rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">Session Requested!</h4>
+        <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
+          Thank you! Sanjeev Kumar Malik will connect with you directly via WhatsApp/Phone within 4 hours.
         </p>
-        <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center;">
+        <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.6rem 1rem; font-size: 0.85rem;">
           Back to Website
         </button>
       </div>
     </div>
   </div>
 
-  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/app.js?v=4.0"></script>
 </body>
 </html>

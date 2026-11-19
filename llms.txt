@@ -62,32 +62,32 @@
 ### [Custom WordPress Plugin Development vs Off-the-Shelf Plugins: How to Choose](https://sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf)
 - **URL:** https://sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf
 - **Summary:** Why running 45 third-party plugins guarantees fatal database bloat, and how writing lightweight bespoke PHP plugins ensures security and instant sub-second TTFB.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Dark Mode Website Design: Is It Actually Worth Building for Your Audience?](https://sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building)
 - **URL:** https://sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building
 - **Summary:** Analyzing user engagement telemetry, battery savings claims, contrast compliance, and when light-first luminous aesthetics actually convert higher for B2B brands.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Designing for Trust: UX Patterns That Make Visitors Comfortable Buying](https://sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns)
 - **URL:** https://sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns
 - **Summary:** How subtle security badges, transparent pricing typography, founder accessibility signals, and friction-free forms directly reduce Indian shopper hesitation.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Ecommerce Website Checkout Flow: What Slows Indian Shoppers Down](https://sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers)
 - **URL:** https://sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers
 - **Summary:** Solving mandatory signup friction, UPI QR latency, autofill mismatches, and OTP verification drop-offs to lift Indian direct-to-consumer store conversions.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Headless WordPress: When It Makes Sense and When It Doesn't](https://sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense)
 - **URL:** https://sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense
 - **Summary:** Evaluating Next.js App Router frontends decoupled from WP REST/GraphQL APIs versus high-performance custom PHP themes: when is the added complexity worth it?
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [How AI Overviews Are Affecting WordPress SEO Setup in 2026](https://sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026)
 - **URL:** https://sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026
 - **Summary:** Structured JSON-LD entity graph schemas, direct question-and-answer semantic formatting, and the DOM cleanliness required for Google Gemini indexing.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Technical Web Engineering Blogs &amp; Insights](https://sanjeevkumarmalik.in/blogs)
 - **URL:** https://sanjeevkumarmalik.in/blogs
@@ -97,22 +97,22 @@
 ### [Micro-Interactions in UI Design: Small Details That Change User Behavior](https://sanjeevkumarmalik.in/blogs/micro-interactions-ui-design)
 - **URL:** https://sanjeevkumarmalik.in/blogs/micro-interactions-ui-design
 - **Summary:** From magnetic button physics to tactile input validations: exploring how 60fps micro-animations guide user intent and dramatically decrease bounce rates.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Multi-Currency and Multi-Language Ecommerce Websites for Indian Brands](https://sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce)
 - **URL:** https://sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce
 - **Summary:** Architecting geo-IP pricing tables, duty calculation APIs, Stripe foreign exchange flows, and multilingual URL hreflang tags for global retail expansion.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Web Accessibility: What WCAG 2.2 Compliance Actually Means for Your Website](https://sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance)
 - **URL:** https://sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance
 - **Summary:** A straightforward breakdown of focus appearances, target size thresholds, dragging movements, and why legal accessibility compliance is simply good business.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [WordPress Security Hardening: A Practical Checklist for Business Websites](https://sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist)
 - **URL:** https://sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist
 - **Summary:** Hardening wp-config, XML-RPC disabling, database prefix obfuscation, REST API authentication, and edge firewall rule sets that stop automated brute force attacks.
-- **Last Modified:** 2026-11-18
+- **Last Modified:** 2026-11-19
 
 ### [Contact Us](https://sanjeevkumarmalik.in/contact-us)
 - **URL:** https://sanjeevkumarmalik.in/contact-us
