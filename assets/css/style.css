@@ -5005,15 +5005,17 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, blockquote, label {
 
 .service-hero-banner-main {
   flex: 1.15;
-  min-width: 320px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .service-hero-banner-aside {
   flex: 0.85;
   display: flex;
   justify-content: center;
-  min-width: 320px;
+  min-width: 0;
   width: 100%;
+  max-width: 100%;
 }
 
 .table-responsive {
@@ -5162,18 +5164,49 @@ code {
   .protocol-strip,
   .contact-intake-grid,
   .saas-grid-stats,
-  .case-metrics-matrix {
+  .case-metrics-matrix,
+  .funnel-metrics-strip,
+  .speed-split-grid,
+  .about-hero-grid {
     grid-template-columns: 1fr !important;
   }
 
   .service-card,
   .service-card-span-all,
-  .service-card[style*="grid-column"] {
+  .service-card[style*="grid-column"],
+  .blog-card,
+  .testimonial-card,
+  .comparison-card {
     grid-column: span 1 !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  /* Table Scrollers */
+  /* All Eyebrow Badges, Status Pills & Breadcrumbs: wrap cleanly */
+  .about-eyebrow-badge,
+  .section-eyebrow,
+  .hero-status-pill,
+  .breadcrumb-nav {
+    white-space: normal !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+
+  /* Flexible Footers, Chips & Meta Rows */
+  .service-card-footer,
+  .blog-meta-footer,
+  .payment-rails-row,
+  .uiux-tokens-row,
+  .profile-glass-badge,
+  .sprint-step-row,
+  .about-trust-row {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Table Scrollers with smooth touch inertia */
   .table-responsive,
   .decision-matrix-card {
     width: 100% !important;
@@ -5206,7 +5239,7 @@ code {
     margin-bottom: 2rem !important;
   }
   .section-title {
-    font-size: clamp(1.6rem, 5.8vw, 2.2rem) !important;
+    font-size: clamp(1.55rem, 5.8vw, 2.2rem) !important;
     line-height: 1.22 !important;
     word-break: break-word !important;
   }
@@ -5237,7 +5270,7 @@ code {
     text-align: center !important;
   }
   .hero-headline {
-    font-size: clamp(1.65rem, 6.5vw, 2.45rem) !important;
+    font-size: clamp(1.6rem, 6.5vw, 2.35rem) !important;
     line-height: 1.18 !important;
     letter-spacing: -0.02em !important;
     word-break: break-word !important;
@@ -5292,6 +5325,24 @@ code {
     padding: 1.25rem 1rem !important;
   }
 
+  /* About Page Responsive */
+  .about-hero-title {
+    font-size: clamp(1.55rem, 5.8vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+    text-align: center !important;
+  }
+  .about-hero-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .about-trust-row {
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+
   /* Blog Article Page */
   .blog-article-layout {
     grid-template-columns: 1fr !important;
@@ -5302,6 +5353,11 @@ code {
     padding: 1.65rem 1.2rem !important;
     border-radius: 1.25rem !important;
   }
+  .article-main-title {
+    font-size: clamp(1.45rem, 5.5vw, 2.1rem) !important;
+    line-height: 1.22 !important;
+    word-break: break-word !important;
+  }
   .blog-sidebar-sticky {
     order: 2 !important;
     position: static !important;
@@ -5311,6 +5367,23 @@ code {
   }
   .article-nav-row {
     grid-template-columns: 1fr !important;
+  }
+
+  /* FAQ Section Scaling */
+  .faq-accordion {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .faq-question-btn {
+    padding: 1.1rem 1.15rem !important;
+    font-size: 0.98rem !important;
+    gap: 0.75rem !important;
+    text-align: left !important;
+  }
+  .faq-answer {
+    padding: 0 1.15rem 1.15rem 1.15rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
   }
 
   /* Bottom Docked Floating Action Bar */
@@ -5351,6 +5424,53 @@ code {
     display: inline-block !important;
     font-size: 0.9rem !important;
     font-weight: 700 !important;
+  }
+}
+
+/* ==========================================================================
+   INTERMEDIATE HANDHELD & TABLET PORTRAIT (<= 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Timeline on Mobile */
+  .timeline-container {
+    padding: 1rem 0 !important;
+  }
+  .timeline-item {
+    gap: 1rem !important;
+    margin-bottom: 2.25rem !important;
+  }
+  .timeline-line {
+    left: 18px !important;
+  }
+  .timeline-node {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .timeline-node-inner {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .timeline-card {
+    padding: 1.25rem 1.1rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .timeline-title {
+    font-size: 1.2rem !important;
+  }
+  .timeline-narrative {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Service Hero Banner */
+  .contact-hero-banner {
+    padding: 1.5rem 1rem !important;
+  }
+  .service-hero-banner-main,
+  .service-hero-banner-aside {
+    min-width: 0 !important;
+    width: 100% !important;
   }
 }
 
@@ -5407,8 +5527,21 @@ code {
     padding-top: 5.5rem !important;
     padding-bottom: 2.25rem !important;
   }
+  .section-title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+  }
+  .about-hero-title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+  }
   .hero-headline {
-    font-size: clamp(1.45rem, 6.5vw, 2.1rem) !important;
+    font-size: clamp(1.4rem, 6.2vw, 1.95rem) !important;
+  }
+  .about-eyebrow-badge,
+  .section-eyebrow {
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.65rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
   }
 
   /* Stats Strip to single column on small phones */
@@ -5429,6 +5562,42 @@ code {
   }
   .service-metric-item::after {
     display: none !important;
+  }
+
+  /* FAQ Accordion Compact */
+  .faq-question-btn {
+    padding: 0.9rem 0.85rem !important;
+    font-size: 0.9rem !important;
+  }
+  .faq-answer {
+    padding: 0 0.85rem 0.9rem 0.85rem !important;
+    font-size: 0.84rem !important;
+  }
+
+  /* Timeline on 480px */
+  .timeline-item {
+    gap: 0.75rem !important;
+  }
+  .timeline-line {
+    left: 15px !important;
+  }
+  .timeline-node {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .timeline-node-inner {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .timeline-card {
+    padding: 1rem 0.85rem !important;
+  }
+  .timeline-narrative {
+    font-size: 0.85rem !important;
+  }
+  .timeline-chip {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.5rem !important;
   }
 
   /* Contact Hero Banner */
@@ -5477,12 +5646,64 @@ code {
     padding: 1.25rem 0.85rem !important;
   }
   .article-title {
-    font-size: clamp(1.4rem, 5.5vw, 1.8rem) !important;
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem) !important;
   }
   .article-body h2 {
-    font-size: 1.3rem !important;
+    font-size: 1.25rem !important;
   }
   .article-body h3 {
-    font-size: 1.1rem !important;
+    font-size: 1.05rem !important;
+  }
+}
+
+/* ==========================================================================
+   ULTRA-COMPACT SMARTPHONE BREAKPOINT (<= 360px)
+   ========================================================================== */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.65rem !important;
+  }
+  .navbar-full-container {
+    padding: 0.5rem 0.65rem !important;
+  }
+  .nav-brand-modern {
+    gap: 0.5rem !important;
+  }
+  .brand-monogram-box {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.9rem !important;
+  }
+  .brand-name {
+    font-size: 0.92rem !important;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary,
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.82rem !important;
+    padding: 0.6rem 0.75rem !important;
+  }
+  .floating-contact-widget {
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px)) 8px !important;
+    gap: 6px !important;
+  }
+  .floating-action-btn {
+    height: 42px !important;
+  }
+  .fab-btn-label {
+    font-size: 0.8rem !important;
+  }
+  .service-card,
+  .blog-card,
+  .testimonial-card,
+  .comparison-card {
+    padding: 1.15rem 0.85rem !important;
+    border-radius: 1.15rem !important;
+  }
+  .auto-popup-card,
+  .booking-modal-card {
+    width: 95% !important;
+    padding: 0.85rem 0.8rem !important;
   }
 }

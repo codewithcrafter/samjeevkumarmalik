@@ -288,3 +288,4 @@ htmlFiles.forEach(f => {
 });
 
 console.log(`Updated ${updatedCount} HTML files with ultra-compact modals and cache-busting v=4.0.`);
+
