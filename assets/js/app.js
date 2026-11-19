@@ -314,8 +314,85 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingForm = document.getElementById('founderBookingForm') || document.getElementById('bookingForm');
   const successBanner = document.getElementById('bookingSuccessBanner');
 
+  function ensureBookingModal() {
+    let modal = document.getElementById('bookingModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'bookingModal';
+      modal.className = 'booking-modal-overlay';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('role', 'dialog');
+      modal.innerHTML = `
+        <div class="booking-modal-card">
+          <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal">&times;</button>
+          
+          <div class="modal-header">
+            <span class="modal-badge">🟢 Direct Founder Access</span>
+            <h3 class="modal-title">Book Direct Founder Session</h3>
+            <p class="modal-subtitle">Speak directly with Sanjeev Kumar Malik — Senior Full-Stack Architect (15+ Years). Zero sales layers.</p>
+          </div>
+
+          <form class="modal-form" id="founderBookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="modalName">Your Name *</label>
+                <input type="text" id="modalName" required placeholder="e.g. Rohit Malhotra" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="modalPhone">Phone / WhatsApp *</label>
+                <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="modalEmail">Email Address *</label>
+                <input type="email" id="modalEmail" required placeholder="rohit@company.com" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="modalService">Project Interest *</label>
+                <select id="modalService" required class="form-select">
+                  <option value="">Select Service Area</option>
+                  <option value="WordPress Development">WordPress Development</option>
+                  <option value="E-Commerce Development">E-Commerce Development</option>
+                  <option value="Custom Web Applications">Custom Web Applications</option>
+                  <option value="Website Redesign & Speed">Website Redesign & Speed</option>
+                  <option value="High-Converting Landing Page">High-Converting Landing Page</option>
+                  <option value="UI/UX & Frontend Architecture">UI/UX & Frontend Architecture</option>
+                  <option value="Startups & SMEs Architecture">Startups & SMEs Architecture</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="modalNotes">Project Scope or Goal (Optional)</label>
+              <input type="text" id="modalNotes" placeholder="e.g. Target launch date or main requirement" class="form-input">
+            </div>
+
+            <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
+              <span>Confirm Architecture Session →</span>
+            </button>
+            <p class="modal-footer-note">🔒 Direct 1-on-1 review with Sanjeev • Response in &lt; 4 hours</p>
+          </form>
+
+          <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Session Requested!</h4>
+            <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+              Thank you! Sanjeev Kumar Malik has received your request and will connect with you directly on Phone/WhatsApp within 4 hours.
+            </p>
+            <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center;">
+              Back to Website
+            </button>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+    }
+    return modal;
+  }
+
   const openModal = () => {
-    const activeModal = document.getElementById('bookingModal');
+    const activeModal = ensureBookingModal();
     if (activeModal) {
       activeModal.classList.add('open');
       activeModal.setAttribute('aria-hidden', 'false');
@@ -529,37 +606,53 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <div class="popup-badge">
             <span class="radar-dot" style="width: 6px; height: 6px;"></span>
-            <span>Direct Founder Access • 15+ Yrs Experience</span>
+            <span>Direct Founder Access • 15+ Yrs Exp</span>
           </div>
           
-          <h3 class="popup-title">Plan Your High-Speed Website With Sanjeev</h3>
-          <p class="popup-desc">Get an upfront technical review, sprint milestone roadmap, and clear pricing directly from Sanjeev Kumar Malik — no sales reps.</p>
+          <h3 class="popup-title">Plan Your Project With Sanjeev</h3>
+          <p class="popup-desc">Get upfront technical roadmap & milestone pricing directly from Sanjeev Kumar Malik — zero sales layers.</p>
 
           <form class="popup-form" id="autoPopupForm">
-            <div class="form-group">
-              <label for="popupName">Your Name *</label>
-              <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            <div class="popup-form-row">
+              <div class="form-group">
+                <label for="popupName">Your Name *</label>
+                <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="popupContact">Phone / WhatsApp *</label>
+                <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+
+            <div class="popup-form-row">
+              <div class="form-group">
+                <label for="popupEmail">Email Address *</label>
+                <input type="email" id="popupEmail" class="form-input" placeholder="name@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="popupProject">Project Type *</label>
+                <select id="popupProject" class="form-select" required>
+                  <option value="">Select Project Scope</option>
+                  <option value="WordPress Custom Build">WordPress Custom Build</option>
+                  <option value="E-Commerce Store">E-Commerce Store (Shopify/Woo)</option>
+                  <option value="Custom Web App">Custom Web App (React/Next/PHP)</option>
+                  <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+                  <option value="High-Converting Landing Page">High-Converting Landing Page</option>
+                  <option value="UI/UX & Frontend Architecture">UI/UX & Frontend Architecture</option>
+                  <option value="Startup/SME MVP Architecture">Startup / SME MVP Architecture</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-group">
-              <label for="popupEmail">Email Address *</label>
-              <input type="email" id="popupEmail" class="form-input" placeholder="name@company.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="popupContact">Phone / WhatsApp *</label>
-              <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
-            </div>
-
-            <div class="form-group">
-              <label for="popupMessage">Project Scope or Message (Optional)</label>
-              <textarea id="popupMessage" class="form-textarea" rows="2" placeholder="Tell us what you want to build or improve..."></textarea>
+              <label for="popupMessage">Brief Goal or Requirement (Optional)</label>
+              <input type="text" id="popupMessage" class="form-input" placeholder="e.g. 20-page corporate build, sub-second speed">
             </div>
 
             <button type="submit" class="btn-popup-submit" id="popupSubmitBtn">
-              <span>Claim Free Architecture Discovery →</span>
+              <span>Get Free Architecture Discovery →</span>
             </button>
-            <p class="popup-footer-note">🔒 100% Confidential • Direct founder review &lt; 4 hours</p>
+            <p class="popup-footer-note">🔒 100% Confidential • Direct response in &lt; 4 hours</p>
           </form>
 
           <div class="popup-success-banner" id="popupSuccessBanner">
