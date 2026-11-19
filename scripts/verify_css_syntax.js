@@ -53,3 +53,4 @@ if (depth !== 0) {
 } else {
   console.log(`SUCCESS: All braces are 100% balanced and syntax is valid!`);
 }
+

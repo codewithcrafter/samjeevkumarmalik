@@ -106,3 +106,4 @@ while ((mwMatch = minWidthRegex.exec(css)) !== null) {
 }
 
 console.log(`\nAudit completed. Total potential issues flagged: ${issuesFound}`);
+

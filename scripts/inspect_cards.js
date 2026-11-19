@@ -11,3 +11,4 @@ console.log('Cards classes:', matches);
 // Check if any card has inline style
 const inlineStyles = snippet.match(/style="[^"]*"/gi) || [];
 console.log('Inline styles:', inlineStyles);
+

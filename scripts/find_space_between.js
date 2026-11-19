@@ -10,3 +10,4 @@ while ((m = regex.exec(css)) !== null) {
   const hasWrap = rule.includes('flex-wrap: wrap') || rule.includes('flex-wrap:wrap');
   console.log(`Selector: "${sel.replace(/\n/g, ' ')}" -> flex-wrap: ${hasWrap ? 'YES' : 'NO'}`);
 }
+

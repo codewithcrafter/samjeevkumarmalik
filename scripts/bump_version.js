@@ -41,3 +41,4 @@ htmlFiles.forEach(f => {
 });
 
 console.log(`Bumped cache version to v=4.1 across ${updated} HTML files.`);
+

@@ -36,3 +36,4 @@ mediaQueries.forEach((mq, i) => {
   console.log(`\n[${i + 1}] ${mq.query} (length: ${mq.bodyLength})`);
   console.log(`Selectors (${mq.selectors.length}):`, mq.selectors.slice(0, 10).join(', ') + (mq.selectors.length > 10 ? '...' : ''));
 });
+

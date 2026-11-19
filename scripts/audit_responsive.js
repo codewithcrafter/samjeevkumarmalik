@@ -66,3 +66,4 @@ if (potentialOverflowElements.length > 0) {
 } else {
   console.log('No dangerous inline fixed pixel widths found in HTML files.');
 }
+

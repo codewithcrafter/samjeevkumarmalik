@@ -31,3 +31,4 @@ badges.forEach(b => {
     idx += b.length + 1;
   }
 });
+
