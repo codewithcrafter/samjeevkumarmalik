@@ -40,6 +40,7 @@ if (!is_array($existingFaqs)) $existingFaqs = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $categoryName = trim($_POST['category'] ?? '');
+    $customCategory = trim($_POST['custom_category'] ?? '');
     $customSlug = trim($_POST['slug'] ?? '');
     $tags = trim($_POST['tags'] ?? '');
     $imageAlt = trim($_POST['featured_image_alt'] ?? '');
@@ -54,6 +55,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $schemaType = trim($_POST['schema_type'] ?? 'automatic');
     $customSchemaJson = trim($_POST['custom_schema_json'] ?? '');
     $content = trim($_POST['content'] ?? '');
+
+    // Handle "Other" Custom Category
+    if ($categoryName === 'other') {
+        if (empty($customCategory)) {
+            $error = 'Please enter a name for the custom category.';
+        } else {
+            $categoryName = $customCategory;
+            if ($pdo) {
+                $catSlug = slugify($categoryName);
+                $catStmt = $pdo->prepare("INSERT IGNORE INTO categories (name, slug) VALUES (?, ?)");
+                $catStmt->execute([$categoryName, $catSlug]);
+            }
+        }
+    }
 
     // FAQs array
     $faqQuestions = $_POST['faq_questions'] ?? [];
@@ -118,15 +133,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (empty($error)) {
+            $catId = null;
+            if ($pdo && !empty($categoryName)) {
+                $catFetch = $pdo->prepare("SELECT id FROM categories WHERE name = ?");
+                $catFetch->execute([$categoryName]);
+                $catRow = $catFetch->fetch();
+                if ($catRow) {
+                    $catId = (int)$catRow['id'];
+                }
+            }
+
             $update = $pdo->prepare("UPDATE blogs SET 
-                title = ?, slug = ?, category_name = ?, tags = ?, featured_image = ?, featured_image_alt = ?,
+                title = ?, slug = ?, category_id = ?, category_name = ?, tags = ?, featured_image = ?, featured_image_alt = ?,
                 publish_stage = ?, publish_date = ?, read_time = ?, author_name = ?,
                 seo_title = ?, short_excerpt = ?, meta_description = ?, meta_keywords = ?,
                 schema_type = ?, custom_schema_json = ?, content = ?, faqs_json = ?
                 WHERE id = ?");
 
             $update->execute([
-                $title, $slug, $categoryName, $tags, $featuredImagePath, $imageAlt ?: $title,
+                $title, $slug, $catId, $categoryName, $tags, $featuredImagePath, $imageAlt ?: $title,
                 $publishStage, $publishDate, $readTime, $authorName,
                 $seoTitle, $shortExcerpt, $metaDescription, $metaKeywords,
                 $schemaType, $customSchemaJson, $content, $faqsJson,
@@ -242,7 +267,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?= htmlspecialchars($cat['name']) ?>
                       </option>
                     <?php endforeach; ?>
+                    <option value="other">+ Other (Custom Category)...</option>
                   </select>
+
+                  <div class="form-group" id="customCategoryGroup" style="display: none; margin-top: 0.65rem;">
+                    <label for="customCategory" style="font-weight: 700; color: #2563EB; font-size: 0.85rem;">Enter New Category Name *</label>
+                    <input type="text" id="customCategory" name="custom_category" class="form-input" placeholder="e.g. AI &amp; Cloud Infrastructure" value="">
+                    <small style="font-size: 0.72rem; color: #64748B; margin-top: 0.25rem; display: block;">This new category will automatically be saved in your database.</small>
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -285,6 +317,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <button type="button" class="tool-btn" data-tool="code" title="Code">&lt;/&gt;</button>
                   <button type="button" class="tool-btn" data-tool="list" title="Bullet List">• List</button>
                   <button type="button" class="tool-btn" data-tool="link" title="Insert Link">🔗</button>
+                  <button type="button" class="tool-btn" data-tool="table" title="Insert Responsive Table">📊 Table</button>
 
                   <input type="file" id="mdFileInput" accept=".md,.txt" style="display: none;">
                   <button type="button" id="uploadMdBtn" class="tool-btn" style="background: #EFF6FF; color: #2563EB; border: 1px solid rgba(37, 99, 235, 0.2);" title="Import Markdown File">

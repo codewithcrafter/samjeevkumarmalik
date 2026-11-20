@@ -45,7 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Featured Image Drag & Drop and Preview
+  // 2. Category Other Option Handler
+  const categorySelect = document.getElementById('articleCategory');
+  const customCatGroup = document.getElementById('customCategoryGroup');
+  const customCatInput = document.getElementById('customCategory');
+
+  if (categorySelect && customCatGroup) {
+    categorySelect.addEventListener('change', () => {
+      if (categorySelect.value === 'other') {
+        customCatGroup.style.display = 'block';
+        if (customCatInput) {
+          customCatInput.required = true;
+          customCatInput.focus();
+        }
+      } else {
+        customCatGroup.style.display = 'none';
+        if (customCatInput) {
+          customCatInput.required = false;
+        }
+      }
+    });
+  }
+
+  // 3. Featured Image Drag & Drop and Preview
   const dropzone = document.getElementById('imageDropzone');
   const fileInput = document.getElementById('featuredImage');
   const previewBox = document.getElementById('imagePreviewBox');
@@ -126,34 +148,90 @@ document.addEventListener('DOMContentLoaded', () => {
   function simpleMarkdownParse(text) {
     if (!text) return '<p class="text-muted" style="color: #94A3B8; font-style: italic;">Live preview will appear here as you type...</p>';
     
-    // Normalize newlines
+    // Normalize newlines and escape special chars
     let html = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Headings
+    // 1. Extract fenced code blocks into placeholders
+    const codeBlocks = [];
+    html = html.replace(/```(\w*)\n([\s\S]*?)```/gim, (m, lang, code) => {
+      const placeholder = `%%%CODE_BLOCK_${codeBlocks.length}%%%`;
+      codeBlocks.push(`<pre style="background: #0F172A; color: #E2E8F0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0;"><code>${code}</code></pre>`);
+      return placeholder;
+    });
+
+    // 2. Extract Markdown tables into placeholders
+    const tables = [];
+    html = html.replace(/((?:^|\n)\|[^\n]+\|\r?\n\|[-:\s|]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g, (match) => {
+      const lines = match.trim().split('\n').map(l => l.trim()).filter(Boolean);
+      if (lines.length < 2) return match;
+
+      const headerCells = lines[0].split('|').slice(1, -1).map(c => c.trim());
+      const aligns = lines[1].split('|').slice(1, -1).map(c => {
+        c = c.trim();
+        if (c.startsWith(':') && c.endsWith(':')) return 'center';
+        if (c.endsWith(':')) return 'right';
+        return 'left';
+      });
+
+      let tableHtml = '<div class="table-responsive"><table class="article-table"><thead><tr>';
+      headerCells.forEach((c, idx) => {
+        const align = aligns[idx] || 'left';
+        tableHtml += `<th style="text-align: ${align};">${c}</th>`;
+      });
+      tableHtml += '</tr></thead><tbody>';
+
+      for (let i = 2; i < lines.length; i++) {
+        const cells = lines[i].split('|').slice(1, -1).map(c => c.trim());
+        if (cells.length === 0 || cells.every(c => c === '')) continue;
+        tableHtml += '<tr>';
+        cells.forEach((c, idx) => {
+          const align = aligns[idx] || 'left';
+          tableHtml += `<td style="text-align: ${align};">${c}</td>`;
+        });
+        tableHtml += '</tr>';
+      }
+
+      tableHtml += '</tbody></table></div>';
+      const placeholder = `\n\n%%%TABLE_BLOCK_${tables.length}%%%\n\n`;
+      tables.push(tableHtml);
+      return placeholder;
+    });
+
+    // 3. Headings
     html = html.replace(/^### (.*$)/gim, '<h3 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin: 1.25rem 0 0.5rem;">$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2 style="font-size: 1.6rem; font-weight: 800; color: #0F172A; margin: 1.5rem 0 0.75rem;">$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h2 style="font-size: 1.8rem; font-weight: 800; color: #0F172A; margin: 1.75rem 0 0.85rem;">$1</h2>');
 
-    // Bold & Italic
+    // 4. Bold & Italic
     html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
     html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
 
-    // Code blocks
-    html = html.replace(/```(\w*)\n([\s\S]*?)```/gim, '<pre style="background: #0F172A; color: #E2E8F0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0;"><code>$2</code></pre>');
+    // 5. Inline code
     html = html.replace(/`([^`]+)`/gim, '<code style="background: #EFF6FF; color: #2563EB; padding: 0.15rem 0.4rem; border-radius: 4px; font-weight: 600;">$1</code>');
 
-    // Blockquote
+    // 6. Blockquote
     html = html.replace(/^\> (.*$)/gim, '<blockquote style="border-left: 4px solid #2563EB; padding-left: 1rem; color: #475569; font-style: italic; margin: 1rem 0;">$1</blockquote>');
 
-    // Lists
+    // 7. Lists
     html = html.replace(/^\- (.*$)/gim, '<li style="margin-left: 1.25rem; margin-bottom: 0.25rem;">$1</li>');
 
-    // Paragraphs
+    // 8. Paragraphs
     html = html.replace(/\n\s*\n/gim, '</p><p style="margin-bottom: 1rem; line-height: 1.7; color: #334155;">');
     html = '<p style="margin-bottom: 1rem; line-height: 1.7; color: #334155;">' + html + '</p>';
+
+    // 9. Restore Code blocks & Tables
+    codeBlocks.forEach((block, idx) => {
+      html = html.replace(`<p style="margin-bottom: 1rem; line-height: 1.7; color: #334155;">%%%CODE_BLOCK_${idx}%%%</p>`, block);
+      html = html.replace(`%%%CODE_BLOCK_${idx}%%%`, block);
+    });
+
+    tables.forEach((table, idx) => {
+      html = html.replace(`<p style="margin-bottom: 1rem; line-height: 1.7; color: #334155;">%%%TABLE_BLOCK_${idx}%%%</p>`, table);
+      html = html.replace(`%%%TABLE_BLOCK_${idx}%%%`, table);
+    });
 
     return html;
   }
@@ -241,6 +319,10 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         case 'link':
           replacement = `[${selText || 'Link Title'}](https://example.com)`;
+          cursorOffset = replacement.length;
+          break;
+        case 'table':
+          replacement = `\n| Metric / Feature | Benchmark Standard | Sanjeev Architecture |\n| :--- | :--- | :--- |\n| Mobile Speed Score | 45 - 65 (Slow) | **98 - 100 (Instant)** |\n| Database Latency | 350ms - 800ms | < 45ms Redis Cached |\n| Code Cleanliness | 40+ Plugin Dependencies | Zero-Bloat Modular Build |\n\n`;
           cursorOffset = replacement.length;
           break;
       }

@@ -840,6 +840,75 @@ body.admin-login-body {
   display: block;
 }
 
+/* Responsive Table Container & Article Tables (Live Preview) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+  min-width: 480px;
+}
+
+.article-table thead {
+  background: #F8FAFC;
+  border-bottom: 2px solid #E2E8F0;
+}
+
+.article-table th {
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+  color: #0F172A;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.article-table td {
+  padding: 0.75rem 1rem;
+  color: #334155;
+  border-bottom: 1px solid #F1F5F9;
+  vertical-align: middle;
+}
+
+.article-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-table tbody tr:nth-child(even) {
+  background: #FAFAFC;
+}
+
+.article-table tbody tr:hover {
+  background: #EFF6FF;
+}
+
+.article-table strong {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.article-table code {
+  background: #EFF6FF;
+  color: #2563EB;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: monospace;
+}
+
 /* ==========================================================================
    8. FREQUENTLY ASKED QUESTIONS (FAQ) REPEATER
    ========================================================================== */

@@ -46,12 +46,15 @@ function parseMarkdown($md) {
     $codeBuffer = [];
     $inList = false;
     $listType = 'ul';
+    $inTable = false;
+    $tableBuffer = [];
 
     foreach ($lines as $line) {
         $trimmed = trim($line);
 
         // Fenced code block toggle
         if (preg_match('/^```(\w*)/', $trimmed, $m)) {
+            if ($inTable) { $html .= renderMarkdownTable($tableBuffer); $inTable = false; $tableBuffer = []; }
             if ($inCodeBlock) {
                 $html .= "<div class=\"code-block-wrapper\"><div class=\"code-header\"><span class=\"code-lang\">" . htmlspecialchars($codeLang ?: 'bash') . "</span><button type=\"button\" class=\"code-copy-btn\">Copy</button></div><pre><code class=\"language-" . htmlspecialchars($codeLang) . "\">" . htmlspecialchars(implode("\n", $codeBuffer)) . "</code></pre></div>\n";
                 $inCodeBlock = false;
@@ -68,6 +71,20 @@ function parseMarkdown($md) {
         if ($inCodeBlock) {
             $codeBuffer[] = $line;
             continue;
+        }
+
+        // Table detection (| header | ... |)
+        if (preg_match('/^\|(.+)\|$/', $trimmed)) {
+            if ($inList) { $html .= "</{$listType}>\n"; $inList = false; }
+            $inTable = true;
+            $tableBuffer[] = $trimmed;
+            continue;
+        } else {
+            if ($inTable) {
+                $html .= renderMarkdownTable($tableBuffer);
+                $inTable = false;
+                $tableBuffer = [];
+            }
         }
 
         // Horizontal Rule
@@ -137,12 +154,84 @@ function parseMarkdown($md) {
         $html .= "<p>" . formatInlineMarkdown($trimmed) . "</p>\n";
     }
 
+    if ($inTable) {
+        $html .= renderMarkdownTable($tableBuffer);
+    }
     if ($inList) $html .= "</{$listType}>\n";
     if ($inCodeBlock) {
         $html .= "<pre><code>" . htmlspecialchars(implode("\n", $codeBuffer)) . "</code></pre>\n";
     }
 
     return $html;
+}
+
+function renderMarkdownTable(array $rows) {
+    if (count($rows) < 2) {
+        $out = '';
+        foreach ($rows as $r) {
+            $out .= "<p>" . formatInlineMarkdown($r) . "</p>\n";
+        }
+        return $out;
+    }
+
+    // Check if second row is separator row (e.g. |:---|:---| or |--|--|)
+    $separator = trim($rows[1]);
+    if (!preg_match('/^\|[\s\-:|]+\|$/', $separator)) {
+        $out = '';
+        foreach ($rows as $r) {
+            $out .= "<p>" . formatInlineMarkdown($r) . "</p>\n";
+        }
+        return $out;
+    }
+
+    // Headers
+    $headerRow = trim($rows[0], '|');
+    $headerCells = array_map('trim', explode('|', $headerRow));
+
+    // Alignments from row 1
+    $alignRow = trim($rows[1], '|');
+    $alignCells = array_map('trim', explode('|', $alignRow));
+    $alignments = [];
+    foreach ($alignCells as $a) {
+        $firstChar = substr($a, 0, 1);
+        $lastChar = substr($a, -1);
+        if ($firstChar === ':' && $lastChar === ':') {
+            $alignments[] = 'center';
+        } elseif ($lastChar === ':') {
+            $alignments[] = 'right';
+        } else {
+            $alignments[] = 'left';
+        }
+    }
+
+    $out = "<div class=\"table-responsive\">\n";
+    $out .= "  <table class=\"article-table\">\n";
+    $out .= "    <thead>\n      <tr>\n";
+    foreach ($headerCells as $idx => $th) {
+        $align = $alignments[$idx] ?? 'left';
+        $out .= "        <th style=\"text-align: {$align};\">" . formatInlineMarkdown($th) . "</th>\n";
+    }
+    $out .= "      </tr>\n    </thead>\n";
+    $out .= "    <tbody>\n";
+
+    for ($i = 2; $i < count($rows); $i++) {
+        $bodyRow = trim($rows[$i], '|');
+        $bodyCells = array_map('trim', explode('|', $bodyRow));
+        if (empty(implode('', $bodyCells))) continue;
+
+        $out .= "      <tr>\n";
+        foreach ($bodyCells as $idx => $td) {
+            $align = $alignments[$idx] ?? 'left';
+            $out .= "        <td style=\"text-align: {$align};\">" . formatInlineMarkdown($td) . "</td>\n";
+        }
+        $out .= "      </tr>\n";
+    }
+
+    $out .= "    </tbody>\n";
+    $out .= "  </table>\n";
+    $out .= "</div>\n";
+
+    return $out;
 }
 
 function formatInlineMarkdown($text) {
