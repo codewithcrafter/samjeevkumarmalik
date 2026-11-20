@@ -6,9 +6,25 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+function getAdminBasePath() {
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    if (preg_match('#^(.*?)/admin/#', $scriptName, $m)) {
+        return $m[1] . '/admin';
+    }
+    return '/admin';
+}
+
+function getSiteRootPath() {
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    if (preg_match('#^(.*?)/admin/#', $scriptName, $m)) {
+        return $m[1] ?: '/';
+    }
+    return '/';
+}
+
 function checkAdminAuth() {
     if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-        $loginUrl = '/admin/login.php';
+        $loginUrl = getAdminBasePath() . '/login.php';
         header("Location: " . $loginUrl);
         exit;
     }

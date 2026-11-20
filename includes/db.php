@@ -9,3 +9,4 @@ if (!$pdo) {
     // Log error, don't crash frontend
     error_log("Failed to connect to MySQL database on localhost.");
 }
+

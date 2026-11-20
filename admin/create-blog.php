@@ -9,6 +9,8 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
 $admin = getCurrentAdmin();
+$adminBasePath = getAdminBasePath();
+$siteRootPath = getSiteRootPath();
 $error = '';
 $success = '';
 
@@ -124,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $schemaType, $customSchemaJson, $content, $faqsJson
             ]);
 
-            header("Location: /admin/index.php?created=1");
+            header("Location: " . $adminBasePath . "/index.php?created=1");
             exit;
         }
     }
@@ -137,26 +139,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compose New Article — Blog Workspace</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
-  <link rel="stylesheet" href="/admin/assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=4.2">
+  <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body class="admin-body">
 
   <!-- Sidebar -->
   <aside class="admin-sidebar" id="adminSidebar">
     <div class="admin-sidebar-header">
-      <a href="/admin/index.php" class="admin-brand-link">
+      <a href="<?= $adminBasePath ?>/index.php" class="admin-brand-link">
         <span class="admin-brand-dot"></span>
         <span>sanjeevkumarmalik</span>
       </a>
     </div>
 
     <nav class="admin-nav">
-      <a href="/admin/index.php" class="admin-nav-item">
+      <a href="<?= $adminBasePath ?>/index.php" class="admin-nav-item">
         <span>📰</span>
         <span>Articles Manager</span>
       </a>
-      <a href="/admin/create-blog.php" class="admin-nav-item active">
+      <a href="<?= $adminBasePath ?>/create-blog.php" class="admin-nav-item active">
         <span>✍️</span>
         <span>Compose Article</span>
       </a>
@@ -178,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <span class="admin-user-role">Super Administrator</span>
         </div>
       </div>
-      <a href="/admin/logout.php" class="admin-logout-btn" title="Logout">🚪</a>
+      <a href="<?= $adminBasePath ?>/logout.php" class="admin-logout-btn" title="Logout">🚪</a>
     </div>
   </aside>
 
@@ -192,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p style="font-size: 0.82rem; color: #64748B; margin: 0.2rem 0 0;">Fill in details, tags, and compose content in our rich text editor workspace.</p>
       </div>
       <div class="admin-topbar-actions">
-        <a href="/admin/index.php" class="action-btn">Cancel</a>
+        <a href="<?= $adminBasePath ?>/index.php" class="action-btn">Cancel</a>
         <button type="submit" form="composeArticleForm" class="btn-primary" style="padding: 0.65rem 1.35rem; font-size: 0.9rem;">
           Publish Article →
         </button>
@@ -209,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php endif; ?>
 
       <!-- Form -->
-      <form id="composeArticleForm" action="/admin/create-blog.php" method="POST" enctype="multipart/form-data">
+      <form id="composeArticleForm" action="<?= $adminBasePath ?>/create-blog.php" method="POST" enctype="multipart/form-data">
         
         <div class="compose-grid">
           
@@ -472,6 +474,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
   </div>
 
-  <script src="/admin/assets/js/admin.js"></script>
+  <script src="assets/js/admin.js"></script>
 </body>
 </html>
+

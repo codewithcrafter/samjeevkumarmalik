@@ -6,11 +6,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../includes/db.php';
+
+$adminBasePath = getAdminBasePath();
+$siteRootPath = getSiteRootPath();
 
 // If already logged in, redirect to admin dashboard
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header("Location: /admin/index.php");
+    header("Location: " . $adminBasePath . "/index.php");
     exit;
 }
 
@@ -35,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_name'] = $admin['name'];
                 $_SESSION['admin_email'] = $admin['email'];
 
-                header("Location: /admin/index.php");
+                header("Location: " . $adminBasePath . "/index.php");
                 exit;
             } else {
                 $error = 'Invalid username or password.';
@@ -47,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_id'] = 1;
                 $_SESSION['admin_username'] = 'admin';
                 $_SESSION['admin_name'] = 'Sanjeev Kumar Malik';
-                header("Location: /admin/index.php");
+                header("Location: " . $adminBasePath . "/index.php");
                 exit;
             }
             $error = 'Database offline. Try default credentials.';
@@ -62,15 +66,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Portal Login — Sanjeev Kumar Malik</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
-  <link rel="stylesheet" href="/admin/assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=4.2">
+  <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body class="admin-login-body">
 
   <div class="login-wrapper">
     <div class="login-card">
       <div class="login-brand">
-        <a href="/" class="nav-brand" aria-label="Sanjeev Kumar Malik">
+        <a href="<?= $siteRootPath ?>" class="nav-brand" aria-label="Sanjeev Kumar Malik">
           <span class="brand-dot"></span>
           <span>sanjeevkumarmalik</span>
         </a>
@@ -78,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
 
       <h1 class="login-title">Sign in to Blog Manager</h1>
-      <p class="login-subtitle">Compose, publish, and engineer technical articles with dynamic Schema.org & SEO intelligence.</p>
+      <p class="login-subtitle">Compose, publish, and engineer technical articles with dynamic Schema.org &amp; SEO intelligence.</p>
 
       <?php if (!empty($error)): ?>
         <div class="alert-box alert-error" role="alert">
@@ -87,7 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       <?php endif; ?>
 
-      <form action="/admin/login.php" method="POST" class="login-form">
+      <?php if (isset($_GET['logged_out'])): ?>
+        <div class="alert-box alert-success">
+          <span>👋</span>
+          <span>You have been signed out successfully.</span>
+        </div>
+      <?php endif; ?>
+
+      <form action="<?= $adminBasePath ?>/login.php" method="POST" class="login-form">
         <div class="form-group">
           <label for="username">Admin Username</label>
           <input type="text" id="username" name="username" class="form-input" placeholder="admin" value="<?= htmlspecialchars($_POST['username'] ?? 'admin') ?>" required autofocus>
@@ -113,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="login-footer-links">
-          <a href="/" class="back-link">← Return to Public Website</a>
+          <a href="<?= $siteRootPath ?>" class="back-link">← Return to Public Website</a>
         </div>
       </form>
     </div>

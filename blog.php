@@ -533,3 +533,4 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
   <script src="/assets/js/app.js?v=4.2"></script>
 </body>
 </html>
+

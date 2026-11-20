@@ -9,6 +9,8 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
 $admin = getCurrentAdmin();
+$adminBasePath = getAdminBasePath();
+$siteRootPath = getSiteRootPath();
 
 // Filtering and Search params
 $search = trim($_GET['search'] ?? '');
@@ -67,35 +69,35 @@ if ($pdo) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard — Blog Articles Manager</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
-  <link rel="stylesheet" href="/admin/assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=4.2">
+  <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body class="admin-body">
 
   <!-- Sidebar -->
   <aside class="admin-sidebar" id="adminSidebar">
     <div class="admin-sidebar-header">
-      <a href="/admin/index.php" class="admin-brand-link">
+      <a href="<?= $adminBasePath ?>/index.php" class="admin-brand-link">
         <span class="admin-brand-dot"></span>
         <span>sanjeevkumarmalik</span>
       </a>
     </div>
 
     <nav class="admin-nav">
-      <a href="/admin/index.php" class="admin-nav-item active">
+      <a href="<?= $adminBasePath ?>/index.php" class="admin-nav-item active">
         <span>📰</span>
         <span>Articles Manager</span>
         <span class="admin-nav-badge"><?= (int)$totalArticles ?></span>
       </a>
-      <a href="/admin/create-blog.php" class="admin-nav-item">
+      <a href="<?= $adminBasePath ?>/create-blog.php" class="admin-nav-item">
         <span>✍️</span>
         <span>Compose Article</span>
       </a>
-      <a href="/blogs" target="_blank" class="admin-nav-item">
+      <a href="<?= rtrim($siteRootPath, '/') ?>/blogs" target="_blank" class="admin-nav-item">
         <span>🌐</span>
         <span>View Live Blogs</span>
       </a>
-      <a href="/" target="_blank" class="admin-nav-item">
+      <a href="<?= $siteRootPath ?>" target="_blank" class="admin-nav-item">
         <span>🏠</span>
         <span>Public Website</span>
       </a>
@@ -109,7 +111,7 @@ if ($pdo) {
           <span class="admin-user-role">Super Administrator</span>
         </div>
       </div>
-      <a href="/admin/logout.php" class="admin-logout-btn" title="Logout">🚪</a>
+      <a href="<?= $adminBasePath ?>/logout.php" class="admin-logout-btn" title="Logout">🚪</a>
     </div>
   </aside>
 
@@ -122,7 +124,7 @@ if ($pdo) {
         <h1 class="admin-topbar-title">Blog Articles Manager</h1>
       </div>
       <div class="admin-topbar-actions">
-        <a href="/admin/create-blog.php" class="btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
+        <a href="<?= $adminBasePath ?>/create-blog.php" class="btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
           <span>+ Compose New Article</span>
         </a>
       </div>
@@ -193,7 +195,7 @@ if ($pdo) {
           <h2 style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #0F172A;">All Authored Articles</h2>
 
           <!-- Filter & Search Controls -->
-          <form method="GET" action="/admin/index.php" class="table-search-row">
+          <form method="GET" action="<?= $adminBasePath ?>/index.php" class="table-search-row">
             <div class="search-input-box">
               <span class="search-icon-inside">🔍</span>
               <input type="text" name="search" class="form-input" placeholder="Search by title or tags..." value="<?= htmlspecialchars($search) ?>" style="padding: 0.5rem 0.85rem 0.5rem 2.25rem; font-size: 0.85rem; height: 38px;">
@@ -215,7 +217,7 @@ if ($pdo) {
             </select>
 
             <?php if (!empty($search) || !empty($categoryFilter) || !empty($stageFilter)): ?>
-              <a href="/admin/index.php" class="action-btn" style="height: 38px;">Reset</a>
+              <a href="<?= $adminBasePath ?>/index.php" class="action-btn" style="height: 38px;">Reset</a>
             <?php endif; ?>
           </form>
         </div>
@@ -246,12 +248,12 @@ if ($pdo) {
                   <tr>
                     <td>
                       <div class="table-article-cell">
-                        <img src="<?= htmlspecialchars(!empty($b['featured_image']) ? $b['featured_image'] : '/assets/images/Web-Development.webp') ?>" alt="<?= htmlspecialchars($b['title']) ?>" class="table-thumb" onerror="this.src='/assets/images/Web-Development.webp'">
+                        <img src="<?= htmlspecialchars(!empty($b['featured_image']) ? $b['featured_image'] : '../assets/images/Web-Development.webp') ?>" alt="<?= htmlspecialchars($b['title']) ?>" class="table-thumb" onerror="this.src='../assets/images/Web-Development.webp'">
                         <div class="table-article-info">
-                          <a href="/admin/edit-blog.php?id=<?= $b['id'] ?>" class="table-article-title">
+                          <a href="<?= $adminBasePath ?>/edit-blog.php?id=<?= $b['id'] ?>" class="table-article-title">
                             <?= htmlspecialchars($b['title']) ?>
                           </a>
-                          <span class="table-article-slug">/blogs/<?= htmlspecialchars($b['slug']) ?></span>
+                          <span class="table-article-slug"><?= rtrim($siteRootPath, '/') ?>/blogs/<?= htmlspecialchars($b['slug']) ?></span>
                         </div>
                       </div>
                     </td>
@@ -281,13 +283,13 @@ if ($pdo) {
 
                     <td style="text-align: right;">
                       <div class="table-actions" style="justify-content: flex-end;">
-                        <a href="/blogs/<?= htmlspecialchars($b['slug']) ?>" target="_blank" class="action-btn" title="View live page">
+                        <a href="<?= rtrim($siteRootPath, '/') ?>/blogs/<?= htmlspecialchars($b['slug']) ?>" target="_blank" class="action-btn" title="View live page">
                           <span>👁️</span>
                         </a>
-                        <a href="/admin/edit-blog.php?id=<?= $b['id'] ?>" class="action-btn" title="Edit Article">
+                        <a href="<?= $adminBasePath ?>/edit-blog.php?id=<?= $b['id'] ?>" class="action-btn" title="Edit Article">
                           <span>✏️ Edit</span>
                         </a>
-                        <a href="/admin/delete-blog.php?id=<?= $b['id'] ?>" class="action-btn action-btn-danger" title="Delete Article" onclick="return confirm('Are you sure you want to permanently delete this article?')">
+                        <a href="<?= $adminBasePath ?>/delete-blog.php?id=<?= $b['id'] ?>" class="action-btn action-btn-danger" title="Delete Article" onclick="return confirm('Are you sure you want to permanently delete this article?')">
                           <span>🗑️</span>
                         </a>
                       </div>

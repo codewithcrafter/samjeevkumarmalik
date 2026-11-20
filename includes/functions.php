@@ -276,3 +276,4 @@ function formatBlogDate($dateStr) {
     $time = strtotime($dateStr);
     return date('M Y', $time);
 }
+
