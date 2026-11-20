@@ -517,6 +517,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
   </div>
 
+  <!-- Insert Table Modal Dialog -->
+  <div class="admin-modal-overlay" id="tableConfigModal" style="display: none;">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 1.25rem;">📊</span>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin: 0;">Insert Table</h3>
+        </div>
+        <button type="button" class="admin-modal-close" id="closeTableConfigModal" aria-label="Close table modal">&times;</button>
+      </div>
+      <div class="admin-modal-body">
+        <p style="font-size: 0.82rem; color: #64748B; margin-top: 0; margin-bottom: 1.25rem; line-height: 1.45;">
+          Specify how many columns and rows you need. A clean Markdown grid with visible row and column borders will be inserted.
+        </p>
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label for="tableColsInput" style="font-weight: 700; font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 0.35rem;">Columns (Vertical) *</label>
+            <input type="number" id="tableColsInput" class="form-input" min="1" max="10" value="3" style="font-size: 1rem; font-weight: 700; padding: 0.65rem 0.85rem;">
+            <small style="font-size: 0.7rem; color: #94A3B8;">e.g. 2 to 6 columns</small>
+          </div>
+          <div class="form-group">
+            <label for="tableRowsInput" style="font-weight: 700; font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 0.35rem;">Data Rows (Horizontal) *</label>
+            <input type="number" id="tableRowsInput" class="form-input" min="1" max="30" value="3" style="font-size: 1rem; font-weight: 700; padding: 0.65rem 0.85rem;">
+            <small style="font-size: 0.7rem; color: #94A3B8;">e.g. 2 to 15 rows</small>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 0.25rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #334155; cursor: pointer;">
+            <input type="checkbox" id="tableIncludeHeaders" checked style="width: 16px; height: 16px; accent-color: #2563EB;">
+            <span>Include Header Row (Column Names)</span>
+          </label>
+        </div>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="action-btn" id="cancelTableConfigModal">Cancel</button>
+        <button type="button" class="btn-primary" id="confirmInsertTableBtn" style="padding: 0.65rem 1.35rem; font-size: 0.9rem;">Insert Table →</button>
+      </div>
+    </div>
+  </div>
+
   <script src="assets/js/admin.js"></script>
 </body>
 </html>

@@ -322,9 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
           cursorOffset = replacement.length;
           break;
         case 'table':
-          replacement = `\n| Metric / Feature | Benchmark Standard | Sanjeev Architecture |\n| :--- | :--- | :--- |\n| Mobile Speed Score | 45 - 65 (Slow) | **98 - 100 (Instant)** |\n| Database Latency | 350ms - 800ms | < 45ms Redis Cached |\n| Code Cleanliness | 40+ Plugin Dependencies | Zero-Bloat Modular Build |\n\n`;
-          cursorOffset = replacement.length;
-          break;
+          openTableModal(start, end);
+          return;
       }
 
       editorTextarea.setRangeText(replacement, start, end, 'end');
@@ -332,6 +331,88 @@ document.addEventListener('DOMContentLoaded', () => {
       updateEditorStatsAndPreview();
     });
   });
+
+  // 6b. Interactive Table Generator Modal Actions
+  const tableModal = document.getElementById('tableConfigModal');
+  const closeTableModalBtn = document.getElementById('closeTableConfigModal');
+  const cancelTableModalBtn = document.getElementById('cancelTableConfigModal');
+  const confirmInsertTableBtn = document.getElementById('confirmInsertTableBtn');
+  const tableColsInput = document.getElementById('tableColsInput');
+  const tableRowsInput = document.getElementById('tableRowsInput');
+  const tableHeadersCheck = document.getElementById('tableIncludeHeaders');
+
+  let tableSelection = { start: 0, end: 0 };
+
+  function openTableModal(start, end) {
+    if (!tableModal) return;
+    tableSelection = { start, end };
+    tableModal.style.display = 'flex';
+    if (tableColsInput) {
+      tableColsInput.focus();
+      tableColsInput.select();
+    }
+  }
+
+  function closeTableModal() {
+    if (!tableModal) return;
+    tableModal.style.display = 'none';
+  }
+
+  if (closeTableModalBtn) closeTableModalBtn.addEventListener('click', closeTableModal);
+  if (cancelTableModalBtn) cancelTableModalBtn.addEventListener('click', closeTableModal);
+  if (tableModal) {
+    tableModal.addEventListener('click', (e) => {
+      if (e.target === tableModal) closeTableModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && tableModal && tableModal.style.display === 'flex') {
+      closeTableModal();
+    }
+  });
+
+  if (confirmInsertTableBtn) {
+    confirmInsertTableBtn.addEventListener('click', () => {
+      if (!editorTextarea) return;
+
+      let cols = parseInt(tableColsInput ? tableColsInput.value : 3, 10) || 3;
+      let rows = parseInt(tableRowsInput ? tableRowsInput.value : 3, 10) || 3;
+      const includeHeaders = tableHeadersCheck ? tableHeadersCheck.checked : true;
+
+      // Clamping limits
+      cols = Math.max(1, Math.min(cols, 10));
+      rows = Math.max(1, Math.min(rows, 30));
+
+      let tableMd = '\n';
+
+      if (includeHeaders) {
+        let headerRow = '|';
+        let alignRow = '|';
+        for (let c = 1; c <= cols; c++) {
+          headerRow += ` Column ${c} |`;
+          alignRow += ' :--- |';
+        }
+        tableMd += headerRow + '\n' + alignRow + '\n';
+      }
+
+      for (let r = 1; r <= rows; r++) {
+        let dataRow = '|';
+        for (let c = 1; c <= cols; c++) {
+          dataRow += ` Item ${r}-${c} |`;
+        }
+        tableMd += dataRow + '\n';
+      }
+      tableMd += '\n';
+
+      const s = tableSelection.start;
+      const e = tableSelection.end;
+      editorTextarea.setRangeText(tableMd, s, e, 'end');
+      closeTableModal();
+      editorTextarea.focus();
+      updateEditorStatsAndPreview();
+    });
+  }
 
   // 7. Markdown File Upload (.md)
   const mdFileInput = document.getElementById('mdFileInput');
