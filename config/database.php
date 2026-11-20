@@ -1,14 +1,29 @@
 <?php
 /**
- * Database Connection & Initialization Module
- * Configured for XAMPP Localhost (MySQL / MariaDB)
+ * =========================================================================
+ * DATABASE CONNECTION & CONFIGURATION MODULE
+ * =========================================================================
+ * 
+ * 1. LOCALHOST (XAMPP):
+ *    DB_HOST: 'localhost' or '127.0.0.1'
+ *    DB_PORT: '3306'
+ *    DB_USER: 'root'
+ *    DB_PASS: ''
+ *    DB_NAME: 'sanjeev_db'
+ * 
+ * 2. HOSTINGER / LIVE PRODUCTION SERVER:
+ *    Jab aap files Hostinger pe upload karein, tab Hostinger hPanel -> Databases -> MySQL Databases me jakar:
+ *    - DB_HOST: 'localhost' (Hostinger me hamesha 'localhost' rehta hai)
+ *    - DB_USER: 'u123456789_youruser' (Hostinger dwara generate kiya gaya username)
+ *    - DB_PASS: 'AapkaDatabasePassword' (Hostinger me database create karte waqt jo password rakha tha)
+ *    - DB_NAME: 'u123456789_yourdbname' (Hostinger dwara generate kiya gaya database name)
  */
 
-define('DB_HOST', '127.0.0.1');
-define('DB_PORT', '3306');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'sanjeev_db');
+if (!defined('DB_HOST')) define('DB_HOST', '127.0.0.1');
+if (!defined('DB_PORT')) define('DB_PORT', '3306');
+if (!defined('DB_USER')) define('DB_USER', 'root');
+if (!defined('DB_PASS')) define('DB_PASS', '');
+if (!defined('DB_NAME')) define('DB_NAME', 'sanjeev_db');
 
 function getDBConnection() {
     static $pdo = null;
@@ -16,28 +31,31 @@ function getDBConnection() {
         return $pdo;
     }
 
-    $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";charset=utf8mb4";
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
 
+    // Method 1: Connect directly to the specific database (Standard for Hostinger & live servers)
     try {
-        // Connect to MySQL server
+        $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-        
-        // Ensure Database exists
-        $pdo->exec("CREATE DATABASE IF NOT EXISTS `" . DB_NAME . "` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-        $pdo->exec("USE `" . DB_NAME . "`");
-        
-        // Ensure Tables exist
-        initDatabaseTables($pdo);
-
         return $pdo;
     } catch (PDOException $e) {
-        error_log("Database connection failed: " . $e->getMessage());
-        return null;
+        // Method 2: Fallback for fresh local dev environments where DB might not exist yet
+        try {
+            $rootDsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";charset=utf8mb4";
+            $rootPdo = new PDO($rootDsn, DB_USER, DB_PASS, $options);
+            $rootPdo->exec("CREATE DATABASE IF NOT EXISTS `" . DB_NAME . "` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+            
+            $pdo = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS, $options);
+            initDatabaseTables($pdo);
+            return $pdo;
+        } catch (PDOException $fallbackEx) {
+            error_log("Database connection failed: " . $e->getMessage() . " | Fallback: " . $fallbackEx->getMessage());
+            return null;
+        }
     }
 }
 
