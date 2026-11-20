@@ -5,12 +5,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # 1. Directly serve existing files and directories (CSS, JS, images, PHP files)
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-
-  # 2. Admin Portal Clean URLs
+  # 1. Admin Portal Clean URLs
   RewriteRule ^admin/?$ admin/index.php [NC,L]
   RewriteRule ^admin/login/?$ admin/login.php [NC,L]
   RewriteRule ^admin/logout/?$ admin/logout.php [NC,L]
@@ -18,9 +13,14 @@
   RewriteRule ^admin/edit-blog/?$ admin/edit-blog.php [NC,QSA,L]
   RewriteRule ^admin/delete-blog/?$ admin/delete-blog.php [NC,QSA,L]
 
-  # 3. Dynamic Blogs Listing & Single Articles
+  # 2. Dynamic Blogs Listing & Single Articles (Must precede -d check to ensure dynamic DB-driven blogs)
   RewriteRule ^blogs/?$ blogs.php [NC,L]
   RewriteRule ^blogs/([^/]+)/?$ blog.php?slug=$1 [NC,QSA,L]
+
+  # 3. Directly serve existing files and directories (CSS, JS, images, PHP files)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
   # 4. Clean URLs for .php files
   RewriteCond %{REQUEST_FILENAME}.php -f

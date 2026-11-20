@@ -194,11 +194,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <span>✍️</span>
         <span>Compose Article</span>
       </a>
-      <a href="/blogs/<?= htmlspecialchars($blog['slug']) ?>" target="_blank" class="admin-nav-item">
+      <a href="<?= rtrim($siteRootPath, '/') ?>/blogs/<?= htmlspecialchars($blog['slug']) ?>" target="_blank" class="admin-nav-item">
         <span>🌐</span>
         <span>View Live Article</span>
       </a>
-      <a href="/" target="_blank" class="admin-nav-item">
+      <a href="<?= $siteRootPath ?>" target="_blank" class="admin-nav-item">
         <span>🏠</span>
         <span>Public Website</span>
       </a>
@@ -227,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="admin-topbar-actions">
         <a href="<?= $adminBasePath ?>/index.php" class="action-btn">Cancel</a>
-        <a href="/blogs/<?= htmlspecialchars($blog['slug']) ?>" target="_blank" class="action-btn">View Live ↗</a>
+        <a href="<?= rtrim($siteRootPath, '/') ?>/blogs/<?= htmlspecialchars($blog['slug']) ?>" target="_blank" class="action-btn">View Live ↗</a>
         <button type="submit" form="editArticleForm" class="btn-primary" style="padding: 0.65rem 1.35rem; font-size: 0.9rem;">
           Save &amp; Update →
         </button>

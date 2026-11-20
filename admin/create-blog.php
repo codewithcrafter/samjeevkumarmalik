@@ -185,11 +185,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <span>✍️</span>
         <span>Compose Article</span>
       </a>
-      <a href="/blogs" target="_blank" class="admin-nav-item">
+      <a href="<?= rtrim($siteRootPath, '/') ?>/blogs" target="_blank" class="admin-nav-item">
         <span>🌐</span>
         <span>View Live Blogs</span>
       </a>
-      <a href="/" target="_blank" class="admin-nav-item">
+      <a href="<?= $siteRootPath ?>" target="_blank" class="admin-nav-item">
         <span>🏠</span>
         <span>Public Website</span>
       </a>
