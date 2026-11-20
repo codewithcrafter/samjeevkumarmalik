@@ -1,6 +1,6 @@
 # ==============================================================================
-# SANJEEV KUMAR MALIK - APACHE / LITESPEED / CPANEL CLEAN URL CONFIGURATION
-# STRICTLY NO .HTML AND NO TRAILING SLASHES
+# SANJEEV KUMAR MALIK - APACHE / LITESPEED / CPANEL / XAMPP CLEAN URL CONFIG
+# STRICTLY NO .HTML / NO .PHP EXTENSIONS IN BROWSER
 # ==============================================================================
 
 <IfModule mod_rewrite.c>
@@ -8,15 +8,16 @@
   RewriteBase /
 
   # 1. Redirect /index.html directly to root domain /
-  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.html [NC]
-  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.(html|php) [NC]
+  RewriteRule ^index\.(html|php)$ / [R=301,L]
 
   # 2. Redirect /subfolder/index.html to /subfolder (NO trailing slash)
-  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/(.*)/index\.html [NC]
-  RewriteRule ^(.*)/index\.html$ /$1 [R=301,L]
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/(.*)/index\.(html|php) [NC]
+  RewriteRule ^(.*)/index\.(html|php)$ /$1 [R=301,L]
 
-  # 3. Permanent 301 Redirect from any request ending in .html to Clean URL
-  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+  # 3. Permanent 301 Redirect from any request ending in .html or .php (except api/admin if needed)
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.(html|php) [NC]
+  RewriteCond %{REQUEST_URI} !^/admin/.*\.php$ [NC]
   RewriteRule ^ %1 [R=301,L]
 
   # 4. Remove trailing slash from all non-root URLs (e.g. /about/ -> /about)
@@ -24,12 +25,28 @@
   RewriteCond %{REQUEST_URI} ^(.+)/$
   RewriteRule ^(.+)/$ $1 [R=301,L]
 
-  # 5. Internally route Clean URLs to the corresponding .html file
+  # 5. Route Admin URLs
+  RewriteRule ^admin/?$ admin/index.php [NC,L]
+  RewriteCond %{DOCUMENT_ROOT}/admin/$1.php -f
+  RewriteRule ^admin/([^/]+)/?$ admin/$1.php [NC,L]
+
+  # 6. Route Dynamic Blog Listing and Single Articles
+  RewriteRule ^blogs/?$ blogs.php [NC,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^blogs/([^/]+)/?$ blog.php?slug=$1 [NC,QSA,L]
+
+  # 7. Internally route Clean URLs to corresponding .php file if exists
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+  RewriteRule ^(.*)$ $1.php [NC,L]
+
+  # 8. Internally route Clean URLs to the corresponding .html file
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(.*)$ $1.html [NC,L]
 
-  # 6. Fallback internal route to directory index.html
+  # 9. Fallback internal route to directory index.html
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)$ $1/index.html [NC,L]
