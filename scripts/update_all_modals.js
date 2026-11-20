@@ -114,3 +114,4 @@ files.forEach(filePath => {
 });
 
 console.log(`Updated bookingModal in ${updatedCount} files.`);
+

@@ -89,3 +89,4 @@ slugs.forEach(slug => {
 });
 
 console.log(`Processed ${processed} static blog HTML files.`);
+
