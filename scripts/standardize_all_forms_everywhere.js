@@ -207,3 +207,4 @@ allFiles.forEach(filePath => {
 });
 
 console.log(`\nSuccessfully standardized ${updatedCount} files.`);
+

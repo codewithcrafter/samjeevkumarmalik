@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
       drawer.classList.toggle('open', willOpen);
       toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       toggle.classList.toggle('active', willOpen);
+      document.body.style.overflow = willOpen ? 'hidden' : '';
       return;
     }
 
@@ -175,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isInsideDrawer) {
         drawer.classList.remove('open');
+        document.body.style.overflow = '';
         const btn = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
         if (btn) {
           btn.setAttribute('aria-expanded', 'false');
@@ -182,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } else if (e.target.closest('a') && !isAccordionBtn) {
         drawer.classList.remove('open');
+        document.body.style.overflow = '';
         const btn = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
         if (btn) {
           btn.setAttribute('aria-expanded', 'false');
@@ -197,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const drawer = document.getElementById('mobileNavDrawer') || document.querySelector('.mobile-nav-drawer');
       if (drawer && drawer.classList.contains('open')) {
         drawer.classList.remove('open');
+        document.body.style.overflow = '';
         const toggle = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
         if (toggle) {
           toggle.setAttribute('aria-expanded', 'false');

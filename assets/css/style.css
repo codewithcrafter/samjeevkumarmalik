@@ -806,8 +806,17 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.65rem;
   z-index: 1001;
   max-height: calc(100vh - 6.5rem);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+}
+
+/* Prevent flexbox from shrinking drawer items, ensuring accordion expands fully & enables scrolling */
+.mobile-nav-drawer > *,
+.mobile-services-accordion,
+.mobile-services-dropdown-list {
+  flex-shrink: 0 !important;
 }
 
 .mobile-nav-drawer.open {
@@ -934,9 +943,14 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   .mobile-nav-drawer {
-    top: 4.5rem;
-    left: 0.75rem;
-    right: 0.75rem;
+    top: 4.25rem !important;
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    max-height: calc(100vh - 5.25rem) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
     padding: 1.25rem;
   }
   .navbar-full-container {
@@ -5806,6 +5820,11 @@ code {
     top: 4.25rem !important;
     left: 0.75rem !important;
     right: 0.75rem !important;
+    max-height: calc(100vh - 5.25rem) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
   }
 
   /* Service Pages Contact Hero Banner -> 1 Column */
@@ -6676,6 +6695,7 @@ code {
   overflow: hidden;
   transition: all 0.25s ease;
   margin-bottom: 0.25rem;
+  flex-shrink: 0 !important;
 }
 
 .mobile-services-accordion.is-open {
@@ -6732,10 +6752,12 @@ code {
   padding: 0.25rem 0.5rem 0.75rem 0.5rem;
   gap: 0.35rem;
   border-top: 1px solid rgba(226, 232, 240, 0.7);
+  flex-shrink: 0 !important;
 }
 
 .mobile-services-accordion.is-open .mobile-services-dropdown-list {
-  display: flex;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .mobile-service-item {
