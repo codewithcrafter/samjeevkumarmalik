@@ -624,8 +624,11 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; <?= date('Y') ?> Sanjeev Kumar Malik. All rights reserved. Custom Engineered &amp; Maintained with Zero Bloat.</div>
-        <div>
+        <div>&copy; <?= date('Y') ?> Sanjeev Kumar Malik. All Rights Reserved.</div>
+        <div class="footer-status-pill">
+          <span class="live-radar-dot" style="width: 7px; height: 7px;"></span>
+          <span>Designed by <a href="https://buzzspiremedia.com/" target="_blank" rel="noopener">Buzzspire Media Pvt. Ltd.</a></span>
+          <span style="margin: 0 0.5rem; color: #CBD5E1;">•</span>
           <a href="/admin/login.php" style="color: #64748B; font-size: 0.78rem; text-decoration: none;">Admin Portal</a>
         </div>
       </div>
@@ -697,45 +700,6 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
           Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
         </p>
         <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
-          Back to Website
-        </button>
-      </div>
-    </div>
-  </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="modalEmail">Email *</label>
-            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
-          </div>
-          <div class="form-group">
-            <label for="modalService">Interest *</label>
-            <select id="modalService" required class="form-select">
-              <option value="">Select Service</option>
-              <option value="WordPress Development">WordPress Development</option>
-              <option value="E-Commerce Development">E-Commerce Store</option>
-              <option value="Custom Web Applications">Custom Web Applications</option>
-              <option value="Website Redesign & Speed">Website Redesign & Speed</option>
-              <option value="Landing Page CRO">Landing Page CRO</option>
-              <option value="UI/UX Design Services">UI/UX Design Services</option>
-              <option value="Startups & SMEs">Startups & SMEs</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
-          <span>Confirm Architecture Session →</span>
-        </button>
-        <p class="modal-footer-note">🔒 Direct 1-on-1 review with Sanjeev • Response &lt; 4 hours</p>
-      </form>
-
-      <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
-        <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🎉</div>
-        <h4 style="font-size: 1.15rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">Session Requested!</h4>
-        <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
-          Thank you! Sanjeev Kumar Malik will connect with you directly via WhatsApp/Phone within 4 hours.
-        </p>
-        <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.6rem 1rem; font-size: 0.85rem;">
           Back to Website
         </button>
       </div>
