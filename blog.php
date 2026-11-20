@@ -44,7 +44,7 @@ if (!$blog) {
     <head>
       <meta charset="UTF-8">
       <title>Article Not Found — Sanjeev Kumar Malik</title>
-      <link rel="stylesheet" href="/assets/css/style.css?v=5.0">
+      <link rel="stylesheet" href="/assets/css/style.css?v=6.0">
     </head>
     <body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #F8FAFC;">
       <div style="max-width: 500px; padding: 2rem;">
@@ -120,7 +120,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=5.0">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6.0">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -528,15 +528,27 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
                 Discuss your project directly with Sanjeev Kumar Malik — Senior Full-Stack Architect.
               </p>
               
-              <form class="service-form blog-sidebar-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'text-align:center; padding:1.5rem 0.5rem; color:#065F46;\'><h4>🎉 Request Sent!</h4><p style=\'font-size:0.85rem; margin-top:0.35rem;\'>Sanjeev will connect within 4 hours.</p></div>';">
+                            <form class="service-form blog-sidebar-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'text-align:center; padding:1.5rem 0.5rem; color:#065F46;\'><h4>🎉 Request Sent!</h4><p style=\'font-size:0.85rem; margin-top:0.35rem;\'>Sanjeev will connect within 4 hours.</p></div>';">
                 <div class="form-group" style="margin-bottom: 0.75rem;">
                   <input type="text" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Your Name *" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                  <input type="email" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Work Email *" required>
                 </div>
                 <div class="form-group" style="margin-bottom: 0.75rem;">
                   <input type="tel" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Phone / WhatsApp *" required>
                 </div>
                 <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="email" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Email Address *" required>
+                  <select class="form-select" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;">
+                    <option value="">Service Needed (Optional)...</option>
+                    <option value="WordPress Development">WordPress Development</option>
+                    <option value="E-Commerce Development">E-Commerce Store</option>
+                    <option value="Custom Web Applications">Custom Web Applications</option>
+                    <option value="Website Redesign & Speed">Website Redesign & Speed</option>
+                    <option value="Landing Page CRO">Landing Page CRO</option>
+                    <option value="UI/UX Design Services">UI/UX Design Services</option>
+                    <option value="Startups & SMEs">Startups & SMEs</option>
+                  </select>
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 12px; height: 46px;">
                   Claim Advisory Call →
@@ -649,27 +661,27 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
         <p class="modal-subtitle">Direct architectural roadmap, tech stack evaluation, and fixed sprint proposal — zero sales reps.</p>
       </div>
 
-      <form class="modal-form" id="founderBookingForm">
+            <form class="modal-form" id="founderBookingForm">
         <div class="form-row">
           <div class="form-group">
             <label for="modalName">Your Name *</label>
-            <input type="text" id="modalName" required placeholder="e.g. Rohit Sharma" class="form-input">
+            <input type="text" id="modalName" required placeholder="e.g. Rahul Sharma" class="form-input">
           </div>
           <div class="form-group">
-            <label for="modalPhone">Phone / WhatsApp *</label>
-            <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
+            <label for="modalEmail">Work Email *</label>
+            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="modalEmail">Work Email *</label>
-            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
+            <label for="modalPhone">Phone / WhatsApp *</label>
+            <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
           </div>
           <div class="form-group">
-            <label for="modalService">Primary Service Needed *</label>
-            <select id="modalService" required class="form-select">
-              <option value="">Select Service Scope...</option>
+            <label for="modalService">Service Needed (Optional)</label>
+            <select id="modalService" class="form-select">
+              <option value="">Select Service Scope (Optional)...</option>
               <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
               <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
               <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
@@ -725,7 +737,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
   </div>
 
 
-  <script src="/assets/js/app.js?v=5.0"></script>
+  <script src="/assets/js/app.js?v=6.0"></script>
 </body>
 </html>
 

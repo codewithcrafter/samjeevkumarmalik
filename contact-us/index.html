@@ -17,7 +17,7 @@
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=5.0">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6.0">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
 {
@@ -427,11 +427,11 @@
               </p>
             </div>
 
-            <form class="contact-page-form" id="mainContactForm" onsubmit="event.preventDefault(); document.getElementById('contactFormSuccess').style.display='block'; this.style.display='none';">
+                        <form class="contact-page-form" id="mainContactForm" onsubmit="event.preventDefault(); document.getElementById('contactFormSuccess').style.display='block'; this.style.display='none';">
               
               <div class="form-row">
                 <div class="form-group">
-                  <label for="contactFullName">Full Name *</label>
+                  <label for="contactFullName">Your Name *</label>
                   <input type="text" id="contactFullName" class="form-input" placeholder="e.g. Rahul Sharma" required>
                 </div>
                 <div class="form-group">
@@ -440,14 +440,24 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="contactPhone">Phone / WhatsApp *</label>
-                <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contactMessage">Project Goals (Optional)</label>
-                <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Briefly describe what your business needs: new custom build, slow loading speed, ecommerce migration or redesign..."></textarea>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactPhone">Phone / WhatsApp *</label>
+                  <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactService">Service Needed (Optional)</label>
+                  <select id="contactService" class="form-select">
+                    <option value="">Select Service Scope (Optional)...</option>
+                    <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
+                    <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
+                    <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
+                    <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+                    <option value="Landing Page CRO">Landing Page CRO & Paid Funnels</option>
+                    <option value="UI/UX Design Services">UI/UX Design Services & Frontend</option>
+                    <option value="Startups & SMEs">Startups & SMEs MVP Sprint</option>
+                  </select>
+                </div>
               </div>
 
               <button type="submit" class="btn-contact-submit">
@@ -676,6 +686,6 @@
   </div>
 
 
-  <script src="/assets/js/app.js?v=5.0"></script>
+  <script src="/assets/js/app.js?v=6.0"></script>
 </body>
 </html>

@@ -191,6 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Automatically close mobile nav drawer when resizing to desktop width
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      const drawer = document.getElementById('mobileNavDrawer') || document.querySelector('.mobile-nav-drawer');
+      if (drawer && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        const toggle = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
+        if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.classList.remove('active');
+        }
+      }
+    }
+  });
+
   // 4. Count-up Animation for Metrics
   const metricNumbers = document.querySelectorAll('.stat-number, .about-stat-number');
   let counted = false;
@@ -349,23 +364,23 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="form-row">
               <div class="form-group">
                 <label for="modalName">Your Name *</label>
-                <input type="text" id="modalName" required placeholder="e.g. Rohit Sharma" class="form-input">
+                <input type="text" id="modalName" required placeholder="e.g. Rahul Sharma" class="form-input">
               </div>
               <div class="form-group">
-                <label for="modalPhone">Phone / WhatsApp *</label>
-                <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
+                <label for="modalEmail">Work Email *</label>
+                <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="modalEmail">Work Email *</label>
-                <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
+                <label for="modalPhone">Phone / WhatsApp *</label>
+                <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
               </div>
               <div class="form-group">
-                <label for="modalService">Primary Service Needed *</label>
-                <select id="modalService" required class="form-select">
-                  <option value="">Select Service Scope...</option>
+                <label for="modalService">Service Needed (Optional)</label>
+                <select id="modalService" class="form-select">
+                  <option value="">Select Service Scope (Optional)...</option>
                   <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
                   <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
                   <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
@@ -633,23 +648,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul Sharma" required>
               </div>
               <div class="form-group">
-                <label for="popupContact">Phone / WhatsApp *</label>
-                <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
+                <label for="popupEmail">Work Email *</label>
+                <input type="email" id="popupEmail" class="form-input" placeholder="name@company.com" required>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="popupProject">Service Needed *</label>
-              <select id="popupProject" class="form-select" required>
-                <option value="">Select Project Scope...</option>
-                <option value="WordPress Custom Build">WordPress Custom Build (Clean Code &amp; Fast)</option>
-                <option value="E-Commerce Store">E-Commerce Store (Shopify / WooCommerce)</option>
-                <option value="Custom Web App">Custom Web App (React / Next.js / PHP)</option>
-                <option value="Website Redesign & Speed">Website Redesign &amp; Speed Optimization</option>
-                <option value="High-Converting Landing Page">High-Converting Landing Page &amp; Funnels</option>
-                <option value="UI/UX & Frontend Architecture">UI/UX &amp; Frontend Architecture</option>
-                <option value="Startup/SME MVP Architecture">Startup / SME MVP Sprint</option>
-              </select>
+            <div class="popup-form-row">
+              <div class="form-group">
+                <label for="popupContact">Phone / WhatsApp *</label>
+                <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="form-group">
+                <label for="popupProject">Service Needed (Optional)</label>
+                <select id="popupProject" class="form-select">
+                  <option value="">Select Service Scope (Optional)...</option>
+                  <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
+                  <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
+                  <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
+                  <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+                  <option value="Landing Page CRO">Landing Page CRO & Paid Funnels</option>
+                  <option value="UI/UX Design Services">UI/UX Design Services & Frontend</option>
+                  <option value="Startups & SMEs">Startups & SMEs MVP Sprint</option>
+                </select>
+              </div>
             </div>
 
             <button type="submit" class="btn-popup-submit" id="popupSubmitBtn">
