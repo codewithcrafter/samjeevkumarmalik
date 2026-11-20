@@ -78,7 +78,7 @@
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.1">
+  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
 </head>
 <body>
 
@@ -254,8 +254,72 @@
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer">
     <a href="/" class="nav-link">Home</a>
-    <a href="/services/wordpress-web-development" class="nav-link">Services Directory</a>
-    <a href="/about-sanjeev-kumar-malik" class="nav-link active">About Sanjeev Kumar Malik</a>
+    
+    <!-- Mobile Services Accordion Dropdown -->
+    <div class="mobile-services-accordion" id="mobileServicesAccordion">
+      <button type="button" class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+        <span class="toggle-label-group">
+          <span>Services</span>
+          <span class="toggle-badge">7 Hubs</span>
+        </span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-services-dropdown-list" id="mobileServicesList">
+        <a href="/services/wordpress-web-development" class="mobile-service-item">
+          <span class="item-icon">⚡</span>
+          <span class="item-text">
+            <strong>WordPress Web Development</strong>
+            <small>Gutenberg &amp; Custom Headless Stacks</small>
+          </span>
+        </a>
+        <a href="/services/ecommerce-website-development" class="mobile-service-item">
+          <span class="item-icon">🛍️</span>
+          <span class="item-text">
+            <strong>E-commerce Website Development</strong>
+            <small>Shopify, WooCommerce &amp; Razorpay</small>
+          </span>
+        </a>
+        <a href="/services/custom-web-application-development" class="mobile-service-item">
+          <span class="item-icon">⚙️</span>
+          <span class="item-text">
+            <strong>Custom Web Applications</strong>
+            <small>Full-Stack React, Node.js &amp; Next.js</small>
+          </span>
+        </a>
+        <a href="/services/website-redesign-speed-optimization" class="mobile-service-item">
+          <span class="item-icon">🚀</span>
+          <span class="item-text">
+            <strong>Website Redesign &amp; Speed</strong>
+            <small>Core Web Vitals &amp; Sub-0.8s Loading</small>
+          </span>
+        </a>
+        <a href="/services/landing-page-design-development" class="mobile-service-item">
+          <span class="item-icon">🎯</span>
+          <span class="item-text">
+            <strong>Landing Page Design &amp; Dev</strong>
+            <small>High-Converting Paid Traffic Funnels</small>
+          </span>
+        </a>
+        <a href="/services/ui-ux-design-services" class="mobile-service-item">
+          <span class="item-icon">✨</span>
+          <span class="item-text">
+            <strong>UI/UX Design Services</strong>
+            <small>Figma to Scalable Clean Code</small>
+          </span>
+        </a>
+        <a href="/services/web-development-for-startups-smes" class="mobile-service-item">
+          <span class="item-icon">🌱</span>
+          <span class="item-text">
+            <strong>Startups &amp; SMEs Development</strong>
+            <small>Rapid MVPs &amp; Fractional CTO Guidance</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <a href="/about-sanjeev-kumar-malik" class="nav-link">About Sanjeev Kumar Malik</a>
     <a href="/blogs" class="nav-link">Technical Blogs</a>
     <a href="/contact-us" class="nav-link">Contact Us</a>
     <a href="/contact-us" class="btn-primary open-booking-modal" style="width: 100%; text-align: center; margin-top: 0.5rem;">Book Founder Session →</a>
@@ -1349,6 +1413,6 @@
     </div>
   </div>
 
-  <script src="/assets/js/app.js?v=4.1"></script>
+  <script src="/assets/js/app.js?v=4.2"></script>
 </body>
 </html>

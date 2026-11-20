@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       popupOverlay.setAttribute('role', 'dialog');
 
       popupOverlay.innerHTML = `
-        <div class="auto-popup-card" style="max-width: 360px !important; width: 90% !important; padding: 1rem 1.15rem 0.95rem !important; border-radius: 16px !important; max-height: 82vh !important; overflow-y: auto !important; box-sizing: border-box !important;">
+        <div class="auto-popup-card" style="max-width: 340px !important; width: 90% !important; padding: 1rem 1.15rem 0.95rem !important; border-radius: 16px !important; max-height: 82vh !important; overflow-y: auto !important; box-sizing: border-box !important;">
           <button type="button" class="popup-close-btn" id="closeAutoPopupBtn" aria-label="Close modal" style="top: 0.75rem !important; right: 0.75rem !important; width: 28px !important; height: 28px !important; font-size: 1.15rem !important;">&times;</button>
           
           <div class="popup-badge" style="margin-bottom: 0.25rem !important; padding: 0.12rem 0.55rem !important; font-size: 0.68rem !important;">
@@ -639,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="popup-footer-note" style="font-size: 0.65rem !important; color: #64748B !important; text-align: center !important; margin: 0.25rem 0 0 0 !important;">🔒 100% Confidential • Direct response in &lt; 4 hours</p>
           </form>
 
-          <div class="popup-success-banner" id="popupSuccessBanner">
+          <div class="popup-success-banner" id="popupSuccessBanner" style="display: none;">
             <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🎉</div>
             <h4 style="font-size: 1.15rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">Request Received!</h4>
             <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
@@ -700,7 +700,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           form.style.display = 'none';
-          if (successBanner) successBanner.classList.add('visible');
+          if (successBanner) {
+            successBanner.style.display = 'block';
+            successBanner.classList.add('visible');
+          }
           showToast('Consultation request sent successfully to Sanjeev!');
         }, 600);
       });
@@ -770,5 +773,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
   initTocScrollSpy();
-});
 
+  // 14. Mobile Services Accordion Dropdown
+  const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+  const mobileServicesAccordion = document.getElementById('mobileServicesAccordion');
+  if (mobileServicesToggle && mobileServicesAccordion) {
+    mobileServicesToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = mobileServicesAccordion.classList.toggle('is-open');
+      mobileServicesToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    if (window.location.pathname.includes('/services')) {
+      mobileServicesAccordion.classList.add('is-open');
+      mobileServicesToggle.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+});

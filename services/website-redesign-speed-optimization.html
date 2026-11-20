@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://sanjeevkumarmalik.in/website-redesign-speed-optimization">>>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.1">
+  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -292,13 +292,71 @@
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer">
     <a href="/" class="nav-link">Home</a>
-    <a href="/services/website-redesign-speed-optimization" class="nav-link active">Website Redesign &amp; Speed</a>
-    <a href="/services/wordpress-web-development" class="nav-link">WordPress Development</a>
-    <a href="/services/ecommerce-website-development" class="nav-link">E-commerce Development</a>
-    <a href="/services/custom-web-application-development" class="nav-link">Custom Web Applications</a>
-    <a href="/services/landing-page-design-development" class="nav-link">Landing Page Design</a>
-    <a href="/services/ui-ux-design-services" class="nav-link">UI/UX Design</a>
-    <a href="/services/web-development-for-startups-smes" class="nav-link">Startups &amp; SMEs</a>
+    
+    <!-- Mobile Services Accordion Dropdown -->
+    <div class="mobile-services-accordion" id="mobileServicesAccordion">
+      <button type="button" class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+        <span class="toggle-label-group">
+          <span>Services</span>
+          <span class="toggle-badge">7 Hubs</span>
+        </span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-services-dropdown-list" id="mobileServicesList">
+        <a href="/services/wordpress-web-development" class="mobile-service-item">
+          <span class="item-icon">⚡</span>
+          <span class="item-text">
+            <strong>WordPress Web Development</strong>
+            <small>Gutenberg &amp; Custom Headless Stacks</small>
+          </span>
+        </a>
+        <a href="/services/ecommerce-website-development" class="mobile-service-item">
+          <span class="item-icon">🛍️</span>
+          <span class="item-text">
+            <strong>E-commerce Website Development</strong>
+            <small>Shopify, WooCommerce &amp; Razorpay</small>
+          </span>
+        </a>
+        <a href="/services/custom-web-application-development" class="mobile-service-item">
+          <span class="item-icon">⚙️</span>
+          <span class="item-text">
+            <strong>Custom Web Applications</strong>
+            <small>Full-Stack React, Node.js &amp; Next.js</small>
+          </span>
+        </a>
+        <a href="/services/website-redesign-speed-optimization" class="mobile-service-item">
+          <span class="item-icon">🚀</span>
+          <span class="item-text">
+            <strong>Website Redesign &amp; Speed</strong>
+            <small>Core Web Vitals &amp; Sub-0.8s Loading</small>
+          </span>
+        </a>
+        <a href="/services/landing-page-design-development" class="mobile-service-item">
+          <span class="item-icon">🎯</span>
+          <span class="item-text">
+            <strong>Landing Page Design &amp; Dev</strong>
+            <small>High-Converting Paid Traffic Funnels</small>
+          </span>
+        </a>
+        <a href="/services/ui-ux-design-services" class="mobile-service-item">
+          <span class="item-icon">✨</span>
+          <span class="item-text">
+            <strong>UI/UX Design Services</strong>
+            <small>Figma to Scalable Clean Code</small>
+          </span>
+        </a>
+        <a href="/services/web-development-for-startups-smes" class="mobile-service-item">
+          <span class="item-icon">🌱</span>
+          <span class="item-text">
+            <strong>Startups &amp; SMEs Development</strong>
+            <small>Rapid MVPs &amp; Fractional CTO Guidance</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
     <a href="/about-sanjeev-kumar-malik" class="nav-link">About Sanjeev Kumar Malik</a>
     <a href="/blogs" class="nav-link">Technical Blogs</a>
     <a href="/contact-us" class="nav-link">Contact Us</a>
@@ -633,140 +691,65 @@
         </div>
 
         <!-- 4-Step Migration Protocol -->
+        <!-- 4 Step Website Update Process -->
         <div class="section-header" style="margin-top: 5rem;">
           <div class="section-eyebrow">Zero-Downtime Blueprint</div>
           <h2 class="section-title">4 Step Website Update Process</h2>
           <p class="section-description">
-            How my Website Redesign Services Delhi clients get a zero downtime site migration.
+            How we modernize your architecture, salvage 100% of organic search rankings, and accelerate load times.
           </p>
         </div>
 
-        <div class="timeline-container" style="max-width: 900px; margin: 0 auto;">
-          <div class="timeline-item">
-            <div class="timeline-badge">01</div>
-            <div class="timeline-content">
-              <div class="timeline-date">01 | Stage 01 • Detailed SEO Crawl</div>
-              <h3 class="timeline-title">Full URL List &amp; Ranking Overview</h3>
-              <p class="timeline-desc">
-                We will crawl your entire site to collect a list of all indexed pages. Metadata, internal links and current keyword rankings will be noted. This will form our Website Redesign SEO Checklist. We will use this for every project.
-              </p>
+        <div class="process-flow-grid">
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 01 • Traffic Audit</span>
+              <span class="process-step-num">01</span>
             </div>
+            <h3 class="process-card-title">Traffic &amp; 301 Redirect Mapping</h3>
+            <p class="process-card-desc">
+              Every single indexed URL, backlink, and organic keyword position is cataloged to prepare an airtight, zero-loss redirect map before redesign begins.
+            </p>
+            <div class="process-deliverable-tag">✓ 100% URL Redirect Matrix</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">02 | Stage 02 • Secure Design On Staging</div>
-              <h3 class="timeline-title">Light Modern Design On Staging</h3>
-              <p class="timeline-desc">
-                We will never play around on a live site. We will create your new build on a secure staging domain. Clean fonts, soft glass cards and responsive design across all browsers and devices.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 02 • De-bloating</span>
+              <span class="process-step-num">02</span>
             </div>
+            <h3 class="process-card-title">Frontend Rebuild &amp; Asset Stripping</h3>
+            <p class="process-card-desc">
+              We replace heavy commercial page builders and rogue plugins with semantic, lean code that slashes DOM depth and request payload sizes by up to 80%.
+            </p>
+            <div class="process-deliverable-tag">✓ Lean Production Frontend</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">03 | Stage 03 • Server Optimization &amp; 301</div>
-              <h3 class="timeline-title">Gzip/Brotli Compression &amp; Cloudflare Rewrite Rules</h3>
-              <p class="timeline-desc">
-                We will write your rewrite rules. We will enable HTTP/3, Gzip/Brotli, optimize your database queries and ensure all responses take less than 0.8s. We will also do a mobile page speed improvement.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 03 • Speed Optimization</span>
+              <span class="process-step-num">03</span>
             </div>
+            <h3 class="process-card-title">WebP/AVIF, Redis &amp; Cloudflare Caching</h3>
+            <p class="process-card-desc">
+              Images are converted to next-gen WebP/AVIF formats, database transients are purged, and server-level Redis caching alongside Cloudflare edge rules is configured.
+            </p>
+            <div class="process-deliverable-tag">✓ Sub-0.8s Load Times</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">04 | Stage 04 • Zero Downtime DNS Switch</div>
-              <h3 class="timeline-title">DNS Switch, SSL Check &amp; Search Console Check</h3>
-              <p class="timeline-desc">
-                This should be how you end your Website Migration. We always finish all of our Website Redesign Services Delhi with a DNS switch during off peak hours. We will check your SSL, ensure all redirects work and re-submit your sitemap. We will keep an eye on your Search Console for the next few weeks.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 04 • Zero Downtime</span>
+              <span class="process-step-num">04</span>
             </div>
-          </div>
-        </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Phase 02 • High-Flash Antigravity Staging</div>
-              <h3 class="timeline-title">Modern Light UI Design on Private Staging Server</h3>
-              <p class="timeline-desc">
-                Your new website is constructed on a protected staging domain with clean typography, floating glass cards, and verified cross-browser responsiveness.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Phase 03 • Server Optimization &amp; 301 Engine</div>
-              <h3 class="timeline-title">Asset Compression &amp; Cloudflare Redirect Rules</h3>
-              <p class="timeline-desc">
-                We write rewrite rules, configure HTTP/3 multiplexing, enable Gzip/Brotli compression, and optimize database queries to lock in sub-0.8s response times.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Phase 04 • Zero-Downtime DNS Cutover</div>
-              <h3 class="timeline-title">Live Switch, SSL Verification &amp; Search Console Audit</h3>
-              <p class="timeline-desc">
-                The migration is executed off-peak with instant DNS switching, zero seconds of downtime, and immediate sitemap resubmission to Google and Bing.
-              </p>
-            </div>
+            <h3 class="process-card-title">Off-Peak Cutover &amp; Google Index Sync</h3>
+            <p class="process-card-desc">
+              DNS cutover performed during off-peak hours with zero visitor disruption, followed by immediate sitemap resubmission and Search Console coverage audits.
+            </p>
+            <div class="process-deliverable-tag">✓ 90+ Core Web Vitals Live</div>
           </div>
         </div>
 
-        <!-- Real-World Verified Case Study -->
-        <div class="service-case-study-card">
-          <div class="case-study-badge">🟢 VERIFIED ARCHITECTURAL CASE STUDY</div>
-          <h3 class="case-study-title">How a Premier Healthcare Network in Noida Lifted Mobile PageSpeed from 28 to 98 and Grew Inbound Enquiries by 145%</h3>
-          
-          <div class="case-study-grid">
-            <div>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.25rem;">
-                <strong>The Challenge:</strong> A multi-specialty healthcare portal with 400+ indexed medical pages was losing patient bookings due to an 8.4-second mobile load time, uncompressed high-resolution doctor profiles, and broken mobile navigation that caused high patient drop-off.
-              </p>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">
-                <strong>The Architectural Intervention:</strong> Sanjeev Kumar Malik mapped all 412 legacy URLs to prevent 404 drops, converted 1,200+ images to WebP via server automation, stripped 36 unused WordPress plugins, and implemented Redis caching on dedicated Nginx infrastructure.
-              </p>
-              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <span class="hero-tech-chip">✓ Mobile LCP: 0.68s</span>
-                <span class="hero-tech-chip">✓ 412 URLs Preserved</span>
-                <span class="hero-tech-chip">✓ Patient Leads: +145%</span>
-              </div>
-            </div>
-
-            <div class="case-metrics-matrix">
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #10B981;">0.68s</div>
-                <div class="case-metric-label">Mobile LCP Speed</div>
-                <div class="case-metric-sub">Down from 8.4s initial LCP</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #2563EB;">+145%</div>
-                <div class="case-metric-label">Inbound Appointments</div>
-                <div class="case-metric-sub">Verified patient bookings in 90 days</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #10B981;">98/100</div>
-                <div class="case-metric-label">Google Mobile Score</div>
-                <div class="case-metric-sub">Up from 28/100 initial score</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #2563EB;">100%</div>
-                <div class="case-metric-label">SEO Equity Retained</div>
-                <div class="case-metric-sub">Zero organic keyword losses</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Comparison Bento: Agency Redesign vs Sanjeev Kumar Malik -->
         <div class="section-header" style="margin-top: 5rem;">
           <div class="section-eyebrow">The Engineering Difference</div>
           <h2 class="section-title">Traditional Agency Redesign vs Sanjeev Kumar Malik</h2>
@@ -1126,6 +1109,6 @@
     </div>
   </div>
 
-  <script src="/assets/js/app.js?v=4.1"></script>
+  <script src="/assets/js/app.js?v=4.2"></script>
 </body>
 </html>

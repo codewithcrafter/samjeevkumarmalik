@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://sanjeevkumarmalik.in/web-development-for-startups-smes">>>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.1">
+  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -292,13 +292,71 @@
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer">
     <a href="/" class="nav-link">Home</a>
-    <a href="/services/web-development-for-startups-smes" class="nav-link active">Startups &amp; SMEs</a>
-    <a href="/services/wordpress-web-development" class="nav-link">WordPress Development</a>
-    <a href="/services/ecommerce-website-development" class="nav-link">E-commerce Development</a>
-    <a href="/services/custom-web-application-development" class="nav-link">Custom Web Applications</a>
-    <a href="/services/website-redesign-speed-optimization" class="nav-link">Website Redesign</a>
-    <a href="/services/landing-page-design-development" class="nav-link">Landing Page Design</a>
-    <a href="/services/ui-ux-design-services" class="nav-link">UI/UX Design</a>
+    
+    <!-- Mobile Services Accordion Dropdown -->
+    <div class="mobile-services-accordion" id="mobileServicesAccordion">
+      <button type="button" class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+        <span class="toggle-label-group">
+          <span>Services</span>
+          <span class="toggle-badge">7 Hubs</span>
+        </span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-services-dropdown-list" id="mobileServicesList">
+        <a href="/services/wordpress-web-development" class="mobile-service-item">
+          <span class="item-icon">⚡</span>
+          <span class="item-text">
+            <strong>WordPress Web Development</strong>
+            <small>Gutenberg &amp; Custom Headless Stacks</small>
+          </span>
+        </a>
+        <a href="/services/ecommerce-website-development" class="mobile-service-item">
+          <span class="item-icon">🛍️</span>
+          <span class="item-text">
+            <strong>E-commerce Website Development</strong>
+            <small>Shopify, WooCommerce &amp; Razorpay</small>
+          </span>
+        </a>
+        <a href="/services/custom-web-application-development" class="mobile-service-item">
+          <span class="item-icon">⚙️</span>
+          <span class="item-text">
+            <strong>Custom Web Applications</strong>
+            <small>Full-Stack React, Node.js &amp; Next.js</small>
+          </span>
+        </a>
+        <a href="/services/website-redesign-speed-optimization" class="mobile-service-item">
+          <span class="item-icon">🚀</span>
+          <span class="item-text">
+            <strong>Website Redesign &amp; Speed</strong>
+            <small>Core Web Vitals &amp; Sub-0.8s Loading</small>
+          </span>
+        </a>
+        <a href="/services/landing-page-design-development" class="mobile-service-item">
+          <span class="item-icon">🎯</span>
+          <span class="item-text">
+            <strong>Landing Page Design &amp; Dev</strong>
+            <small>High-Converting Paid Traffic Funnels</small>
+          </span>
+        </a>
+        <a href="/services/ui-ux-design-services" class="mobile-service-item">
+          <span class="item-icon">✨</span>
+          <span class="item-text">
+            <strong>UI/UX Design Services</strong>
+            <small>Figma to Scalable Clean Code</small>
+          </span>
+        </a>
+        <a href="/services/web-development-for-startups-smes" class="mobile-service-item">
+          <span class="item-icon">🌱</span>
+          <span class="item-text">
+            <strong>Startups &amp; SMEs Development</strong>
+            <small>Rapid MVPs &amp; Fractional CTO Guidance</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
     <a href="/about-sanjeev-kumar-malik" class="nav-link">About Sanjeev Kumar Malik</a>
     <a href="/blogs" class="nav-link">Technical Blogs</a>
     <a href="/contact-us" class="nav-link">Contact Us</a>
@@ -640,189 +698,62 @@
         </div>
 
         <!-- 4-Stage Startup Acceleration Protocol -->
+        <!-- 4-Step MVP Sprint Process -->
         <div class="section-header" style="margin-top: 5rem;">
           <div class="section-eyebrow">AGILE SPRINT CADENCE</div>
           <h2 class="section-title">4 Step MVP Sprint Process</h2>
           <p class="section-description">
-            This is how we Build Your MVP
+            From founder napkin sketch to live customer traction in 4 to 6 weeks.
           </p>
         </div>
 
-        <div class="timeline-container" style="max-width: 900px; margin: 0 auto;">
-          <div class="timeline-item">
-            <div class="timeline-badge">01</div>
-            <div class="timeline-content">
-              <div class="timeline-date">01 | Step 01: MVP Scoping &amp; Architecture Planning</div>
-              <h3 class="timeline-title">Feature Removal, User Journey &amp; Schema</h3>
-              <p class="timeline-desc">
-                We will identify which features are essential and which are nice to have. We will then create the user journey, main data tables and third party APIs required.
-              </p>
+        <div class="process-flow-grid">
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 01 • Lean Scoping</span>
+              <span class="process-step-num">01</span>
             </div>
+            <h3 class="process-card-title">Feature Prioritization &amp; Lean Scope</h3>
+            <p class="process-card-desc">
+              We cut feature bloat to identify the absolute minimum viable feature set needed to validate your hypothesis and secure initial paying customers.
+            </p>
+            <div class="process-deliverable-tag">✓ MVP Technical Roadmap</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">02 | Step 02: Fast MVP Development Sprints</div>
-              <h3 class="timeline-title">Weekly Deployment to Staging &amp; Feedback</h3>
-              <p class="timeline-desc">
-                From day 7 we will provide you with a private link to see your MVP in action. Every Friday we will go over the new features in action and make changes. This ensures your custom web application development stays on budget and on track.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 02 • Cloud Architecture</span>
+              <span class="process-step-num">02</span>
             </div>
+            <h3 class="process-card-title">Infrastructure &amp; Database Schema</h3>
+            <p class="process-card-desc">
+              Architecting scalable PostgreSQL/MongoDB schemas, auth via Supabase/Auth0, and containerized microservices built for rapid iteration without lock-in.
+            </p>
+            <div class="process-deliverable-tag">✓ Scalable Cloud Architecture</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">03 | Step 03: Payment Integration, Third Party APIs &amp; Security</div>
-              <h3 class="timeline-title">Payment Gateway, Third Party APIs &amp; QA Testing</h3>
-              <p class="timeline-desc">
-                To ensure your web development for startups in Delhi is successful we will integrate payment gateways like Razorpay or Stripe. We will also add email and WhatsApp services and analytics. We will then perform multi-device and security testing.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 03 • Fast Sprints</span>
+              <span class="process-step-num">03</span>
             </div>
+            <h3 class="process-card-title">Bi-Weekly Working Sprints &amp; Demos</h3>
+            <p class="process-card-desc">
+              Clean TypeScript/React/Node.js implementation with continuous CI/CD deployments and live staging preview links delivered every Friday for founder review.
+            </p>
+            <div class="process-deliverable-tag">✓ Functional Staging Releases</div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">04 | Step 04: Live &amp; Handover</div>
-              <h3 class="timeline-title">Live, Repository, Credentials &amp; Documentation Handover</h3>
-              <p class="timeline-desc">
-                Once your MVP is complete we will deploy it live. We will then hand over the repository, credentials and documentation. We will also be on hand to make any post live changes. As a startup website development company in Delhi NCR we ensure you own everything.
-              </p>
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 04 • Traction Launch</span>
+              <span class="process-step-num">04</span>
             </div>
-          </div>
-        </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 02 • High-Velocity Core Build Sprints</div>
-              <h3 class="timeline-title">Weekly Staging Deployments &amp; Direct Feedback</h3>
-              <p class="timeline-desc">
-                You get access to a private live staging URL from Day 7. Every Friday, we review new working features together and iterate in real time.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 03 • Payment, Analytics &amp; Security Validation</div>
-              <h3 class="timeline-title">Razorpay/Stripe Live Billing, Mixpanel &amp; SSL</h3>
-              <p class="timeline-desc">
-                We integrate live subscription checkouts, user analytics, error tracking, and run security vulnerability scans before public launch.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 04 • Production Launch &amp; Complete IP Handover</div>
-              <h3 class="timeline-title">Repository Transfer, Cloud Ownership &amp; Founder Retainer</h3>
-              <p class="timeline-desc">
-                We transfer 100% of the GitHub repositories, domain records, and cloud hosting accounts to your company name, remaining on call for post-launch scaling.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Real-World Verified Case Study -->
-        <div class="service-case-study-card">
-          <div class="case-study-badge">🟢 VERIFIED ARCHITECTURAL CASE STUDY</div>
-          <h3 class="case-study-title">How an EdTech Startup in Delhi NCR Built &amp; Launched their Live Coaching Platform in 24 Days and Closed $350K Seed Funding</h3>
-          
-          <div class="case-study-grid">
-            <div>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.25rem;">
-                <strong>The Challenge:</strong> A Delhi-based educational startup had burnt 4 months and ₹8 Lakhs with a freelance team that failed to deliver a functional MVP. With an investor demonstration scheduled in 30 days, they needed a working live student-tutor platform with paid checkout and user scheduling.
-              </p>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.5rem;">
-                <strong>The Architectural Intervention:</strong> Sanjeev Kumar Malik stepped in as technical architect, designed a clean Next.js + PostgreSQL MVP, integrated Razorpay recurring subscription billing, embedded WebRTC video classrooms, and deployed on Vercel with zero server management overhead.
-              </p>
-              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <span class="hero-tech-chip">✓ 24-Day Turnaround</span>
-                <span class="hero-tech-chip">✓ $350K Seed Round Closed</span>
-                <span class="hero-tech-chip">✓ 1,400 Paid Students</span>
-              </div>
-            </div>
-
-            <div class="case-metrics-matrix">
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #10B981;">24 Days</div>
-                <div class="case-metric-label">Idea to Production MVP</div>
-                <div class="case-metric-sub">Full platform engineered and launched</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #2563EB;">$350,000</div>
-                <div class="case-metric-label">Seed Funding Raised</div>
-                <div class="case-metric-sub">Institutional seed round closed successfully</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #10B981;">1,400+</div>
-                <div class="case-metric-label">Active Paid Students</div>
-                <div class="case-metric-sub">Processed through Razorpay within 60 days</div>
-              </div>
-              <div class="case-metric-box">
-                <div class="case-metric-num" style="color: #2563EB;">99.98%</div>
-                <div class="case-metric-label">Platform Uptime</div>
-                <div class="case-metric-sub">High concurrency live streaming without lag</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Comparison Bento: Agency / Freelancers vs Sanjeev Kumar Malik -->
-        <div class="decision-matrix-card" style="margin-top: 5rem;">
-          <div class="section-eyebrow" style="background: rgba(37, 99, 235, 0.1);">STARTUP GROWTH MATRIX</div>
-          <h2 style="font-size: 1.85rem; margin-bottom: 0.75rem;">Delhi Web Development for Startups at Every Funding Stage</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            As your startup progresses through funding levels, we ensure you get the right infrastructure. This includes the features, development speed and cost of your cloud provider.
-          </p>
-
-          <div class="table-responsive">
-            <table class="matrix-table">
-              <thead>
-                <tr>
-                  <th>Growth Stage</th>
-                  <th>Primary Technical Objective</th>
-                  <th>Recommended Stack</th>
-                  <th>Typical Timeline</th>
-                  <th>Infrastructure Cost</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Pre-Seed / Ideation</strong></td>
-                  <td>We will build an interactive prototype, waiting list landing page and investor deck.</td>
-                  <td>Using Next.js / HTML5 &amp; Supabase / Airtable.</td>
-                  <td>Take 1-2 weeks to complete.</td>
-                  <td>Cost 0-15 per month.</td>
-                </tr>
-                <tr>
-                  <td><strong>Seed (First 500 Users)</strong></td>
-                  <td>Build a functional MVP with self-signup and payments.</td>
-                  <td>Using React / Next.js, Node / Laravel &amp; PostgreSQL.</td>
-                  <td>Takes 3-4 weeks to complete.</td>
-                  <td>Costs 20-60 per month.</td>
-                </tr>
-                <tr>
-                  <td><strong>Product Market Fit</strong></td>
-                  <td>Analytics events, onboarding automation and webhook integration.</td>
-                  <td>Uses decoupled API, Redis Queues &amp; AWS S3.</td>
-                  <td>Ongoing sprints.</td>
-                  <td>Costs 100-300 per month.</td>
-                </tr>
-                <tr>
-                  <td><strong>Series A</strong></td>
-                  <td>Auto scaling high concurrent clusters, SOC-2 compliant and CI/CD.</td>
-                  <td>Uses Kubernetes / ECS &amp; Multi region database replication.</td>
-                  <td>Dedicated Engineering Team.</td>
-                  <td>Custom Cloud Tier.</td>
-                </tr>
-              </tbody>
-            </table>
+            <h3 class="process-card-title">Telemetry, Analytics &amp; Investor Readiness</h3>
+            <p class="process-card-desc">
+              Integrated PostHog product analytics, error logging, and performance telemetry so you can track conversion funnels and demonstrate real traction to investors.
+            </p>
+            <div class="process-deliverable-tag">✓ Production-Live Product</div>
           </div>
         </div>
 
@@ -1121,6 +1052,6 @@
     </div>
   </div>
 
-  <script src="/assets/js/app.js?v=4.1"></script>
+  <script src="/assets/js/app.js?v=4.2"></script>
 </body>
 </html>

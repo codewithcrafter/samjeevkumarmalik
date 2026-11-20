@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://sanjeevkumarmalik.in/ecommerce-website-development">>>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css?v=4.1">
+  <link rel="stylesheet" href="/assets/css/style.css?v=4.2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -292,13 +292,71 @@
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer">
     <a href="/" class="nav-link">Home</a>
-    <a href="/services/ecommerce-website-development" class="nav-link active">E-commerce Development</a>
-    <a href="/services/wordpress-web-development" class="nav-link">WordPress Development</a>
-    <a href="/services/custom-web-application-development" class="nav-link">Custom Web Applications</a>
-    <a href="/services/website-redesign-speed-optimization" class="nav-link">Website Redesign</a>
-    <a href="/services/landing-page-design-development" class="nav-link">Landing Page Design</a>
-    <a href="/services/ui-ux-design-services" class="nav-link">UI/UX Design</a>
-    <a href="/services/web-development-for-startups-smes" class="nav-link">Startups &amp; SMEs</a>
+    
+    <!-- Mobile Services Accordion Dropdown -->
+    <div class="mobile-services-accordion" id="mobileServicesAccordion">
+      <button type="button" class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+        <span class="toggle-label-group">
+          <span>Services</span>
+          <span class="toggle-badge">7 Hubs</span>
+        </span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-services-dropdown-list" id="mobileServicesList">
+        <a href="/services/wordpress-web-development" class="mobile-service-item">
+          <span class="item-icon">⚡</span>
+          <span class="item-text">
+            <strong>WordPress Web Development</strong>
+            <small>Gutenberg &amp; Custom Headless Stacks</small>
+          </span>
+        </a>
+        <a href="/services/ecommerce-website-development" class="mobile-service-item">
+          <span class="item-icon">🛍️</span>
+          <span class="item-text">
+            <strong>E-commerce Website Development</strong>
+            <small>Shopify, WooCommerce &amp; Razorpay</small>
+          </span>
+        </a>
+        <a href="/services/custom-web-application-development" class="mobile-service-item">
+          <span class="item-icon">⚙️</span>
+          <span class="item-text">
+            <strong>Custom Web Applications</strong>
+            <small>Full-Stack React, Node.js &amp; Next.js</small>
+          </span>
+        </a>
+        <a href="/services/website-redesign-speed-optimization" class="mobile-service-item">
+          <span class="item-icon">🚀</span>
+          <span class="item-text">
+            <strong>Website Redesign &amp; Speed</strong>
+            <small>Core Web Vitals &amp; Sub-0.8s Loading</small>
+          </span>
+        </a>
+        <a href="/services/landing-page-design-development" class="mobile-service-item">
+          <span class="item-icon">🎯</span>
+          <span class="item-text">
+            <strong>Landing Page Design &amp; Dev</strong>
+            <small>High-Converting Paid Traffic Funnels</small>
+          </span>
+        </a>
+        <a href="/services/ui-ux-design-services" class="mobile-service-item">
+          <span class="item-icon">✨</span>
+          <span class="item-text">
+            <strong>UI/UX Design Services</strong>
+            <small>Figma to Scalable Clean Code</small>
+          </span>
+        </a>
+        <a href="/services/web-development-for-startups-smes" class="mobile-service-item">
+          <span class="item-icon">🌱</span>
+          <span class="item-text">
+            <strong>Startups &amp; SMEs Development</strong>
+            <small>Rapid MVPs &amp; Fractional CTO Guidance</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
     <a href="/about-sanjeev-kumar-malik" class="nav-link">About Sanjeev Kumar Malik</a>
     <a href="/blogs" class="nav-link">Technical Blogs</a>
     <a href="/contact-us" class="nav-link">Contact Us</a>
@@ -693,6 +751,117 @@
           </div>
         </div>
 
+        <!-- Interactive Decision Matrix: Shopify vs WooCommerce vs Headless -->
+        <div class="decision-matrix-card">
+          <div class="section-eyebrow" style="background: rgba(37, 99, 235, 0.1);">Platform Decision Matrix</div>
+          <h3 style="font-size: 1.85rem; margin-bottom: 0.75rem;">Shopify vs WooCommerce vs Headless Commerce — Which One Fits Your Scale?</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Selecting the wrong e-commerce engine costs lakhs in replatforming down the road. Here is an honest architectural comparison.
+          </p>
+
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Evaluation Metric</th>
+                <th>Custom Shopify Store</th>
+                <th>Enterprise WooCommerce</th>
+                <th>Headless Commerce (Next.js + Shopify/Medusa)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Best Suited For</strong></td>
+                <td>D2C brands seeking rapid go-to-market, reliable hosted checkout, and minimal server management.</td>
+                <td>Brands demanding 100% data ownership, zero platform revenue share, and complex custom product rules.</td>
+                <td>High-volume omnichannel brands demanding sub-300ms mobile speed and bespoke frontend UX.</td>
+              </tr>
+              <tr>
+                <td><strong>Ongoing Platform Costs</strong></td>
+                <td>Monthly subscription + transaction fees + app fees.</td>
+                <td>Zero software licensing; only server hosting &amp; payment gateway transaction fees.</td>
+                <td>Custom edge hosting (Vercel/AWS) + backend API costs.</td>
+              </tr>
+              <tr>
+                <td><strong>Checkout Customization</strong></td>
+                <td>Shopify Plus required for deep checkout script overrides; standard themes use hosted flow.</td>
+                <td>100% unconstrained — custom OTP steps, custom GST input, custom COD rules, and upsells.</td>
+                <td>Fully custom frontend checkout with tokenized headless gateway APIs.</td>
+              </tr>
+              <tr>
+                <td><strong>Mobile Performance &amp; CWV</strong></td>
+                <td>90-95/100 with lean Liquid code; degrades if third-party marketing apps are over-installed.</td>
+                <td>95-99/100 when optimized with Redis, WP-CLI script management, and modern CDN rules.</td>
+                <td>100/100 Core Web Vitals natively through edge static pre-rendering.</td>
+              </tr>
+              <tr>
+                <td><strong>Time to Market</strong></td>
+                <td>2 to 3 weeks for full custom storefront.</td>
+                <td>3 to 5 weeks including custom theme &amp; gateway testing.</td>
+                <td>6 to 10 weeks for full headless API integration.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4-Step E-Commerce Protocol -->
+        <div class="section-header" style="margin-top: 5rem;">
+          <div class="section-eyebrow">Architecture Workflow</div>
+          <h2 class="section-title">4 Stage E-Commerce Process</h2>
+          <p class="section-description">
+            How our e-commerce website development company in Delhi will build your store.
+          </p>
+        </div>
+
+        <div class="process-flow-grid">
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 01 • Strategy</span>
+              <span class="process-step-num">01</span>
+            </div>
+            <h3 class="process-card-title">Product, Customer &amp; Revenue Strategy</h3>
+            <p class="process-card-desc">
+              We analyse your catalog structure, customer demographics, average order value, and conversion friction points across Indian and global buyer journeys.
+            </p>
+            <div class="process-deliverable-tag">✓ Conversion Blueprint</div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 02 • High-Conversion UI</span>
+              <span class="process-step-num">02</span>
+            </div>
+            <h3 class="process-card-title">Fast Mobile Product Pages &amp; Instant Cart Triggers</h3>
+            <p class="process-card-desc">
+              We design intuitive product filters, sticky mobile Add-to-Cart triggers, transparent delivery timelines, and trust badges engineered to eliminate buyer hesitation.
+            </p>
+            <div class="process-deliverable-tag">✓ Mobile UX Prototype</div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 03 • Integrations</span>
+              <span class="process-step-num">03</span>
+            </div>
+            <h3 class="process-card-title">Platform, Gateways &amp; Shipping Setup</h3>
+            <p class="process-card-desc">
+              Full integration with payment gateways (Razorpay, Cashfree, Stripe), automated Shiprocket/Delhivery logistics, Indian GST rules, and WhatsApp order alerts.
+            </p>
+            <div class="process-deliverable-tag">✓ Automated Payment Rails</div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-card-header">
+              <span class="process-step-pill">Stage 04 • Stress Testing</span>
+              <span class="process-step-num">04</span>
+            </div>
+            <h3 class="process-card-title">Concurrency Stress Testing &amp; Go-Live</h3>
+            <p class="process-card-desc">
+              Simulated peak concurrent traffic tests ensure your cart, checkout, and inventory sync never fail during festive flash sales and influencer campaigns.
+            </p>
+            <div class="process-deliverable-tag">✓ 100% Tested Live Store</div>
+          </div>
+        </div>
+
         <!-- Comprehensive E-Commerce FAQ Accordion -->
         <div class="section-header" style="margin-top: 5rem;">
           <div class="section-eyebrow">Frequently Asked Questions</div>
@@ -770,147 +939,6 @@
             </button>
             <div class="faq-answer">
               <p>A full custom storefront—including bespoke design, payment gateway integration, shipping automation, catalog import, and mobile testing—typically takes 3 to 5 weeks. We provide clear milestone reviews at every stage so your team can upload products while engineering is underway.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Decision Matrix: Shopify vs WooCommerce vs Headless -->
-        <div class="decision-matrix-card">
-          <div class="section-eyebrow" style="background: rgba(37, 99, 235, 0.1);">Platform Decision Matrix</div>
-          <h3 style="font-size: 1.85rem; margin-bottom: 0.75rem;">Shopify vs WooCommerce vs Headless Commerce — Which One Fits Your Scale?</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Selecting the wrong e-commerce engine costs lakhs in replatforming down the road. Here is an honest architectural comparison.
-          </p>
-
-          <table class="matrix-table">
-            <thead>
-              <tr>
-                <th>Evaluation Metric</th>
-                <th>Custom Shopify Store</th>
-                <th>Enterprise WooCommerce</th>
-                <th>Headless Commerce (Next.js + Shopify/Medusa)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Best Suited For</strong></td>
-                <td>D2C brands seeking rapid go-to-market, reliable hosted checkout, and minimal server management.</td>
-                <td>Brands demanding 100% data ownership, zero platform revenue share, and complex custom product rules.</td>
-                <td>High-volume omnichannel brands demanding sub-300ms mobile speed and bespoke frontend UX.</td>
-              </tr>
-              <tr>
-                <td><strong>Ongoing Platform Costs</strong></td>
-                <td>Monthly subscription + transaction fees + app fees.</td>
-                <td>Zero software licensing; only server hosting &amp; payment gateway transaction fees.</td>
-                <td>Custom edge hosting (Vercel/AWS) + backend API costs.</td>
-              </tr>
-              <tr>
-                <td><strong>Checkout Customization</strong></td>
-                <td>Shopify Plus required for deep checkout script overrides; standard themes use hosted flow.</td>
-                <td>100% unconstrained — custom OTP steps, custom GST input, custom COD rules, and upsells.</td>
-                <td>Fully custom frontend checkout with tokenized headless gateway APIs.</td>
-              </tr>
-              <tr>
-                <td><strong>Mobile Performance &amp; CWV</strong></td>
-                <td>90-95/100 with lean Liquid code; degrades if third-party marketing apps are over-installed.</td>
-                <td>95-99/100 when optimized with Redis, WP-CLI script management, and modern CDN rules.</td>
-                <td>100/100 Core Web Vitals natively through edge static pre-rendering.</td>
-              </tr>
-              <tr>
-                <td><strong>Time to Market</strong></td>
-                <td>2 to 3 weeks for full custom storefront.</td>
-                <td>3 to 5 weeks including custom theme &amp; gateway testing.</td>
-                <td>6 to 10 weeks for full headless API integration.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 4-Step E-Commerce Protocol -->
-        <div class="section-header" style="margin-top: 5rem;">
-          <div class="section-eyebrow">Architecture Workflow</div>
-          <h2 class="section-title">4 Stage E-Commerce Process</h2>
-          <p class="section-description">
-            How our e-commerce website development company in Delhi will build your store.
-          </p>
-        </div>
-
-        <div class="timeline-container" style="max-width: 900px; margin: 0 auto;">
-          <div class="timeline-item">
-            <div class="timeline-badge">01</div>
-            <div class="timeline-content">
-              <div class="timeline-date">01 • Discovery</div>
-              <h3 class="timeline-title">Product, Customer &amp; Revenue Strategy</h3>
-              <p class="timeline-desc">
-                We will analyse your products, customers &amp; current conversion rate.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">02 • Design</div>
-              <h3 class="timeline-title">Fast Mobile Product Pages &amp; Checkout</h3>
-              <p class="timeline-desc">
-                Mobile friendly product pages with fast checkout with Indian payment methods.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">03 • Build</div>
-              <h3 class="timeline-title">E-Commerce Platform, Payment Gateway &amp; Shipping Setup</h3>
-              <p class="timeline-desc">
-                We will design customised e-commerce website development with payment gateways (Razorpay/Cashfree/PayU/Stripe), automatic shipping, GST rules &amp; WhatsApp updates.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">04 • Load Testing &amp; Launch</div>
-              <h3 class="timeline-title">Load Testing &amp; Launch</h3>
-              <p class="timeline-desc">
-                We will perform load testing to ensure your basket &amp; checkout will never break.
-              </p>
-            </div>
-          </div>
-        </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">02</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 02 • High-Conversion UI/UX</div>
-              <h3 class="timeline-title">Mobile-First Product Pages &amp; Instant Cart Triggers</h3>
-              <p class="timeline-desc">
-                We design intuitive product filters, sticky mobile Add-to-Cart triggers, transparent delivery timelines, and trust badges engineered to eliminate buyer hesitation before checkout.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">03</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 03 • Integrations &amp; Automation</div>
-              <h3 class="timeline-title">Logistics, WhatsApp Order Updates &amp; ERP Sync</h3>
-              <p class="timeline-desc">
-                Automated webhook routing pushes confirmed orders directly into Shiprocket/Delhivery for automatic AWB printing and sends WhatsApp order confirmations to customers.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-badge">04</div>
-            <div class="timeline-content">
-              <div class="timeline-date">Stage 04 • Stress Testing &amp; Launch</div>
-              <h3 class="timeline-title">Load Simulation &amp; Multi-Device Checkout Validation</h3>
-              <p class="timeline-desc">
-                Simulated peak concurrent traffic tests ensure your cart and checkout never fail during flash sales or influencer ad campaigns.
-              </p>
             </div>
           </div>
         </div>
@@ -1066,6 +1094,6 @@
     </div>
   </div>
 
-  <script src="/assets/js/app.js?v=4.1"></script>
+  <script src="/assets/js/app.js?v=4.2"></script>
 </body>
 </html>
