@@ -615,7 +615,8 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .dropdown-menu,
 .services-mega-menu,
-.nav-mega-menu {
+.nav-mega-menu,
+.mega-menu {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -644,7 +645,8 @@ h1, h2, h3, h4, h5, h6 {
 /* INVISIBLE HIT-AREA BRIDGE (Eliminates the dead gap & hover flicker) */
 .dropdown-menu::before,
 .services-mega-menu::before,
-.nav-mega-menu::before {
+.nav-mega-menu::before,
+.mega-menu::before {
   content: "";
   position: absolute;
   top: -24px;
@@ -660,15 +662,19 @@ h1, h2, h3, h4, h5, h6 {
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown:hover .services-mega-menu,
 .nav-dropdown:hover .nav-mega-menu,
+.nav-dropdown:hover .mega-menu,
 .nav-dropdown.is-open .dropdown-menu,
 .nav-dropdown.is-open .services-mega-menu,
 .nav-dropdown.is-open .nav-mega-menu,
+.nav-dropdown.is-open .mega-menu,
 .nav-item:hover .nav-mega-menu,
 .nav-item:hover .dropdown-menu,
 .nav-item:hover .services-mega-menu,
+.nav-item:hover .mega-menu,
 .nav-item.is-open .nav-mega-menu,
 .nav-item.is-open .dropdown-menu,
-.nav-item.is-open .services-mega-menu {
+.nav-item.is-open .services-mega-menu,
+.nav-item.is-open .mega-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;

@@ -2,6 +2,10 @@
 # SANJEEV KUMAR MALIK - UNIVERSAL CLEAN URL CONFIG (ROOT & SUBFOLDER COMPATIBLE)
 # ==============================================================================
 
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
