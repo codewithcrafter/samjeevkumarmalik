@@ -2,28 +2,40 @@
 /**
  * =========================================================================
  * DATABASE CONNECTION & CONFIGURATION MODULE
+ * Configured for Hostinger Live Server & Localhost XAMPP
  * =========================================================================
- * 
- * 1. LOCALHOST (XAMPP):
- *    DB_HOST: 'localhost' or '127.0.0.1'
- *    DB_PORT: '3306'
- *    DB_USER: 'root'
- *    DB_PASS: ''
- *    DB_NAME: 'sanjeev_db'
- * 
- * 2. HOSTINGER / LIVE PRODUCTION SERVER:
- *    Jab aap files Hostinger pe upload karein, tab Hostinger hPanel -> Databases -> MySQL Databases me jakar:
- *    - DB_HOST: 'localhost' (Hostinger me hamesha 'localhost' rehta hai)
- *    - DB_USER: 'u123456789_youruser' (Hostinger dwara generate kiya gaya username)
- *    - DB_PASS: 'AapkaDatabasePassword' (Hostinger me database create karte waqt jo password rakha tha)
- *    - DB_NAME: 'u123456789_yourdbname' (Hostinger dwara generate kiya gaya database name)
  */
 
-if (!defined('DB_HOST')) define('DB_HOST', '127.0.0.1');
-if (!defined('DB_PORT')) define('DB_PORT', '3306');
-if (!defined('DB_USER')) define('DB_USER', 'root');
-if (!defined('DB_PASS')) define('DB_PASS', '');
-if (!defined('DB_NAME')) define('DB_NAME', 'sanjeev_db');
+// Hostinger Live Production Credentials (hPanel)
+define('HOSTINGER_DB_HOST', 'localhost'); // Hostinger internal socket/host
+define('HOSTINGER_ALT_HOST', 'srv1328.hstgr.io'); // Hostinger server domain
+define('HOSTINGER_DB_PORT', '3306');
+define('HOSTINGER_DB_USER', 'u555726154_sanjeevkumar');
+define('HOSTINGER_DB_PASS', 'Sanjeev@2026#');
+define('HOSTINGER_DB_NAME', 'u555726154_sanjeevmalik');
+
+// Detect if running on local development (Windows Localhost / XAMPP)
+$isLocalDev = (PHP_OS_FAMILY === 'Windows') && (
+    !isset($_SERVER['HTTP_HOST']) ||
+    strpos($_SERVER['HTTP_HOST'], 'localhost') !== false ||
+    strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false
+);
+
+if ($isLocalDev) {
+    // Localhost XAMPP configuration
+    if (!defined('DB_HOST')) define('DB_HOST', '127.0.0.1');
+    if (!defined('DB_PORT')) define('DB_PORT', '3306');
+    if (!defined('DB_USER')) define('DB_USER', 'root');
+    if (!defined('DB_PASS')) define('DB_PASS', '');
+    if (!defined('DB_NAME')) define('DB_NAME', 'sanjeev_db');
+} else {
+    // Hostinger Live Production configuration
+    if (!defined('DB_HOST')) define('DB_HOST', HOSTINGER_DB_HOST);
+    if (!defined('DB_PORT')) define('DB_PORT', HOSTINGER_DB_PORT);
+    if (!defined('DB_USER')) define('DB_USER', HOSTINGER_DB_USER);
+    if (!defined('DB_PASS')) define('DB_PASS', HOSTINGER_DB_PASS);
+    if (!defined('DB_NAME')) define('DB_NAME', HOSTINGER_DB_NAME);
+}
 
 function getDBConnection() {
     static $pdo = null;
@@ -35,15 +47,33 @@ function getDBConnection() {
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
+        PDO::ATTR_TIMEOUT            => 5,
     ];
 
-    // Method 1: Connect directly to the specific database (Standard for Hostinger & live servers)
+    // Priority 1: Connect directly to the designated database
     try {
         $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
         return $pdo;
     } catch (PDOException $e) {
-        // Method 2: Fallback for fresh local dev environments where DB might not exist yet
+        // Priority 2: Hostinger fallback (if 'localhost' fails, try 'srv1328.hstgr.io' or '127.0.0.1')
+        if (defined('HOSTINGER_ALT_HOST') && DB_USER === HOSTINGER_DB_USER) {
+            try {
+                $altDsn = "mysql:host=" . HOSTINGER_ALT_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+                $pdo = new PDO($altDsn, DB_USER, DB_PASS, $options);
+                return $pdo;
+            } catch (PDOException $altEx) {
+                try {
+                    $ipDsn = "mysql:host=127.0.0.1;port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
+                    $pdo = new PDO($ipDsn, DB_USER, DB_PASS, $options);
+                    return $pdo;
+                } catch (PDOException $ipEx) {
+                    error_log("Hostinger DB Connection failed: " . $e->getMessage() . " | " . $altEx->getMessage() . " | " . $ipEx->getMessage());
+                }
+            }
+        }
+
+        // Priority 3: Fresh Localhost auto-create fallback (for fresh local environments)
         try {
             $rootDsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";charset=utf8mb4";
             $rootPdo = new PDO($rootDsn, DB_USER, DB_PASS, $options);
@@ -53,7 +83,7 @@ function getDBConnection() {
             initDatabaseTables($pdo);
             return $pdo;
         } catch (PDOException $fallbackEx) {
-            error_log("Database connection failed: " . $e->getMessage() . " | Fallback: " . $fallbackEx->getMessage());
+            error_log("Database connection failed: " . $e->getMessage());
             return null;
         }
     }

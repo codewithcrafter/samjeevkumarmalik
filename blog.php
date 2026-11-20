@@ -12,9 +12,8 @@ $slug = trim($_GET['slug'] ?? '');
 // If slug is empty, check request URI
 if (empty($slug)) {
     $uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
-    $parts = explode('/', trim($uri, '/'));
-    if (count($parts) >= 2 && $parts[0] === 'blogs') {
-        $slug = $parts[1];
+    if (preg_match('#/blogs/([^/?#]+)#', $uri, $m)) {
+        $slug = $m[1];
     }
 }
 
