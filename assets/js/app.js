@@ -153,33 +153,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Mobile Nav Drawer Toggle
-  const mobileToggle = document.getElementById('mobileNavToggle');
-  const mobileDrawer = document.getElementById('mobileNavDrawer');
-  
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', (e) => {
+  // 3. Mobile Nav Drawer Toggle (Ultra-Reliable Delegated & Direct Binding)
+  document.addEventListener('click', (e) => {
+    const toggle = e.target.closest('#mobileNavToggle, .mobile-nav-toggle');
+    const drawer = document.getElementById('mobileNavDrawer') || document.querySelector('.mobile-nav-drawer');
+
+    if (toggle && drawer) {
+      e.preventDefault();
       e.stopPropagation();
-      mobileDrawer.classList.toggle('open');
-      const isOpen = mobileDrawer.classList.contains('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-    });
+      const willOpen = !drawer.classList.contains('open');
+      drawer.classList.toggle('open', willOpen);
+      toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      toggle.classList.toggle('active', willOpen);
+      return;
+    }
 
-    document.addEventListener('click', (e) => {
-      if (!mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
+    // Close drawer when clicking outside or on navigation links inside
+    if (drawer && drawer.classList.contains('open')) {
+      const isInsideDrawer = drawer.contains(e.target);
+      const isAccordionBtn = e.target.closest('#mobileServicesToggle, .mobile-services-toggle');
+
+      if (!isInsideDrawer) {
+        drawer.classList.remove('open');
+        const btn = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('active');
+        }
+      } else if (e.target.closest('a') && !isAccordionBtn) {
+        drawer.classList.remove('open');
+        const btn = document.getElementById('mobileNavToggle') || document.querySelector('.mobile-nav-toggle');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('active');
+        }
       }
-    });
-
-    const mobileLinks = mobileDrawer.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
+    }
+  });
 
   // 4. Count-up Animation for Metrics
   const metricNumbers = document.querySelectorAll('.stat-number, .about-stat-number');
@@ -386,14 +396,6 @@ document.addEventListener('DOMContentLoaded', () => {
               Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
             </p>
             <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
-              Back to Website
-            </button>
-          </div>
-        </div>`;
-            <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
-              Thank you! Sanjeev Kumar Malik will connect with you directly via WhatsApp/Phone within 4 hours.
-            </p>
-            <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.6rem 1rem; font-size: 0.85rem;">
               Back to Website
             </button>
           </div>

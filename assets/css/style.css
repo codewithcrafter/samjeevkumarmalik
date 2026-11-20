@@ -810,7 +810,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-drawer.open {
-  display: flex;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
   animation: fadeInDown 0.25s ease-out forwards;
 }
 
@@ -3737,7 +3740,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  display: flex;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   align-items: center;
   justify-content: center;
   text-decoration: none;
