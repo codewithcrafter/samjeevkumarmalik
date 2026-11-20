@@ -323,56 +323,73 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.setAttribute('aria-hidden', 'true');
       modal.setAttribute('role', 'dialog');
       modal.innerHTML = `
-        <div class="booking-modal-card" style="max-width: 380px !important; width: 90% !important; padding: 1.1rem 1.25rem 1rem !important; border-radius: 16px !important; max-height: 84vh !important; overflow-y: auto !important; box-sizing: border-box !important;">
-          <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal" style="top: 0.75rem !important; right: 0.75rem !important; width: 28px !important; height: 28px !important; font-size: 1.15rem !important;">&times;</button>
+        <div class="booking-modal-card">
+          <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal">&times;</button>
           
-          <div class="modal-header" style="margin-bottom: 0.45rem !important;">
-            <span class="modal-badge" style="margin-bottom: 0.25rem !important; padding: 0.12rem 0.55rem !important; font-size: 0.68rem !important;">🟢 Direct Founder Access</span>
-            <h3 class="modal-title" style="font-size: 1.05rem !important; margin-bottom: 0.15rem !important; line-height: 1.2 !important;">Book Founder Session</h3>
-            <p class="modal-subtitle" style="font-size: 0.74rem !important; color: #64748B !important; line-height: 1.35 !important; margin: 0 !important;">Speak directly with Sanjeev Kumar Malik (15+ Years). Zero sales layers.</p>
+          <div class="modal-header">
+            <span class="modal-badge">
+              <span class="live-radar-dot"></span>
+              <span>Direct Founder Access • 15+ Yrs Experience</span>
+            </span>
+            <h3 class="modal-title">Plan Your Project With Sanjeev</h3>
+            <p class="modal-subtitle">Direct architectural roadmap, tech stack evaluation, and fixed sprint proposal — zero sales reps.</p>
           </div>
 
-          <form class="modal-form" id="founderBookingForm" style="gap: 0.38rem !important;">
-            <div class="form-row" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important;">
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="modalName" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Your Name *</label>
-                <input type="text" id="modalName" required placeholder="e.g. Rohit" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+          <form class="modal-form" id="founderBookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="modalName">Your Name *</label>
+                <input type="text" id="modalName" required placeholder="e.g. Rohit Sharma" class="form-input">
               </div>
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="modalPhone" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Phone / WhatsApp *</label>
-                <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+              <div class="form-group">
+                <label for="modalPhone">Phone / WhatsApp *</label>
+                <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
               </div>
             </div>
 
-            <div class="form-row" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important;">
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="modalEmail" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Email *</label>
-                <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="modalEmail">Work Email *</label>
+                <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
               </div>
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="modalService" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Interest *</label>
-                <select id="modalService" required class="form-select" style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
-                  <option value="">Select Service</option>
-                  <option value="WordPress Development">WordPress Development</option>
-                  <option value="E-Commerce Development">E-Commerce Store</option>
-                  <option value="Custom Web Applications">Custom Web Applications</option>
-                  <option value="Website Redesign & Speed">Website Redesign & Speed</option>
-                  <option value="Landing Page CRO">Landing Page CRO</option>
-                  <option value="UI/UX Design Services">UI/UX Design Services</option>
-                  <option value="Startups & SMEs">Startups & SMEs</option>
+              <div class="form-group">
+                <label for="modalService">Primary Service Needed *</label>
+                <select id="modalService" required class="form-select">
+                  <option value="">Select Service Scope...</option>
+                  <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
+                  <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
+                  <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
+                  <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+                  <option value="Landing Page CRO">Landing Page CRO & Paid Funnels</option>
+                  <option value="UI/UX Design Services">UI/UX Design Services & Frontend</option>
+                  <option value="Startups & SMEs">Startups & SMEs MVP Sprint</option>
                 </select>
               </div>
             </div>
 
-            <button type="submit" class="btn-submit-modal" id="modalSubmitBtn" style="padding: 0.55rem 0.85rem !important; height: 38px !important; font-size: 0.84rem !important; font-weight: 800 !important; border-radius: 9px !important; margin-top: 0.2rem !important;">
+            <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
               <span>Confirm Architecture Session →</span>
             </button>
-            <p class="modal-footer-note" style="font-size: 0.65rem !important; color: #64748B !important; text-align: center !important; margin: 0.25rem 0 0 0 !important;">🔒 Direct 1-on-1 review with Sanjeev • Response &lt; 4 hours</p>
+            <div class="modal-trust-strip">
+              <span>🔒 Strict Mutual NDA</span>
+              <span>•</span>
+              <span>⚡ Response &lt; 4 Hours</span>
+              <span>•</span>
+              <span>⭐ 1,700+ Delivered</span>
+            </div>
           </form>
 
           <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
-            <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🎉</div>
-            <h4 style="font-size: 1.15rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">Session Requested!</h4>
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Session Requested!</h4>
+            <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+              Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
+            </p>
+            <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
+              Back to Website
+            </button>
+          </div>
+        </div>`;
             <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
               Thank you! Sanjeev Kumar Malik will connect with you directly via WhatsApp/Phone within 4 hours.
             </p>
@@ -596,56 +613,62 @@ document.addEventListener('DOMContentLoaded', () => {
       popupOverlay.setAttribute('role', 'dialog');
 
       popupOverlay.innerHTML = `
-        <div class="auto-popup-card" style="max-width: 340px !important; width: 90% !important; padding: 1rem 1.15rem 0.95rem !important; border-radius: 16px !important; max-height: 82vh !important; overflow-y: auto !important; box-sizing: border-box !important;">
-          <button type="button" class="popup-close-btn" id="closeAutoPopupBtn" aria-label="Close modal" style="top: 0.75rem !important; right: 0.75rem !important; width: 28px !important; height: 28px !important; font-size: 1.15rem !important;">&times;</button>
+        <div class="auto-popup-card">
+          <button type="button" class="popup-close-btn" id="closeAutoPopupBtn" aria-label="Close modal">&times;</button>
           
-          <div class="popup-badge" style="margin-bottom: 0.25rem !important; padding: 0.12rem 0.55rem !important; font-size: 0.68rem !important;">
-            <span class="radar-dot" style="width: 5px; height: 5px;"></span>
+          <div class="popup-badge">
+            <span class="radar-dot"></span>
             <span>Direct Founder Access • 15+ Yrs Exp</span>
           </div>
           
-          <h3 class="popup-title" style="font-size: 1.05rem !important; margin-bottom: 0.15rem !important; line-height: 1.2 !important;">Plan Your Project With Sanjeev</h3>
-          <p class="popup-desc" style="font-size: 0.74rem !important; margin-bottom: 0.5rem !important; line-height: 1.35 !important; color: #64748B !important;">Get upfront roadmap & fixed pricing directly from Sanjeev Kumar Malik — zero sales reps.</p>
+          <h3 class="popup-title">Plan Your Project With Sanjeev</h3>
+          <p class="popup-desc">Get an upfront architectural roadmap &amp; fixed pricing proposal directly from Sanjeev Kumar Malik — zero sales reps.</p>
 
-          <form class="popup-form" id="autoPopupForm" style="gap: 0.38rem !important;">
-            <div class="popup-form-row" style="display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important;">
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="popupName" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Your Name *</label>
-                <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul" required style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+          <form class="popup-form" id="autoPopupForm">
+            <div class="popup-form-row">
+              <div class="form-group">
+                <label for="popupName">Your Name *</label>
+                <input type="text" id="popupName" class="form-input" placeholder="e.g. Rahul Sharma" required>
               </div>
-              <div class="form-group" style="gap: 0.12rem !important;">
-                <label for="popupContact" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Phone / WhatsApp *</label>
-                <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
+              <div class="form-group">
+                <label for="popupContact">Phone / WhatsApp *</label>
+                <input type="tel" id="popupContact" class="form-input" placeholder="+91 98765 43210" required>
               </div>
             </div>
 
-            <div class="form-group" style="gap: 0.12rem !important;">
-              <label for="popupProject" style="font-size: 0.72rem !important; font-weight: 700 !important; color: #334155 !important;">Service Needed *</label>
-              <select id="popupProject" class="form-select" required style="padding: 0.4rem 0.6rem !important; font-size: 0.82rem !important; height: 34px !important; border-radius: 8px !important;">
-                <option value="">Select Project Scope</option>
-                <option value="WordPress Custom Build">WordPress Custom Build (No Bloat)</option>
-                <option value="E-Commerce Store">E-Commerce Store (Shopify/Woo)</option>
-                <option value="Custom Web App">Custom Web App (React/Next/PHP)</option>
-                <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
-                <option value="High-Converting Landing Page">High-Converting Landing Page</option>
-                <option value="UI/UX & Frontend Architecture">UI/UX & Frontend Architecture</option>
-                <option value="Startup/SME MVP Architecture">Startup / SME MVP Architecture</option>
+            <div class="form-group">
+              <label for="popupProject">Service Needed *</label>
+              <select id="popupProject" class="form-select" required>
+                <option value="">Select Project Scope...</option>
+                <option value="WordPress Custom Build">WordPress Custom Build (Clean Code &amp; Fast)</option>
+                <option value="E-Commerce Store">E-Commerce Store (Shopify / WooCommerce)</option>
+                <option value="Custom Web App">Custom Web App (React / Next.js / PHP)</option>
+                <option value="Website Redesign & Speed">Website Redesign &amp; Speed Optimization</option>
+                <option value="High-Converting Landing Page">High-Converting Landing Page &amp; Funnels</option>
+                <option value="UI/UX & Frontend Architecture">UI/UX &amp; Frontend Architecture</option>
+                <option value="Startup/SME MVP Architecture">Startup / SME MVP Sprint</option>
               </select>
             </div>
 
-            <button type="submit" class="btn-popup-submit" id="popupSubmitBtn" style="padding: 0.55rem 0.85rem !important; height: 38px !important; font-size: 0.84rem !important; font-weight: 800 !important; border-radius: 9px !important; margin-top: 0.2rem !important;">
+            <button type="submit" class="btn-popup-submit" id="popupSubmitBtn">
               <span>Get Free Discovery Call →</span>
             </button>
-            <p class="popup-footer-note" style="font-size: 0.65rem !important; color: #64748B !important; text-align: center !important; margin: 0.25rem 0 0 0 !important;">🔒 100% Confidential • Direct response in &lt; 4 hours</p>
+            <div class="modal-trust-strip">
+              <span>🔒 100% Strict NDA</span>
+              <span>•</span>
+              <span>⚡ Direct Response &lt; 4 Hours</span>
+              <span>•</span>
+              <span>⭐ 1,700+ Delivered</span>
+            </div>
           </form>
 
           <div class="popup-success-banner" id="popupSuccessBanner" style="display: none;">
-            <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🎉</div>
-            <h4 style="font-size: 1.15rem; font-weight: 800; color: #065F46; margin-bottom: 0.25rem;">Request Received!</h4>
-            <p style="font-size: 0.82rem; color: #047857; line-height: 1.4; margin-bottom: 0.75rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Request Received!</h4>
+            <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
               Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
             </p>
-            <button type="button" class="btn-primary" id="popupSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.6rem 1rem; font-size: 0.85rem;">
+            <button type="button" class="btn-primary" id="popupSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
               Continue Browsing
             </button>
           </div>

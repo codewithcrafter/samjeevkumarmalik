@@ -495,28 +495,76 @@ if ($pdo) {
   </footer>
 
   
-    <!-- Interactive Booking Modal (Ultra-Compact Antigravity Light) -->
-    <div id="bookingModal" class="booking-modal-overlay" aria-hidden="true" role="dialog">
+    <!-- Interactive Booking Modal (Ultra-Spacious Antigravity Light) -->
+  <div id="bookingModal" class="booking-modal-overlay" aria-hidden="true" role="dialog">
     <div class="booking-modal-card">
       <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal">&times;</button>
       
       <div class="modal-header">
-        <span class="modal-badge">🟢 Direct Founder Access</span>
-        <h3 class="modal-title">Book Founder Session</h3>
-        <p class="modal-subtitle">Speak directly with Sanjeev Kumar Malik (15+ Years). Zero sales layers.</p>
+        <span class="modal-badge">
+          <span class="live-radar-dot"></span>
+          <span>Direct Founder Access • 15+ Yrs Experience</span>
+        </span>
+        <h3 class="modal-title">Plan Your Project With Sanjeev</h3>
+        <p class="modal-subtitle">Direct architectural roadmap, tech stack evaluation, and fixed sprint proposal — zero sales reps.</p>
       </div>
 
       <form class="modal-form" id="founderBookingForm">
         <div class="form-row">
           <div class="form-group">
             <label for="modalName">Your Name *</label>
-            <input type="text" id="modalName" required placeholder="e.g. Rohit" class="form-input">
+            <input type="text" id="modalName" required placeholder="e.g. Rohit Sharma" class="form-input">
           </div>
           <div class="form-group">
             <label for="modalPhone">Phone / WhatsApp *</label>
             <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalEmail">Work Email *</label>
+            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="modalService">Primary Service Needed *</label>
+            <select id="modalService" required class="form-select">
+              <option value="">Select Service Scope...</option>
+              <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
+              <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
+              <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
+              <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+              <option value="Landing Page CRO">Landing Page CRO & Paid Funnels</option>
+              <option value="UI/UX Design Services">UI/UX Design Services & Frontend</option>
+              <option value="Startups & SMEs">Startups & SMEs MVP Sprint</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
+          <span>Confirm Architecture Session →</span>
+        </button>
+        <div class="modal-trust-strip">
+          <span>🔒 Strict Mutual NDA</span>
+          <span>•</span>
+          <span>⚡ Response &lt; 4 Hours</span>
+          <span>•</span>
+          <span>⭐ 1,700+ Delivered</span>
+        </div>
+      </form>
+
+      <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+        <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Session Requested!</h4>
+        <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+          Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
+        </p>
+        <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
+          Back to Website
+        </button>
+      </div>
+    </div>
+  </div>
 
         <div class="form-row">
           <div class="form-group">

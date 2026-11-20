@@ -368,40 +368,78 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
           <article class="blog-article-content" id="articleBodyContainer">
             
             <header class="article-hero-header">
-              <span class="blog-category-tag"><?= htmlspecialchars($category) ?></span>
-              <h1 class="article-title"><?= htmlspecialchars($title) ?></h1>
-              
-              <div class="article-meta-strip">
-                <div class="article-author-badge">
+              <!-- Category & Badges Bar -->
+              <div class="article-header-badges">
+                <span class="blog-category-tag"><?= htmlspecialchars($category) ?></span>
+                <span class="header-badge-sep">•</span>
+                <span class="article-read-badge">⏱️ <?= (int)$readTime ?> min read</span>
+                <span class="header-badge-sep">•</span>
+                <span class="article-date-badge">📅 <?= htmlspecialchars($publishDateFormatted) ?></span>
+              </div>
+
+              <h1 class="article-main-title"><?= htmlspecialchars($title) ?></h1>
+
+              <?php if (!empty($blog['short_excerpt'])): ?>
+                <p class="article-lead-excerpt"><?= htmlspecialchars($blog['short_excerpt']) ?></p>
+              <?php endif; ?>
+
+              <!-- Author & Social Share Meta Strip -->
+              <div class="article-author-meta-bar">
+                <div class="author-profile-pill">
                   <div class="author-avatar-chip">S</div>
-                  <div>
-                    <span class="author-name"><?= htmlspecialchars($author) ?></span>
-                    <span class="author-role">Principal Web Architect</span>
+                  <div class="author-details">
+                    <div class="author-name-row">
+                      <span class="author-name"><?= htmlspecialchars($author) ?></span>
+                      <span class="author-verified-badge" title="Verified Web Architect">✓</span>
+                    </div>
+                    <span class="author-role-sub">Principal Web Architect • Delhi NCR &amp; Global</span>
                   </div>
                 </div>
-                <div class="article-date-read">
-                  <span>📅 <?= htmlspecialchars($publishDateFormatted) ?></span>
-                  <span>•</span>
-                  <span>⏱️ <?= (int)$readTime ?> min read</span>
+
+                <!-- Social Sharing Controls -->
+                <div class="article-share-group">
+                  <span class="share-label">Share:</span>
+                  <a href="https://twitter.com/intent/tweet?url=<?= urlencode($canonicalUrl) ?>&amp;text=<?= urlencode($title) ?>" target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="Share on X / Twitter">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= urlencode($canonicalUrl) ?>" target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="Share on LinkedIn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0-.01-3.28 1.64 1.64 0 0 0 .01 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+                  </a>
+                  <button type="button" class="share-icon-btn copy-link-btn" title="Copy Article URL" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  </button>
                 </div>
               </div>
             </header>
 
             <!-- Featured Image -->
-            <div class="article-featured-image-box" style="margin: 2rem 0; border-radius: 1.5rem; overflow: hidden; border: 1px solid var(--border-card);">
-              <img src="<?= htmlspecialchars($featuredImg) ?>" alt="<?= htmlspecialchars($featuredImgAlt) ?>" class="article-featured-image" style="width: 100%; height: auto; display: block;" onerror="this.src='/assets/images/Web-Development.webp'">
+            <div class="article-featured-image-box">
+              <img src="<?= htmlspecialchars($featuredImg) ?>" alt="<?= htmlspecialchars($featuredImgAlt) ?>" class="article-featured-image" onerror="this.src='/assets/images/Web-Development.webp'">
             </div>
 
-            <!-- Body Content -->
-            <div class="article-prose-content">
+            <!-- Body Content with Prose Styling -->
+            <div class="article-prose article-prose-content" id="articleBody">
               <?= $bodyHtml ?>
+            </div>
+
+            <!-- Prominent Article Tags Section (Visible directly on page) -->
+            <div class="article-tags-bottom-bar">
+              <div class="tags-bar-header">
+                <span class="tags-icon">🏷️</span>
+                <strong>Article Topics &amp; Core Architecture Tags:</strong>
+              </div>
+              <div class="article-tags-cloud">
+                <?php foreach ($tagsList as $tag): ?>
+                  <a href="/blogs" class="article-tag">#<?= htmlspecialchars(ltrim($tag, '#')) ?></a>
+                <?php endforeach; ?>
+              </div>
             </div>
 
             <!-- Dynamic FAQs Accordion if configured in Admin -->
             <?php if (!empty($faqs)): ?>
-              <section class="article-faq-section" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-card);">
+              <section class="article-faq-section" style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-card);">
                 <div class="section-eyebrow" style="margin-bottom: 0.5rem;">Article FAQs</div>
-                <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+                <h2 style="font-size: 1.75rem; font-weight: 850; color: var(--text-primary); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
                 
                 <div class="faq-accordion-container" style="max-width: 100%;">
                   <?php foreach ($faqs as $fIndex => $faq): ?>
@@ -421,15 +459,26 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
               </section>
             <?php endif; ?>
 
-            <!-- Author Bio & Founder Direct Card -->
-            <div class="article-author-footer-card" style="margin-top: 4rem; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 1.5rem; padding: 2rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-              <div class="author-avatar-large" style="width: 72px; height: 72px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-size: 2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">S</div>
-              <div style="flex: 1; min-width: 240px;">
-                <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem;"><?= htmlspecialchars($author) ?></h3>
-                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin: 0 0 0.75rem;">
-                  15+ years engineering high-concurrency web applications, enterprise headless WordPress systems, and conversion-optimized e-commerce stores across Delhi NCR and globally.
-                </p>
-                <a href="/contact-us" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.82rem;">Consult Directly with Sanjeev →</a>
+            <!-- Author Bio & Founder Direct Partnership Card -->
+            <div class="article-founder-card">
+              <div class="founder-card-inner">
+                <div class="author-avatar-large">S</div>
+                <div class="founder-card-content">
+                  <div class="founder-tag-strip">
+                    <span class="verified-founder-pill">✓ Verified Principal Architect</span>
+                    <span class="sprint-avail-pill">⚡ 15+ Yrs Exp • Delhi NCR &amp; Global</span>
+                  </div>
+                  <h3 class="founder-card-name"><?= htmlspecialchars($author) ?></h3>
+                  <p class="founder-card-bio">
+                    Senior full-stack web architect designing high-velocity enterprise WordPress platforms, custom Next.js applications, and conversion-engineered e-commerce stores with sub-0.8s Core Web Vitals.
+                  </p>
+                  <div class="founder-card-actions">
+                    <a href="/contact-us" class="btn-primary open-booking-modal">Schedule Founder Architecture Review →</a>
+                    <a href="https://wa.me/919718604362?text=Hello%20Sanjeev,%20I%20read%20your%20article%20on%20<?= urlencode($title) ?>%20and%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-outline">
+                      <span>Chat on WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -457,15 +506,15 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
               </div>
             <?php endif; ?>
 
-            <!-- Tags Cloud Card -->
-            <div class="toc-card">
-              <div class="toc-header">
+            <!-- Tags Cloud Card in Sidebar -->
+            <div class="tags-card">
+              <div class="tags-header">
                 <span>🏷️</span>
                 <span>Topics &amp; Tags</span>
               </div>
-              <div class="tags-cloud">
+              <div class="article-tags-cloud">
                 <?php foreach ($tagsList as $tag): ?>
-                  <span class="tag-pill"><?= htmlspecialchars($tag) ?></span>
+                  <a href="/blogs" class="article-tag">#<?= htmlspecialchars(ltrim($tag, '#')) ?></a>
                 <?php endforeach; ?>
               </div>
             </div>
@@ -476,21 +525,21 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
                 <span>⚡</span>
                 <span>Get Expert Advisory</span>
               </div>
-              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
+              <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
                 Discuss your project directly with Sanjeev Kumar Malik — Senior Full-Stack Architect.
               </p>
               
               <form class="service-form blog-sidebar-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'text-align:center; padding:1.5rem 0.5rem; color:#065F46;\'><h4>🎉 Request Sent!</h4><p style=\'font-size:0.85rem; margin-top:0.35rem;\'>Sanjeev will connect within 4 hours.</p></div>';">
                 <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="text" class="form-input" style="padding: 0.65rem 0.85rem; font-size: 0.825rem;" placeholder="Your Name *" required>
+                  <input type="text" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Your Name *" required>
                 </div>
                 <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="tel" class="form-input" style="padding: 0.65rem 0.85rem; font-size: 0.825rem;" placeholder="Phone / WhatsApp *" required>
+                  <input type="tel" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Phone / WhatsApp *" required>
                 </div>
                 <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="email" class="form-input" style="padding: 0.65rem 0.85rem; font-size: 0.825rem;" placeholder="Email Address *" required>
+                  <input type="email" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Email Address *" required>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.875rem; padding: 0.7rem 1rem;">
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 12px; height: 46px;">
                   Claim Advisory Call →
                 </button>
               </form>
@@ -584,28 +633,76 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
     </div>
   </footer>
 
-  <!-- Interactive Booking Modal (Ultra-Compact Antigravity Light) -->
+  <!-- Interactive Booking Modal (Ultra-Spacious Antigravity Light) -->
   <div id="bookingModal" class="booking-modal-overlay" aria-hidden="true" role="dialog">
     <div class="booking-modal-card">
       <button id="closeBookingModal" class="modal-close-btn" aria-label="Close modal">&times;</button>
       
       <div class="modal-header">
-        <span class="modal-badge">🟢 Direct Founder Access</span>
-        <h3 class="modal-title">Book Founder Session</h3>
-        <p class="modal-subtitle">Speak directly with Sanjeev Kumar Malik (15+ Years). Zero sales layers.</p>
+        <span class="modal-badge">
+          <span class="live-radar-dot"></span>
+          <span>Direct Founder Access • 15+ Yrs Experience</span>
+        </span>
+        <h3 class="modal-title">Plan Your Project With Sanjeev</h3>
+        <p class="modal-subtitle">Direct architectural roadmap, tech stack evaluation, and fixed sprint proposal — zero sales reps.</p>
       </div>
 
       <form class="modal-form" id="founderBookingForm">
         <div class="form-row">
           <div class="form-group">
             <label for="modalName">Your Name *</label>
-            <input type="text" id="modalName" required placeholder="e.g. Rohit" class="form-input">
+            <input type="text" id="modalName" required placeholder="e.g. Rohit Sharma" class="form-input">
           </div>
           <div class="form-group">
             <label for="modalPhone">Phone / WhatsApp *</label>
             <input type="tel" id="modalPhone" required placeholder="+91 98765 43210" class="form-input">
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalEmail">Work Email *</label>
+            <input type="email" id="modalEmail" required placeholder="name@company.com" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="modalService">Primary Service Needed *</label>
+            <select id="modalService" required class="form-select">
+              <option value="">Select Service Scope...</option>
+              <option value="WordPress Development">WordPress Development (Custom / Headless)</option>
+              <option value="E-Commerce Development">E-Commerce Websites (Shopify / WooCommerce)</option>
+              <option value="Custom Web Applications">Custom Web Applications (React / Next.js / PHP)</option>
+              <option value="Website Redesign & Speed">Website Redesign & Speed Optimization</option>
+              <option value="Landing Page CRO">Landing Page CRO & Paid Funnels</option>
+              <option value="UI/UX Design Services">UI/UX Design Services & Frontend</option>
+              <option value="Startups & SMEs">Startups & SMEs MVP Sprint</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-modal" id="modalSubmitBtn">
+          <span>Confirm Architecture Session →</span>
+        </button>
+        <div class="modal-trust-strip">
+          <span>🔒 Strict Mutual NDA</span>
+          <span>•</span>
+          <span>⚡ Response &lt; 4 Hours</span>
+          <span>•</span>
+          <span>⭐ 1,700+ Delivered</span>
+        </div>
+      </form>
+
+      <div class="popup-success-banner" id="bookingSuccessBanner" style="display: none;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎉</div>
+        <h4 style="font-size: 1.25rem; font-weight: 800; color: #065F46; margin-bottom: 0.35rem;">Session Requested!</h4>
+        <p style="font-size: 0.9rem; color: #047857; line-height: 1.5; margin-bottom: 1rem;">
+          Thank you! Sanjeev Kumar Malik will personally inspect your requirements and connect via WhatsApp/Phone within 4 hours.
+        </p>
+        <button type="button" class="btn-primary" id="bookingSuccessCloseBtn" style="width: 100%; justify-content: center; padding: 0.75rem 1.25rem; font-size: 0.92rem;">
+          Back to Website
+        </button>
+      </div>
+    </div>
+  </div>
 
         <div class="form-row">
           <div class="form-group">
