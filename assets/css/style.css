@@ -4522,44 +4522,57 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   16. BLOG ARTICLE READER VIEW (STICKY RIGHT TOC & TAGS SIDEBAR)
+   16. BLOG ARTICLE READER VIEW (INTEGRATED TOC & ADVISORY FORM)
    ========================================================================== */
 .blog-article-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 2.75rem;
-  align-items: flex-start;
-  margin: 2rem auto 0;
+  display: block;
   width: 100%;
-  max-width: 1260px;
+  max-width: 1060px;
+  margin: 2rem auto 0;
   box-sizing: border-box;
 }
 
 .blog-article-content {
-  grid-column: 1;
-  order: 1;
+  width: 100%;
+  max-width: 100%;
   background: #FFFFFF;
   border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 24px;
   padding: 3.5rem 3.75rem;
   box-shadow: 0 12px 40px -10px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
 }
 
 .blog-sidebar-sticky {
-  grid-column: 2;
-  order: 2;
-  position: sticky;
-  top: 95px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
-  overflow-x: hidden;
+  display: none !important;
+}
+
+/* In-Article TOC & Advisory Form Strip Directly Below Featured Image */
+.article-toc-form-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  margin: 2.25rem 0 3rem 0;
   width: 100%;
-  max-width: 320px;
   box-sizing: border-box;
-  padding-right: 4px;
+  align-items: stretch;
+}
+
+.article-toc-form-container .toc-card,
+.article-toc-form-container .blog-form-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .article-toc-form-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin: 1.75rem 0 2.25rem 0 !important;
+  }
 }
 
 /* Custom Scrollbar for TOC Sidebar */

@@ -44,7 +44,7 @@ if (!$blog) {
     <head>
       <meta charset="UTF-8">
       <title>Article Not Found — Sanjeev Kumar Malik</title>
-      <link rel="stylesheet" href="/assets/css/style.css?v=6.3">
+      <link rel="stylesheet" href="/assets/css/style.css?v=6.4">
     </head>
     <body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #F8FAFC;">
       <div style="max-width: 500px; padding: 2rem;">
@@ -120,7 +120,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=6.3">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6.4">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -426,6 +426,63 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
               <img src="<?= htmlspecialchars($featuredImg) ?>" alt="<?= htmlspecialchars($featuredImgAlt) ?>" class="article-featured-image" onerror="this.src='/assets/images/Web-Development.webp'">
             </div>
 
+            <!-- Table of Contents & Consultation Form (Directly Below Image) -->
+            <div class="article-toc-form-container">
+              <?php if (!empty($toc)): ?>
+                <div class="toc-card">
+                  <div class="toc-header">
+                    <span>🧭</span>
+                    <span>Table of Contents</span>
+                  </div>
+                  <ul class="toc-list">
+                    <?php foreach ($toc as $tIndex => $t): ?>
+                      <li class="toc-item">
+                        <a href="#<?= htmlspecialchars($t['id']) ?>" class="toc-link <?= $tIndex === 0 ? 'active' : '' ?>">
+                          <?= htmlspecialchars($t['title']) ?>
+                        </a>
+                      </li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+              <?php endif; ?>
+
+              <div class="blog-form-card">
+                <div class="toc-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
+                  <span>⚡</span>
+                  <span>Get Expert Advisory</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
+                  Discuss your project directly with Sanjeev Kumar Malik — Senior Full-Stack Architect.
+                </p>
+                <form class="service-form blog-sidebar-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'text-align:center; padding:1.5rem 0.5rem; color:#065F46;\'><h4>🎉 Request Sent!</h4><p style=\'font-size:0.85rem; margin-top:0.35rem;\'>Sanjeev will connect within 4 hours.</p></div>';">
+                  <div class="form-group" style="margin-bottom: 0.75rem;">
+                    <input type="text" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Your Name *" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0.75rem;">
+                    <input type="email" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Work Email *" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0.75rem;">
+                    <input type="tel" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Phone / WhatsApp *" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0.75rem;">
+                    <select class="form-select" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;">
+                      <option value="">Service Needed (Optional)...</option>
+                      <option value="WordPress Development">WordPress Development</option>
+                      <option value="E-Commerce Development">E-Commerce Store</option>
+                      <option value="Custom Web Applications">Custom Web Applications</option>
+                      <option value="Website Redesign & Speed">Website Redesign & Speed</option>
+                      <option value="Landing Page CRO">Landing Page CRO</option>
+                      <option value="UI/UX Design Services">UI/UX Design Services</option>
+                      <option value="Startups & SMEs">Startups & SMEs</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 12px; height: 46px;">
+                    Claim Advisory Call →
+                  </button>
+                </form>
+              </div>
+            </div>
+
             <!-- Body Content with Prose Styling -->
             <div class="article-prose article-prose-content" id="articleBody">
               <?= $bodyHtml ?>
@@ -479,68 +536,6 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
             </div>
 
           </article>
-
-          <!-- RIGHT COLUMN: Sticky Sidebar -->
-          <aside class="blog-sidebar-sticky" aria-label="Article Outline and Tags">
-            
-            <!-- Table of Contents Card -->
-            <?php if (!empty($toc)): ?>
-              <div class="toc-card">
-                <div class="toc-header">
-                  <span>🧭</span>
-                  <span>Table of Contents</span>
-                </div>
-                <ul class="toc-list">
-                  <?php foreach ($toc as $tIndex => $t): ?>
-                    <li class="toc-item">
-                      <a href="#<?= htmlspecialchars($t['id']) ?>" class="toc-link <?= $tIndex === 0 ? 'active' : '' ?>">
-                        <?= htmlspecialchars($t['title']) ?>
-                      </a>
-                    </li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
-            <?php endif; ?>
-
-            <!-- Quick Architecture Consultation Form -->
-            <div class="blog-form-card">
-              <div class="toc-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
-                <span>⚡</span>
-                <span>Get Expert Advisory</span>
-              </div>
-              <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem;">
-                Discuss your project directly with Sanjeev Kumar Malik — Senior Full-Stack Architect.
-              </p>
-              
-                            <form class="service-form blog-sidebar-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'text-align:center; padding:1.5rem 0.5rem; color:#065F46;\'><h4>🎉 Request Sent!</h4><p style=\'font-size:0.85rem; margin-top:0.35rem;\'>Sanjeev will connect within 4 hours.</p></div>';">
-                <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="text" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Your Name *" required>
-                </div>
-                <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="email" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Work Email *" required>
-                </div>
-                <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <input type="tel" class="form-input" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;" placeholder="Phone / WhatsApp *" required>
-                </div>
-                <div class="form-group" style="margin-bottom: 0.75rem;">
-                  <select class="form-select" style="padding: 0.7rem 0.85rem; font-size: 0.85rem; height: 44px; border-radius: 10px;">
-                    <option value="">Service Needed (Optional)...</option>
-                    <option value="WordPress Development">WordPress Development</option>
-                    <option value="E-Commerce Development">E-Commerce Store</option>
-                    <option value="Custom Web Applications">Custom Web Applications</option>
-                    <option value="Website Redesign & Speed">Website Redesign & Speed</option>
-                    <option value="Landing Page CRO">Landing Page CRO</option>
-                    <option value="UI/UX Design Services">UI/UX Design Services</option>
-                    <option value="Startups & SMEs">Startups & SMEs</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 12px; height: 46px;">
-                  Claim Advisory Call →
-                </button>
-              </form>
-            </div>
-
-          </aside>
 
         </div>
 
@@ -721,7 +716,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
   </div>
 
 
-  <script src="/assets/js/app.js?v=6.3"></script>
+  <script src="/assets/js/app.js?v=6.4"></script>
 </body>
 </html>
 

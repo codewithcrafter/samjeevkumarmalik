@@ -1,44 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 
-function getHtmlFiles(dir) {
+function getFiles(dir) {
   let results = [];
   const list = fs.readdirSync(dir);
   list.forEach(file => {
     const full = path.join(dir, file);
     const stat = fs.statSync(full);
     if (stat.isDirectory()) {
-      if (!['node_modules', '.git', '.gemini', 'brain', 'scripts'].includes(file)) {
-        results = results.concat(getHtmlFiles(full));
+      if (!['node_modules', '.git', '.gemini', 'brain'].includes(file)) {
+        results = results.concat(getFiles(full));
       }
-    } else if (file.endsWith('.html')) {
+    } else if (file.endsWith('.html') || file.endsWith('.php')) {
       results.push(full);
     }
   });
   return results;
 }
 
-const htmlFiles = getHtmlFiles('.');
+const files = getFiles('.');
 let updated = 0;
 
-htmlFiles.forEach(f => {
+files.forEach(f => {
   let content = fs.readFileSync(f, 'utf8');
-  let changed = false;
+  let newContent = content.replace(/style\.css\?v=[0-9.]+/g, 'style.css?v=6.4');
+  newContent = newContent.replace(/main\.js\?v=[0-9.]+/g, 'main.js?v=6.4');
+  newContent = newContent.replace(/app\.js\?v=[0-9.]+/g, 'app.js?v=6.4');
 
-  if (content.includes('style.css?v=4.0')) {
-    content = content.split('style.css?v=4.0').join('style.css?v=4.1');
-    changed = true;
-  }
-  if (content.includes('app.js?v=4.0')) {
-    content = content.split('app.js?v=4.0').join('app.js?v=4.1');
-    changed = true;
-  }
-
-  if (changed) {
-    fs.writeFileSync(f, content);
+  if (newContent !== content) {
+    fs.writeFileSync(f, newContent, 'utf8');
     updated++;
   }
 });
 
-console.log(`Bumped cache version to v=4.1 across ${updated} HTML files.`);
-
+console.log(`Bumped cache version to v=6.4 across ${updated} files.`);
