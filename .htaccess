@@ -13,7 +13,11 @@
   RewriteCond %{HTTP_HOST} ^sanjeevkumarmalik\.in$ [NC]
   RewriteRule ^(.*)$ https://www.sanjeevkumarmalik.in/$1 [R=301,L]
 
-  # 1. Admin Portal Clean URLs
+  # 1. Directly serve any real existing file on disk (css, js, images, txt, xml, md, html, php)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # 2. Admin Portal Clean URLs
   RewriteRule ^admin/?$ admin/index.php [NC,L]
   RewriteRule ^admin/login/?$ admin/login.php [NC,L]
   RewriteRule ^admin/logout/?$ admin/logout.php [NC,L]
@@ -21,24 +25,24 @@
   RewriteRule ^admin/edit-blog/?$ admin/edit-blog.php [NC,QSA,L]
   RewriteRule ^admin/delete-blog/?$ admin/delete-blog.php [NC,QSA,L]
 
-  # 2. Dynamic Blogs Listing & Single Articles (Must precede -d check to ensure dynamic DB-driven blogs)
+  # 3. Dynamic Blogs Listing & Single Articles (Exclude existing files so .md is never rewritten)
   RewriteRule ^blogs/?$ blogs.php [NC,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^blogs/([^/]+)/?$ blog.php?slug=$1 [NC,QSA,L]
 
-  # 3. Directly serve existing files and directories (CSS, JS, images, txt, xml, md)
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  # 4. Directly serve existing directories
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # 4. Clean URLs for .php files
+  # 5. Clean URLs for .php files
   RewriteCond %{REQUEST_FILENAME}.php -f
   RewriteRule ^([^/]+)/?$ $1.php [NC,L]
 
-  # 5. Clean URLs for .html files (e.g. /about-sanjeev-kumar-malik, /contact-us, /services)
+  # 6. Clean URLs for .html files (e.g. /about-sanjeev-kumar-malik, /contact-us, /services)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^([^/]+)/?$ $1.html [NC,L]
 
-  # 6. Clean URLs for multi-segment routes (e.g. /services/wordpress-web-development)
+  # 7. Clean URLs for multi-segment routes (e.g. /services/wordpress-web-development)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [NC,L]
 
@@ -49,6 +53,7 @@
 # MIME Types for AI / Text / Markdown Discoverability
 <IfModule mod_mime.c>
   AddType text/plain .txt
+  AddType text/plain .md
   AddType text/markdown .md
 </IfModule>
 

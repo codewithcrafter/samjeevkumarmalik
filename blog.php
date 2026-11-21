@@ -17,6 +17,32 @@ if (empty($slug)) {
     }
 }
 
+// 1. Direct Markdown (.md) request handling
+$isMarkdownRequest = false;
+if (!empty($slug) && preg_match('/\.md$/i', $slug)) {
+    $isMarkdownRequest = true;
+    $rawFileName = basename($slug);
+
+    // If static .md file exists in blogs/
+    if (file_exists(__DIR__ . "/blogs/" . $rawFileName)) {
+        header('Content-Type: text/plain; charset=utf-8');
+        header('Access-Control-Allow-Origin: *');
+        readfile(__DIR__ . "/blogs/" . $rawFileName);
+        exit;
+    }
+
+    // If static .md file exists in docs/blogs/
+    if (file_exists(__DIR__ . "/docs/blogs/" . $rawFileName)) {
+        header('Content-Type: text/plain; charset=utf-8');
+        header('Access-Control-Allow-Origin: *');
+        readfile(__DIR__ . "/docs/blogs/" . $rawFileName);
+        exit;
+    }
+
+    // Strip .md extension for DB query
+    $slug = preg_replace('/\.md$/i', '', $slug);
+}
+
 $blog = null;
 if (!empty($slug) && $pdo) {
     $stmt = $pdo->prepare("SELECT * FROM blogs WHERE slug = ? LIMIT 1");
@@ -26,13 +52,44 @@ if (!empty($slug) && $pdo) {
     if ($blog) {
         // Increment views count asynchronously
         $pdo->prepare("UPDATE blogs SET views_count = views_count + 1 WHERE id = ?")->execute([$blog['id']]);
+
+        // If markdown was requested, output dynamic markdown
+        if ($isMarkdownRequest) {
+            header('Content-Type: text/plain; charset=utf-8');
+            header('Access-Control-Allow-Origin: *');
+            echo "---\n";
+            echo "title: \"" . addcslashes($blog['title'], '"') . "\"\n";
+            echo "description: \"" . addcslashes($blog['short_excerpt'] ?? '', '"') . "\"\n";
+            echo "url: \"https://www.sanjeevkumarmalik.in/blogs/" . $blog['slug'] . "\"\n";
+            echo "category: \"" . ($blog['category_name'] ?? 'Web Engineering') . "\"\n";
+            echo "reading_time: \"" . ($blog['read_time'] ?? 8) . " min read\"\n";
+            echo "publish_date: \"" . date('F Y', strtotime($blog['publish_date'] ?? 'now')) . "\"\n";
+            echo "author: \"" . ($blog['author_name'] ?? 'Sanjeev Kumar Malik') . "\"\n";
+            echo "---\n\n";
+            echo "# " . $blog['title'] . "\n\n";
+            echo $blog['content'];
+            exit;
+        }
     }
 }
 
-// Fallback to static HTML file if DB record not found
-if (!$blog && !empty($slug) && file_exists(__DIR__ . "/blogs/{$slug}.html")) {
-    include __DIR__ . "/blogs/{$slug}.html";
-    exit;
+// Fallback to static HTML or MD file if DB record not found
+$cleanSlug = preg_replace('/(\.html|\.md)$/i', '', $slug);
+if (!$blog && !empty($cleanSlug)) {
+    if ($isMarkdownRequest && file_exists(__DIR__ . "/blogs/{$cleanSlug}.md")) {
+        header('Content-Type: text/plain; charset=utf-8');
+        header('Access-Control-Allow-Origin: *');
+        readfile(__DIR__ . "/blogs/{$cleanSlug}.md");
+        exit;
+    }
+    if (file_exists(__DIR__ . "/blogs/{$cleanSlug}.html")) {
+        include __DIR__ . "/blogs/{$cleanSlug}.html";
+        exit;
+    }
+    if (file_exists(__DIR__ . "/blogs/{$cleanSlug}/index.html")) {
+        include __DIR__ . "/blogs/{$cleanSlug}/index.html";
+        exit;
+    }
 }
 
 // If still not found, render 404
