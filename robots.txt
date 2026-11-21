@@ -1,0 +1,15 @@
+# robots.txt for https://www.sanjeevkumarmalik.in
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /docs/
+
+# Private Administrative & Backend Areas
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /scripts/
+Disallow: /config/
+Disallow: /*.sql$
+
+# Production Sitemap
+Sitemap: https://www.sanjeevkumarmalik.in/sitemap.xml

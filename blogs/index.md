@@ -1,7 +1,7 @@
 ---
 title: "Technical Web Engineering Blogs &amp; Insights — Sanjeev Kumar Malik"
 description: "In-depth technical guides, WordPress engineering, UI/UX design patterns, Core Web Vitals, and e-commerce optimization authored for founders and technical teams."
-url: "https://sanjeevkumarmalik.in/blogs/index"
+url: "https://www.sanjeevkumarmalik.in/blogs/index"
 category: "UI/UX Design"
 reading_time: "10 min read"
 publish_date: "July 2026"
@@ -21,4 +21,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/index](https://sanjeevkumarmalik.in/blogs/index)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/index](https://www.sanjeevkumarmalik.in/blogs/index)

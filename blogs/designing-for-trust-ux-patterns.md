@@ -1,7 +1,7 @@
 ---
 title: "Designing for Trust: UX Patterns That Make Visitors Comfortable Buying — Sanjeev Kumar Malik"
 description: "How subtle security badges, transparent pricing typography, founder accessibility signals, and friction-free forms directly reduce Indian shopper hesitation."
-url: "https://sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns"
+url: "https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns"
 category: "UI/UX Design"
 reading_time: "8 min read"
 publish_date: "September 2026"
@@ -167,4 +167,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns](https://sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns](https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns)

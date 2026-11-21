@@ -1,7 +1,7 @@
 ---
 title: "Custom WordPress Plugin Development vs Off-the-Shelf Plugins: How to Choose — Sanjeev Kumar Malik"
 description: "Why running 45 third-party plugins guarantees fatal database bloat, and how writing lightweight bespoke PHP plugins ensures security and instant sub-second TTFB."
-url: "https://sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf"
+url: "https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf"
 category: "WordPress Engineering"
 reading_time: "10 min read"
 publish_date: "July 2026"
@@ -176,4 +176,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf](https://sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf](https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf)

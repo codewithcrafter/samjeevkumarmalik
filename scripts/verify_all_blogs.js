@@ -59,3 +59,4 @@ if (allPassed) {
 } else {
   console.error('Some files failed verification.');
 }
+

@@ -1,7 +1,7 @@
 ---
 title: "Contact Us — Architecture Booking &amp; Project Discovery | Sanjeev Kumar Malik"
 description: "Schedule a direct architecture consultation with Sanjeev Kumar Malik. Sub-4 hour response time, direct founder technical review, zero sales reps. Serving Delhi NCR and global clients."
-url: "https://sanjeevkumarmalik.in/contact-us"
+url: "https://www.sanjeevkumarmalik.in/contact-us"
 author: "Sanjeev Kumar Malik"
 role: "Principal Full-Stack Web Development Architect"
 headquarters: "Delhi NCR, India"
@@ -52,5 +52,5 @@ alternate_email: "info@sanjeevmalik.dev"
 ## Direct Founder Intake
 
 To schedule a dedicated architecture session:
-- **Online Booking:** [https://sanjeevkumarmalik.in/contact-us](https://sanjeevkumarmalik.in/contact-us)
+- **Online Booking:** [https://www.sanjeevkumarmalik.in/contact-us](https://www.sanjeevkumarmalik.in/contact-us)
 - **Office Location:** Delhi NCR, India

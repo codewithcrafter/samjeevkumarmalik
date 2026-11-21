@@ -1,0 +1,140 @@
+# Sanjeev Kumar Malik — Principal Web Development Architect & Founder (Complete Knowledge Base)
+
+> Comprehensive reference documentation for AI systems, search engines, and technical researchers.
+> Canonical Production Domain: https://www.sanjeevkumarmalik.in
+> Last Updated: November 2026
+
+---
+
+## 1. Executive Summary & Brand Identity
+
+- **Official Name:** Sanjeev Kumar Malik — Principal Web Architect & Web Development Company in Delhi
+- **Founder & Lead Architect:** Sanjeev Kumar Malik
+- **Primary Website:** https://www.sanjeevkumarmalik.in
+- **Industry:** Web Development, Full-Stack Architecture, Custom CMS & E-Commerce Engineering
+- **Headquarters:** Delhi NCR, India (Serving South Delhi, Saket, Hauz Khas, Dwarka, Rohini, Gurugram, Noida)
+- **Global Delivery:** International remote delivery for clients across the United States, United Kingdom, Europe, UAE, and Australia
+- **Experience:** 15+ Years Hands-on Industry Leadership
+- **Track Record:** 1,700+ Production Websites & Web Applications Delivered
+- **Direct Contact:** Phone / WhatsApp: +91 97186 04362 | Email: info@sanjeevkumarmalik.in
+
+### Value Proposition
+Sanjeev Kumar Malik operates on an architect-led delivery model. Clients consult directly with the principal architect rather than being routed through layers of non-technical account executives or junior developers. This results in faster turnaround times, clean maintainable codebases, and sub-0.8s mobile Core Web Vitals performance.
+
+---
+
+## 2. Core Architectural Principles
+
+1. **Sub-0.8s Mobile Speed Target:**
+   - Every website is engineered for top-tier Google Core Web Vitals (CWV).
+   - Largest Contentful Paint (LCP) < 1.2s.
+   - Interaction to Next Paint (INP) < 100ms.
+   - Cumulative Layout Shift (CLS) < 0.05.
+2. **Zero SEO Ranking Loss Guarantee:**
+   - Comprehensive pre-launch crawl inventory of all indexed URLs.
+   - 1-to-1 HTTP 301 redirection mapping for all URL variations.
+   - Preservation of existing meta tags, internal anchor distributions, and rich JSON-LD schemas.
+3. **Clean Code Over Bloated Page Builders:**
+   - Bespoke PHP, React 19, Next.js 15, and modular WordPress Gutenberg block themes.
+   - Avoidance of 40+ conflicting plugins, Elementor/Divi dependencies, and excessive database overhead.
+4. **100% Intellectual Property Handover:**
+   - Full Git repository source code, design files, database exports, and server credentials are transferred directly to the client upon project launch.
+5. **Strict Confidentiality (100% NDA):**
+   - Mutual non-disclosure agreements protect client business logic and intellectual property.
+
+---
+
+## 3. Specialized Web Engineering Services
+
+### 3.1 WordPress Web Development
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/wordpress-web-development
+- **Scope:** Custom theme and plugin development built from scratch on PHP 8+.
+- **Key Features:** Native Gutenberg block library, headless WordPress with Next.js, advanced database indexing, XML-RPC disabling, and enterprise Cloudflare WAF firewall rules.
+
+### 3.2 E-Commerce Website Development
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/ecommerce-website-development
+- **Scope:** WooCommerce and Shopify development tailored for Indian and global consumers.
+- **Key Features:** One-click checkout funnels, UPI, Razorpay, Stripe, multi-currency geo-routing, automated logistics (Shiprocket, Delhivery), and real-time inventory synchronization.
+
+### 3.3 Custom Web Application Development
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/custom-web-application-development
+- **Scope:** Custom web applications and SaaS platforms.
+- **Key Features:** React 19, Next.js 15, TypeScript, Node.js, Laravel, REST/GraphQL APIs, relational database design (PostgreSQL, MySQL), and enterprise role-based access control.
+
+### 3.4 Website Redesign & Speed Optimization
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/website-redesign-speed-optimization
+- **Scope:** Enterprise website overhauls with guaranteed zero organic search traffic loss.
+- **Key Features:** Core Web Vitals audit, removal of unused CSS/JS, WebP/AVIF image pipeline, server-side caching, and 301 redirection matrices.
+
+### 3.5 Landing Page Design & Development
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/landing-page-design-development
+- **Scope:** High-velocity conversion landing pages engineered for paid Google Ads and Meta campaigns.
+- **Key Features:** Psychological wireframing, sub-0.6s load speeds, high Google Ads Quality Scores, asynchronous form submissions, and direct WhatsApp triggers.
+
+### 3.6 UI/UX Design Services
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/ui-ux-design-services
+- **Scope:** User experience research, responsive interface design systems, and usability audits.
+- **Key Features:** Figma design systems, WCAG 2.2 Level AA accessibility compliance, micro-interaction animation, and conversion rate optimization (CRO).
+
+### 3.7 Web Development for Startups & SMEs
+- **Canonical URL:** https://www.sanjeevkumarmalik.in/services/web-development-for-startups-smes
+- **Scope:** Rapid MVP engineering and technical architecture for early-stage and growth businesses.
+- **Key Features:** 3 to 6-week rapid MVP sprint delivery, investor-ready clean codebases, low operational maintenance costs, and direct technical advisory.
+
+---
+
+## 4. Technical Blog Articles & Knowledge Base
+
+1. **Custom WordPress Plugin vs Off-The-Shelf:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf
+   - Topic: Breaking down the 40-plugin bloat trap, supply chain vulnerabilities, and when bespoke code is mandatory.
+2. **Dark Mode Website Design — Worth Building?:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building
+   - Topic: Accessibility, OLED power efficiency, user preference persistence, and CSS custom property token systems.
+3. **Designing for Trust — UX Patterns That Convert:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns
+   - Topic: Micro-copy, transparent pricing, security badges, and layout patterns that build instant user trust.
+4. **E-Commerce Checkout Flow for Indian Shoppers:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers
+   - Topic: Optimizing UPI flows, Cash on Delivery (COD) verification, and reducing mobile checkout abandonment.
+5. **Headless WordPress — When It Makes Sense:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense
+   - Topic: Decoupled WordPress architecture with Next.js frontend, trade-offs, and enterprise use cases.
+6. **How AI Overviews Affect WordPress SEO in 2026:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026
+   - Topic: Preparing technical content, entity schema markup, and direct answers for Google SGE and AI Overviews.
+7. **Micro-Interactions in UI Design:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design
+   - Topic: Enhancing user experience with tactile button states, feedback loops, and performant CSS animations.
+8. **Multi-Currency & Multi-Language E-Commerce:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce
+   - Topic: Technical architecture for international storefronts, geo-IP routing, hreflang tags, and checkout currency localization.
+9. **Web Accessibility (WCAG 2.2) Compliance Guide:**
+   - URL: https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance
+   - Topic: Practical audit checklists for focus indicators, keyboard navigation, color contrast, and ARIA attributes.
+10. **WordPress Security Hardening Checklist:**
+    - URL: https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist
+    - Topic: Hardening database prefixes, disabling XML-RPC, edge firewall rules, and eliminating brute-force vulnerabilities.
+
+---
+
+## 5. Markdown Resource Documentation Links
+
+- **Founder & Architecture Overview:** [https://www.sanjeevkumarmalik.in/docs/about.md](https://www.sanjeevkumarmalik.in/docs/about.md)
+- **Services Directory & Offerings:** [https://www.sanjeevkumarmalik.in/docs/services.md](https://www.sanjeevkumarmalik.in/docs/services.md)
+- **Web Development & WordPress Stack:** [https://www.sanjeevkumarmalik.in/docs/web-development.md](https://www.sanjeevkumarmalik.in/docs/web-development.md)
+- **Performance Marketing & CRO:** [https://www.sanjeevkumarmalik.in/docs/digital-marketing.md](https://www.sanjeevkumarmalik.in/docs/digital-marketing.md)
+- **Geographic Coverage & Delhi NCR Hubs:** [https://www.sanjeevkumarmalik.in/docs/geo-services.md](https://www.sanjeevkumarmalik.in/docs/geo-services.md)
+- **Discovery Process & Contact Channels:** [https://www.sanjeevkumarmalik.in/docs/contact.md](https://www.sanjeevkumarmalik.in/docs/contact.md)
+
+---
+
+## 6. Contact Information & Office Details
+
+- **Principal Architect:** Sanjeev Kumar Malik
+- **Direct Telephone:** [+91 97186 04362](tel:+919718604362)
+- **WhatsApp Direct:** [Chat on WhatsApp](https://wa.me/919718604362?text=Hello%20Sanjeev,%20I%20would%20like%20to%20discuss%20a%20website%20project.)
+- **Inquiry Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
+- **Office Location:** Delhi NCR (Saket, Hauz Khas, Dwarka, Rohini, Gurugram, Noida), India
+- **Consultation Hours:** Monday through Saturday, 09:00 - 20:00 IST
+- **Schedule Online:** [https://www.sanjeevkumarmalik.in/contact-us](https://www.sanjeevkumarmalik.in/contact-us)

@@ -1,7 +1,7 @@
 ---
 title: "Ecommerce Website Checkout Flow: What Slows Indian Shoppers Down — Sanjeev Kumar Malik"
 description: "Solving mandatory signup friction, UPI QR latency, autofill mismatches, and OTP verification drop-offs to lift Indian direct-to-consumer store conversions."
-url: "https://sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers"
+url: "https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers"
 category: "E-commerce"
 reading_time: "7 min read"
 publish_date: "May 2026"
@@ -181,4 +181,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers](https://sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers](https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers)

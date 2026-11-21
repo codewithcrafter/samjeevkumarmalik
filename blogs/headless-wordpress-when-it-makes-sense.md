@@ -1,7 +1,7 @@
 ---
 title: "Headless WordPress: When It Makes Sense and When It Doesn't — Sanjeev Kumar Malik"
 description: "Evaluating Next.js App Router frontends decoupled from WP REST/GraphQL APIs versus high-performance custom PHP themes: when is the added complexity worth it?"
-url: "https://sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense"
+url: "https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense"
 category: "WordPress Engineering"
 reading_time: "11 min read"
 publish_date: "June 2026"
@@ -160,4 +160,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense](https://sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense](https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense)

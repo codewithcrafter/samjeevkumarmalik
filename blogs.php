@@ -16,7 +16,7 @@ if ($pdo) {
   
   <title>Technical Web Engineering Blogs &amp; Insights — Sanjeev Kumar Malik</title>
   <meta name="description" content="In-depth technical guides, WordPress engineering, UI/UX design patterns, Core Web Vitals, and e-commerce optimization authored for founders and technical teams.">
-  <link rel="canonical" href="https://sanjeevkumarmalik.in/blogs">
+  <link rel="canonical" href="https://www.sanjeevkumarmalik.in/blogs">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -34,32 +34,32 @@ if ($pdo) {
   "@graph": [
     {
       "@type": "Blog",
-      "@id": "https://sanjeevkumarmalik.in/blogs#blog",
-      "url": "https://sanjeevkumarmalik.in/blogs",
+      "@id": "https://www.sanjeevkumarmalik.in/blogs#blog",
+      "url": "https://www.sanjeevkumarmalik.in/blogs",
       "name": "Technical Web Engineering Blogs & Insights — Sanjeev Kumar Malik",
       "description": "In-depth technical guides, WordPress engineering, UI/UX design patterns, Core Web Vitals, and e-commerce optimization authored for founders and technical teams.",
       "publisher": {
         "@type": "Person",
-        "@id": "https://sanjeevkumarmalik.in/#person",
+        "@id": "https://www.sanjeevkumarmalik.in/#person",
         "name": "Sanjeev Kumar Malik",
-        "url": "https://sanjeevkumarmalik.in"
+        "url": "https://www.sanjeevkumarmalik.in"
       }
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://sanjeevkumarmalik.in/blogs#breadcrumbs",
+      "@id": "https://www.sanjeevkumarmalik.in/blogs#breadcrumbs",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://sanjeevkumarmalik.in/"
+          "item": "https://www.sanjeevkumarmalik.in/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Technical Blogs",
-          "item": "https://sanjeevkumarmalik.in/blogs"
+          "item": "https://www.sanjeevkumarmalik.in/blogs"
         }
       ]
     }

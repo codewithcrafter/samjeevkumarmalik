@@ -1,7 +1,7 @@
 ---
 title: "E-commerce Website Development Delhi — Shopify, WooCommerce &amp; Custom Stores | Sanjeev Kumar Malik"
 description: "High-conversion E-commerce website development in Delhi NCR by Sanjeev Kumar Malik. Shopify, WooCommerce, and bespoke stores engineered for speed, UPI/Razorpay integration, multi-currency, and checkout friction reduction."
-url: "https://sanjeevkumarmalik.in/services/ecommerce-website-development"
+url: "https://www.sanjeevkumarmalik.in/services/ecommerce-website-development"
 service_name: "Ecommerce Website Development Company - Delhi"
 eyebrow: "E-commerce Website Development Company - Delhi"
 author: "Sanjeev Kumar Malik"
@@ -109,5 +109,5 @@ A full custom storefront—including bespoke design, payment gateway integration
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/ecommerce-website-development](https://sanjeevkumarmalik.in/services/ecommerce-website-development)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/ecommerce-website-development](https://www.sanjeevkumarmalik.in/services/ecommerce-website-development)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

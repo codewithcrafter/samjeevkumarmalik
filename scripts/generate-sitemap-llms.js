@@ -1,21 +1,18 @@
 /**
- * AUTOMATED SITEMAP.XML & LLMS.TXT GENERATOR
- * Scans all HTML files, extracts metadata and last modified timestamps,
- * and regenerates standard-compliant sitemap.xml and llms.txt.
+ * AUTOMATED SITEMAP.XML & LLMS.TXT & LLMS-FULL.TXT GENERATOR
+ * Production Domain: https://www.sanjeevkumarmalik.in
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://sanjeevkumarmalik.in';
+const BASE_URL = 'https://www.sanjeevkumarmalik.in';
 const ROOT_DIR = path.resolve(__dirname, '..');
 
-// Helper to get formatted ISO date (YYYY-MM-DD)
 function formatDate(date) {
   return date.toISOString().split('T')[0];
 }
 
-// Extract tag content via Regex
 function extractMeta(html, tag, attr, attrVal, targetAttr = 'content') {
   const regex = new RegExp(`<${tag}[^>]*${attr}=["']${attrVal}["'][^>]*${targetAttr}=["']([^"']*)["']`, 'i');
   const match = html.match(regex);
@@ -32,7 +29,6 @@ function extractDescription(html) {
          extractMeta(html, 'meta', 'property', 'og:description') || '';
 }
 
-// Scan all HTML files
 function collectHtmlFiles(dir, relativePrefix = '') {
   let results = [];
   const list = fs.readdirSync(dir);
@@ -42,7 +38,7 @@ function collectHtmlFiles(dir, relativePrefix = '') {
     const stat = fs.statSync(fullPath);
 
     if (stat.isDirectory()) {
-      if (file !== 'node_modules' && file !== '.git' && file !== 'scripts' && file !== 'assets') {
+      if (!['node_modules', '.git', 'scripts', 'assets', 'admin', 'includes', 'config'].includes(file)) {
         results = results.concat(collectHtmlFiles(fullPath, path.join(relativePrefix, file)));
       }
     } else if (file.endsWith('.html')) {
@@ -68,11 +64,17 @@ function collectHtmlFiles(dir, relativePrefix = '') {
       } else if (cleanSlug === 'contact-us') {
         priority = '0.95';
         changefreq = 'monthly';
-      } else if (cleanSlug === 'blogs') {
-        priority = '0.85';
+      } else if (cleanSlug === 'services') {
+        priority = '0.9';
         changefreq = 'weekly';
       } else if (cleanSlug.startsWith('services/')) {
         priority = '0.9';
+        changefreq = 'weekly';
+      } else if (cleanSlug === 'blogs') {
+        priority = '0.85';
+        changefreq = 'weekly';
+      } else if (cleanSlug.startsWith('blogs/')) {
+        priority = '0.8';
         changefreq = 'weekly';
       }
 
@@ -98,6 +100,13 @@ function generateSitemap(pages) {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
+  // Sort logically: Home first, then about/contact/services, then service details, blogs, blog articles
+  pages.sort((a, b) => {
+    if (a.url === `${BASE_URL}/`) return -1;
+    if (b.url === `${BASE_URL}/`) return 1;
+    return a.url.localeCompare(b.url);
+  });
+
   pages.forEach(page => {
     xml += `  <url>\n`;
     xml += `    <loc>${page.url}</loc>\n`;
@@ -111,13 +120,13 @@ function generateSitemap(pages) {
 
   const sitemapPath = path.join(ROOT_DIR, 'sitemap.xml');
   fs.writeFileSync(sitemapPath, xml, 'utf8');
-  console.log(`✓ sitemap.xml updated successfully (${pages.length} URLs)`);
+  console.log(`✓ sitemap.xml updated successfully (${pages.length} URLs with ${BASE_URL})`);
 }
 
 function generateLlmsTxt(pages) {
-  const home = pages.find(p => p.relPath === 'index.html') || pages[0];
-  const services = pages.filter(p => p.relPath.startsWith('services/'));
-  const otherPages = pages.filter(p => !p.relPath.startsWith('services/') && p.relPath !== 'index.html');
+  const home = pages.find(p => p.url === `${BASE_URL}/`) || pages[0];
+  const services = pages.filter(p => p.url.includes('/services/'));
+  const blogs = pages.filter(p => p.url.includes('/blogs/'));
 
   let text = `# Sanjeev Kumar Malik — Principal Web Development Architect & Founder\n\n`;
   text += `> Full-Stack Web Development Architect with 15+ years of hands-on experience and 1,700+ delivered websites.\n`;
@@ -133,35 +142,30 @@ function generateLlmsTxt(pages) {
 
   text += `## Primary Service Offerings\n\n`;
   services.forEach(s => {
-    text += `### [${s.title.split('|')[0].trim()}](${s.url})\n`;
-    text += `- **URL:** ${s.url}\n`;
-    text += `- **Summary:** ${s.description}\n`;
-    text += `- **Last Modified:** ${s.lastmod}\n\n`;
+    const cleanName = s.title.split('|')[0].split('—')[0].trim();
+    text += `- [${cleanName}](${s.url}): ${s.description}\n`;
   });
 
-  text += `## Core Company & Navigation Pages\n\n`;
-  text += `### [Home](${home.url})\n`;
-  text += `- **URL:** ${home.url}\n`;
-  text += `- **Summary:** ${home.description}\n\n`;
+  text += `\n## Core Website Pages\n\n`;
+  text += `- [Home](${BASE_URL}/): Official homepage and full-stack web engineering portfolio.\n`;
+  text += `- [About Sanjeev Kumar Malik](${BASE_URL}/about-sanjeev-kumar-malik): Principal architect background, career milestones, and engineering ethos.\n`;
+  text += `- [Services Directory](${BASE_URL}/services): Directory of all 7 specialized engineering hubs.\n`;
+  text += `- [Technical Blogs](${BASE_URL}/blogs): In-depth technical articles on WordPress, performance, UX, and security.\n`;
+  text += `- [Contact Us](${BASE_URL}/contact-us): Direct founder consultation scheduling and inquiry form.\n\n`;
 
-  otherPages.forEach(p => {
-    text += `### [${p.title.split('—')[0].split('|')[0].trim()}](${p.url})\n`;
-    text += `- **URL:** ${p.url}\n`;
-    text += `- **Summary:** ${p.description}\n`;
-    text += `- **Last Modified:** ${p.lastmod}\n\n`;
-  });
-
-  text += `## Technical Competencies\n`;
-  text += `- **Frontend:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Semantic HTML5, ESNext.\n`;
-  text += `- **Backend:** Node.js, Express, PHP 8.x, Laravel, RESTful APIs, GraphQL, Webhooks.\n`;
-  text += `- **CMS & E-Commerce:** Custom WordPress Themes & Plugins, WooCommerce, Shopify Liquid & Headless.\n`;
-  text += `- **DevOps & Cloud:** MySQL, PostgreSQL, MongoDB, Redis, Docker, Vercel, Cloudflare Edge, Linux/Nginx.\n\n`;
+  text += `## Markdown Documentation Resources\n\n`;
+  text += `- [About Overview (Markdown)](${BASE_URL}/docs/about.md): Comprehensive founder profile and technical credentials.\n`;
+  text += `- [Services Guide (Markdown)](${BASE_URL}/docs/services.md): Full breakdown of all seven development service hubs.\n`;
+  text += `- [Web Development Architecture (Markdown)](${BASE_URL}/docs/web-development.md): Bespoke WordPress and custom application guidelines.\n`;
+  text += `- [Digital Marketing & CRO (Markdown)](${BASE_URL}/docs/digital-marketing.md): Performance marketing and landing page conversion principles.\n`;
+  text += `- [Geographic Coverage (Markdown)](${BASE_URL}/docs/geo-services.md): Regional Delhi NCR coverage and global remote delivery.\n`;
+  text += `- [Contact & Discovery (Markdown)](${BASE_URL}/docs/contact.md): Booking workflow and communication options.\n\n`;
 
   text += `## Direct Contact & Discovery\n`;
   text += `- **Phone / WhatsApp:** +91 97186 04362\n`;
   text += `- **Email:** info@sanjeevkumarmalik.in\n`;
-  text += `- **Location:** Delhi NCR (Saket, Hauz Khas, Dwarka, Rohini, Noida, Gurugram)\n`;
-  text += `- **Booking:** [Book Founder Session](https://sanjeevkumarmalik.in/contact-us)\n`;
+  text += `- **Location:** Delhi NCR (Saket, Hauz Khas, Dwarka, Rohini, Noida, Gurugram), India\n`;
+  text += `- **Booking:** [Book Founder Session](${BASE_URL}/contact-us)\n`;
 
   const llmsPath = path.join(ROOT_DIR, 'llms.txt');
   fs.writeFileSync(llmsPath, text, 'utf8');
@@ -191,4 +195,3 @@ function run() {
 run();
 
 module.exports = { run };
-

@@ -1,7 +1,7 @@
 ---
 title: "UI/UX Design Services Delhi — Mobile-First &amp; Accessible Interfaces | Sanjeev Kumar Malik"
 description: "Awwwards-tier UI/UX design services in Delhi NCR by Sanjeev Kumar Malik. Mobile-first wireframes, WCAG 2.2 accessibility, production-ready design systems, and conversion-driven micro-interactions."
-url: "https://sanjeevkumarmalik.in/services/ui-ux-design-services"
+url: "https://www.sanjeevkumarmalik.in/services/ui-ux-design-services"
 service_name: "UI UX Design Services Delhi"
 eyebrow: "AESTHETIC ARCHITECTURE & WCAG 2.2 ACCESSIBILITY"
 author: "Sanjeev Kumar Malik"
@@ -97,5 +97,5 @@ A focused landing page or marketing website UI/UX sprint typically spans 1 to 2 
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/ui-ux-design-services](https://sanjeevkumarmalik.in/services/ui-ux-design-services)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/ui-ux-design-services](https://www.sanjeevkumarmalik.in/services/ui-ux-design-services)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

@@ -1,7 +1,7 @@
 ---
 title: "How AI Overviews Are Affecting WordPress SEO Setup in 2026 — Sanjeev Kumar Malik"
 description: "Structured JSON-LD entity graph schemas, direct question-and-answer semantic formatting, and the DOM cleanliness required for Google Gemini indexing."
-url: "https://sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026"
+url: "https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026"
 category: "WordPress & SEO"
 reading_time: "9 min read"
 publish_date: "August 2026"
@@ -71,7 +71,7 @@ email: "info@sanjeevkumarmalik.in"
 
                       "@type": "Person",
 
-                      "@id": "https://sanjeevkumarmalik.in/#person",
+                      "@id": "https://www.sanjeevkumarmalik.in/#person",
 
                       "name": "Sanjeev Kumar Malik",
 
@@ -85,11 +85,11 @@ email: "info@sanjeevkumarmalik.in"
 
                       "@type": "WebSite",
 
-                      "@id": "https://sanjeevkumarmalik.in/#website",
+                      "@id": "https://www.sanjeevkumarmalik.in/#website",
 
-                      "url": "https://sanjeevkumarmalik.in/",
+                      "url": "https://www.sanjeevkumarmalik.in/",
 
-                      "publisher": { "@id": "https://sanjeevkumarmalik.in/#person" }
+                      "publisher": { "@id": "https://www.sanjeevkumarmalik.in/#person" }
 
                     }
 
@@ -174,4 +174,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026](https://sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026](https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026)

@@ -1,7 +1,7 @@
 ---
 title: "WordPress Web Development Services Delhi — Custom Themes &amp; Plugins | Sanjeev Kumar Malik"
 description: "Custom WordPress website development in Delhi by veteran architect Sanjeev Kumar Malik. Zero bloated templates, bespoke PHP plugins, WooCommerce integration, and sub-0.8s load speed."
-url: "https://sanjeevkumarmalik.in/services/wordpress-web-development"
+url: "https://www.sanjeevkumarmalik.in/services/wordpress-web-development"
 service_name: "WordPress Web Development Services in Delhi"
 eyebrow: "ENTERPRISE CMS & GUTENBERG ARCHITECTURE"
 author: "Sanjeev Kumar Malik"
@@ -85,5 +85,5 @@ A standard custom enterprise WordPress build takes 3 to 4 weeks from initial dis
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/wordpress-web-development](https://sanjeevkumarmalik.in/services/wordpress-web-development)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/wordpress-web-development](https://www.sanjeevkumarmalik.in/services/wordpress-web-development)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

@@ -1,7 +1,7 @@
 ---
 title: "WordPress Security Hardening: A Practical Checklist for Business Websites — Sanjeev Kumar Malik"
 description: "Hardening wp-config, XML-RPC disabling, database prefix obfuscation, REST API authentication, and edge firewall rule sets that stop automated brute force attacks."
-url: "https://sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist"
+url: "https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist"
 category: "WordPress Engineering"
 reading_time: "8 min read"
 publish_date: "July 2026"
@@ -166,4 +166,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist](https://sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist](https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist)

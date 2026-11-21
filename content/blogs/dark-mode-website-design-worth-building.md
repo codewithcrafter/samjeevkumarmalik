@@ -1,7 +1,7 @@
 ---
 title: "Dark Mode Website Design: Is It Actually Worth Building for Your Audience? — Sanjeev Kumar Malik"
 description: "Analyzing user engagement telemetry, battery savings claims, contrast compliance, and when light-first luminous aesthetics actually convert higher for B2B brands."
-url: "https://sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building"
+url: "https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building"
 category: "UI/UX Design"
 reading_time: "6 min read"
 publish_date: "October 2026"
@@ -143,4 +143,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building](https://sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building](https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building)

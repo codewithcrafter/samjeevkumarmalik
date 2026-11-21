@@ -63,7 +63,7 @@ if (!$blog) {
 $title = $blog['title'];
 $seoTitle = !empty($blog['seo_title']) ? $blog['seo_title'] : $title . ' — Sanjeev Kumar Malik';
 $metaDesc = !empty($blog['meta_description']) ? $blog['meta_description'] : $blog['short_excerpt'];
-$canonicalUrl = "https://sanjeevkumarmalik.in/blogs/" . htmlspecialchars($blog['slug']);
+$canonicalUrl = "https://www.sanjeevkumarmalik.in/blogs/" . htmlspecialchars($blog['slug']);
 $category = $blog['category_name'];
 $publishDateFormatted = date('F d, Y', strtotime($blog['publish_date']));
 $monthYearDate = date('M Y', strtotime($blog['publish_date']));

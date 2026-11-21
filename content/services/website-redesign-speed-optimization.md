@@ -1,7 +1,7 @@
 ---
 title: "Website Redesign &amp; Speed Optimization Delhi — Zero SEO Loss | Sanjeev Kumar Malik"
 description: "Website redesign and Core Web Vitals speed optimization in Delhi NCR by Sanjeev Kumar Malik. Guaranteed 301 redirect mapping, zero ranking drop, sub-0.8s mobile load speeds, and modern light UI."
-url: "https://sanjeevkumarmalik.in/services/website-redesign-speed-optimization"
+url: "https://www.sanjeevkumarmalik.in/services/website-redesign-speed-optimization"
 service_name: "Website Redesign Services Delhi"
 eyebrow: "SEO Preservation & Core Web Vitals Rebuild"
 author: "Sanjeev Kumar Malik"
@@ -109,5 +109,5 @@ Yes. Post-launch verification is included in every project. We resubmit your new
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/website-redesign-speed-optimization](https://sanjeevkumarmalik.in/services/website-redesign-speed-optimization)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/website-redesign-speed-optimization](https://www.sanjeevkumarmalik.in/services/website-redesign-speed-optimization)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

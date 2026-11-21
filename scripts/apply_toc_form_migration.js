@@ -121,3 +121,4 @@ slugs.forEach(slug => {
 });
 
 console.log(`\nTotal files updated: ${processedCount} / 20`);
+

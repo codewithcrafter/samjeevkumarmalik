@@ -1,7 +1,7 @@
 ---
 title: "Web Accessibility: What WCAG 2.2 Compliance Actually Means for Your Website — Sanjeev Kumar Malik"
 description: "A straightforward breakdown of focus appearances, target size thresholds, dragging movements, and why legal accessibility compliance is simply good business."
-url: "https://sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance"
+url: "https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance"
 category: "UI/UX Design"
 reading_time: "7 min read"
 publish_date: "August 2026"
@@ -154,4 +154,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance](https://sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance](https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance)

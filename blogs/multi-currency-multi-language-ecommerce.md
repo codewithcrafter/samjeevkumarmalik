@@ -1,7 +1,7 @@
 ---
 title: "Multi-Currency and Multi-Language Ecommerce Websites for Indian Brands — Sanjeev Kumar Malik"
 description: "Architecting geo-IP pricing tables, duty calculation APIs, Stripe foreign exchange flows, and multilingual URL hreflang tags for global retail expansion."
-url: "https://sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce"
+url: "https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce"
 category: "E-commerce"
 reading_time: "9 min read"
 publish_date: "April 2026"
@@ -157,4 +157,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce](https://sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce](https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce)

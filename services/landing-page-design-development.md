@@ -1,7 +1,7 @@
 ---
 title: "Landing Page Design &amp; Development Delhi — Google &amp; Meta Ad Funnels | Sanjeev Kumar Malik"
 description: "High-converting landing page design and development in Delhi NCR by Sanjeev Kumar Malik. Engineered for Google Ads Quality Score, Meta ad funnels, instant CRM lead delivery, and sub-0.8s load speeds."
-url: "https://sanjeevkumarmalik.in/services/landing-page-design-development"
+url: "https://www.sanjeevkumarmalik.in/services/landing-page-design-development"
 service_name: "Landing Page Design Company in Delhi"
 eyebrow: "LANDING PAGE DESIGN COMPANY IN DELHI"
 author: "Sanjeev Kumar Malik"
@@ -109,5 +109,5 @@ No. You pay a one-time development fee for the engineering sprint. You own 100% 
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/landing-page-design-development](https://sanjeevkumarmalik.in/services/landing-page-design-development)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/landing-page-design-development](https://www.sanjeevkumarmalik.in/services/landing-page-design-development)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

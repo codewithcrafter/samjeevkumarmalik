@@ -1,7 +1,7 @@
 ---
 title: "Web Development for Startups &amp; SMEs Delhi — Fast MVPs &amp; Zero Tech Debt | Sanjeev Kumar Malik"
 description: "Agile web development for startups and SMEs in Delhi NCR by Sanjeev Kumar Malik. Rapid 3-4 week MVP launches, scalable codebases with zero technical debt, transparent milestone pricing, and 100% IP transfer."
-url: "https://sanjeevkumarmalik.in/services/web-development-for-startups-smes"
+url: "https://www.sanjeevkumarmalik.in/services/web-development-for-startups-smes"
 service_name: "Web Development for Startups in Delhi"
 eyebrow: "AGILE MVP ENGINEERING & FOUNDER VELOCITY"
 author: "Sanjeev Kumar Malik"
@@ -108,5 +108,5 @@ Yes. Having an experienced 15+ year web architect in your corner gives instituti
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/web-development-for-startups-smes](https://sanjeevkumarmalik.in/services/web-development-for-startups-smes)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/web-development-for-startups-smes](https://www.sanjeevkumarmalik.in/services/web-development-for-startups-smes)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

@@ -1,7 +1,7 @@
 ---
 title: "About Sanjeev Kumar Malik — Founder &amp; Web Development Expert | Delhi NCR"
 description: "Meet Sanjeev Kumar Malik, full-stack web development architect with 15+ years of hands-on experience and 1,700+ websites delivered. Direct founder access, clean code, zero agency telephone games."
-url: "https://sanjeevkumarmalik.in/about-sanjeev-kumar-malik"
+url: "https://www.sanjeevkumarmalik.in/about-sanjeev-kumar-malik"
 author: "Sanjeev Kumar Malik"
 role: "Principal Full-Stack Web Development Architect & Founder"
 experience: "15+ Years (2009 – Present)"
@@ -75,4 +75,4 @@ Book an upfront discovery session with a web development expert in Delhi. No sal
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
 - **Location:** Delhi NCR (Saket, Hauz Khas, Malviya Nagar, Dwarka, Rohini, Gurugram, Noida)
-- **Direct Consultation:** [https://sanjeevkumarmalik.in/contact-us](https://sanjeevkumarmalik.in/contact-us)
+- **Direct Consultation:** [https://www.sanjeevkumarmalik.in/contact-us](https://www.sanjeevkumarmalik.in/contact-us)

@@ -1,7 +1,7 @@
 ---
 title: "Micro-Interactions in UI Design: Small Details That Change User Behavior — Sanjeev Kumar Malik"
 description: "From magnetic button physics to tactile input validations: exploring how 60fps micro-animations guide user intent and dramatically decrease bounce rates."
-url: "https://sanjeevkumarmalik.in/blogs/micro-interactions-ui-design"
+url: "https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design"
 category: "UI/UX Design"
 reading_time: "5 min read"
 publish_date: "September 2026"
@@ -160,4 +160,4 @@ email: "info@sanjeevkumarmalik.in"
 
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Article Link:** [https://sanjeevkumarmalik.in/blogs/micro-interactions-ui-design](https://sanjeevkumarmalik.in/blogs/micro-interactions-ui-design)
+- **Article Link:** [https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design](https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design)

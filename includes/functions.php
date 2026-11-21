@@ -266,10 +266,10 @@ function extractTocFromHtml($html) {
 
 function generateBlogSchemaJson($blog, $faqs = []) {
     $slug = htmlspecialchars($blog['slug'] ?? '');
-    $url = "https://sanjeevkumarmalik.in/blogs/" . $slug;
+    $url = "https://www.sanjeevkumarmalik.in/blogs/" . $slug;
     $datePublished = !empty($blog['publish_date']) ? date('c', strtotime($blog['publish_date'])) : date('c');
     $dateModified = !empty($blog['updated_at']) ? date('c', strtotime($blog['updated_at'])) : $datePublished;
-    $featuredImg = !empty($blog['featured_image']) ? (str_starts_with($blog['featured_image'], 'http') ? $blog['featured_image'] : "https://sanjeevkumarmalik.in" . $blog['featured_image']) : "https://sanjeevkumarmalik.in/assets/images/Web-Development.webp";
+    $featuredImg = !empty($blog['featured_image']) ? (str_starts_with($blog['featured_image'], 'http') ? $blog['featured_image'] : "https://www.sanjeevkumarmalik.in" . $blog['featured_image']) : "https://www.sanjeevkumarmalik.in/assets/images/Web-Development.webp";
 
     $graph = [
         [
@@ -283,19 +283,19 @@ function generateBlogSchemaJson($blog, $faqs = []) {
             "image" => $featuredImg,
             "author" => [
                 "@type" => "Person",
-                "@id" => "https://sanjeevkumarmalik.in/#person",
+                "@id" => "https://www.sanjeevkumarmalik.in/#person",
                 "name" => $blog['author_name'] ?? 'Sanjeev Kumar Malik',
                 "jobTitle" => "Principal Full-Stack Web Development Architect",
-                "url" => "https://sanjeevkumarmalik.in/about-sanjeev-kumar-malik"
+                "url" => "https://www.sanjeevkumarmalik.in/about-sanjeev-kumar-malik"
             ],
             "publisher" => [
                 "@type" => "Organization",
-                "@id" => "https://sanjeevkumarmalik.in/#organization",
+                "@id" => "https://www.sanjeevkumarmalik.in/#organization",
                 "name" => "Sanjeev Kumar Malik — Principal Web Architect",
-                "url" => "https://sanjeevkumarmalik.in",
+                "url" => "https://www.sanjeevkumarmalik.in",
                 "logo" => [
                     "@type" => "ImageObject",
-                    "url" => "https://sanjeevkumarmalik.in/assets/images/Sanjeev-Kumar-Malik.webp"
+                    "url" => "https://www.sanjeevkumarmalik.in/assets/images/Sanjeev-Kumar-Malik.webp"
                 ]
             ],
             "mainEntityOfPage" => [
@@ -311,13 +311,13 @@ function generateBlogSchemaJson($blog, $faqs = []) {
                     "@type" => "ListItem",
                     "position" => 1,
                     "name" => "Home",
-                    "item" => "https://sanjeevkumarmalik.in"
+                    "item" => "https://www.sanjeevkumarmalik.in/"
                 ],
                 [
                     "@type" => "ListItem",
                     "position" => 2,
                     "name" => "Blogs",
-                    "item" => "https://sanjeevkumarmalik.in/blogs"
+                    "item" => "https://www.sanjeevkumarmalik.in/blogs"
                 ],
                 [
                     "@type" => "ListItem",

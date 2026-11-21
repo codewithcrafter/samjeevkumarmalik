@@ -1,7 +1,7 @@
 ---
 title: "Custom Web Application Development Delhi — Laravel, MERN &amp; Next.js | Sanjeev Kumar Malik"
 description: "Custom web application development in Delhi NCR by Sanjeev Kumar Malik. Bespoke client portals, SaaS platforms, booking engines, and internal ERP dashboards built with Laravel, Node.js, and React."
-url: "https://sanjeevkumarmalik.in/services/custom-web-application-development"
+url: "https://www.sanjeevkumarmalik.in/services/custom-web-application-development"
 service_name: "Custom Web Application Development in Delhi"
 eyebrow: "ENTERPRISE SAAS & APPLICATION ARCHITECTURE"
 author: "Sanjeev Kumar Malik"
@@ -109,5 +109,5 @@ A typical custom portal or MVP takes 4 to 8 weeks depending on complexity. We wo
 - **Architect:** Sanjeev Kumar Malik (15+ Years Hands-On Experience, 1,700+ Verified Websites)
 - **Phone / WhatsApp:** [+91 97186 04362](tel:+919718604362)
 - **Email:** [info@sanjeevkumarmalik.in](mailto:info@sanjeevkumarmalik.in)
-- **Web:** [https://sanjeevkumarmalik.in/services/custom-web-application-development](https://sanjeevkumarmalik.in/services/custom-web-application-development)
-- **Direct Booking:** [Schedule Architecture Session](https://sanjeevkumarmalik.in/contact-us)
+- **Web:** [https://www.sanjeevkumarmalik.in/services/custom-web-application-development](https://www.sanjeevkumarmalik.in/services/custom-web-application-development)
+- **Direct Booking:** [Schedule Architecture Session](https://www.sanjeevkumarmalik.in/contact-us)

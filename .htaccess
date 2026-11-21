@@ -9,6 +9,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Production Canonical Non-WWW to WWW Redirect (Active only for live apex domain)
+  RewriteCond %{HTTP_HOST} ^sanjeevkumarmalik\.in$ [NC]
+  RewriteRule ^(.*)$ https://www.sanjeevkumarmalik.in/$1 [R=301,L]
+
   # 1. Admin Portal Clean URLs
   RewriteRule ^admin/?$ admin/index.php [NC,L]
   RewriteRule ^admin/login/?$ admin/login.php [NC,L]
@@ -21,7 +25,7 @@
   RewriteRule ^blogs/?$ blogs.php [NC,L]
   RewriteRule ^blogs/([^/]+)/?$ blog.php?slug=$1 [NC,QSA,L]
 
-  # 3. Directly serve existing files and directories (CSS, JS, images, PHP files)
+  # 3. Directly serve existing files and directories (CSS, JS, images, txt, xml, md)
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
@@ -30,7 +34,7 @@
   RewriteCond %{REQUEST_FILENAME}.php -f
   RewriteRule ^([^/]+)/?$ $1.php [NC,L]
 
-  # 5. Clean URLs for .html files (e.g. /about-sanjeev-kumar-malik, /contact-us)
+  # 5. Clean URLs for .html files (e.g. /about-sanjeev-kumar-malik, /contact-us, /services)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^([^/]+)/?$ $1.html [NC,L]
 
@@ -42,6 +46,12 @@
   RewriteRule ^(.*)$ $1/index.html [NC,L]
 </IfModule>
 
+# MIME Types for AI / Text / Markdown Discoverability
+<IfModule mod_mime.c>
+  AddType text/plain .txt
+  AddType text/markdown .md
+</IfModule>
+
 # Browser Caching & Performance
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -51,6 +61,9 @@
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/plain "access plus 1 day"
+  ExpiresByType text/markdown "access plus 1 day"
+  ExpiresByType application/xml "access plus 1 day"
 </IfModule>
 
 # Security Headers
