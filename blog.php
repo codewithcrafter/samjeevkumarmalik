@@ -44,7 +44,7 @@ if (!$blog) {
     <head>
       <meta charset="UTF-8">
       <title>Article Not Found — Sanjeev Kumar Malik</title>
-      <link rel="stylesheet" href="/assets/css/style.css?v=6.1">
+      <link rel="stylesheet" href="/assets/css/style.css?v=6.2">
     </head>
     <body style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #F8FAFC;">
       <div style="max-width: 500px; padding: 2rem;">
@@ -120,7 +120,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=6.1">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6.2">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -200,7 +200,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
             <a href="/" class="nav-link">Home</a>
           </li>
           <li class="nav-item nav-dropdown" id="servicesDropdown">
-            <a href="/services/wordpress-web-development" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <a href="/services" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
               <span>Services</span>
               <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -378,6 +378,16 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
 
               <h1 class="article-main-title"><?= htmlspecialchars($title) ?></h1>
 
+              <!-- Prominent Article Topics & Tags Directly Below H1 -->
+              <div class="article-header-tags">
+                <span class="header-tags-label">🏷️ Topics:</span>
+                <div class="article-tags-cloud">
+                  <?php foreach ($tagsList as $tag): ?>
+                    <a href="/blogs" class="article-tag">#<?= htmlspecialchars(ltrim($tag, '#')) ?></a>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+
               <?php if (!empty($blog['short_excerpt'])): ?>
                 <p class="article-lead-excerpt"><?= htmlspecialchars($blog['short_excerpt']) ?></p>
               <?php endif; ?>
@@ -419,19 +429,6 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
             <!-- Body Content with Prose Styling -->
             <div class="article-prose article-prose-content" id="articleBody">
               <?= $bodyHtml ?>
-            </div>
-
-            <!-- Prominent Article Tags Section (Visible directly on page) -->
-            <div class="article-tags-bottom-bar">
-              <div class="tags-bar-header">
-                <span class="tags-icon">🏷️</span>
-                <strong>Article Topics &amp; Core Architecture Tags:</strong>
-              </div>
-              <div class="article-tags-cloud">
-                <?php foreach ($tagsList as $tag): ?>
-                  <a href="/blogs" class="article-tag">#<?= htmlspecialchars(ltrim($tag, '#')) ?></a>
-                <?php endforeach; ?>
-              </div>
             </div>
 
             <!-- Dynamic FAQs Accordion if configured in Admin -->
@@ -504,19 +501,6 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
                 </ul>
               </div>
             <?php endif; ?>
-
-            <!-- Tags Cloud Card in Sidebar -->
-            <div class="tags-card">
-              <div class="tags-header">
-                <span>🏷️</span>
-                <span>Topics &amp; Tags</span>
-              </div>
-              <div class="article-tags-cloud">
-                <?php foreach ($tagsList as $tag): ?>
-                  <a href="/blogs" class="article-tag">#<?= htmlspecialchars(ltrim($tag, '#')) ?></a>
-                <?php endforeach; ?>
-              </div>
-            </div>
 
             <!-- Quick Architecture Consultation Form -->
             <div class="blog-form-card">
@@ -737,7 +721,7 @@ if ($blog['schema_type'] === 'custom' && !empty($blog['custom_schema_json'])) {
   </div>
 
 
-  <script src="/assets/js/app.js?v=6.1"></script>
+  <script src="/assets/js/app.js?v=6.2"></script>
 </body>
 </html>
 
