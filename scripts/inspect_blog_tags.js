@@ -29,3 +29,4 @@ slugs.forEach(s => {
     tagsCount: cloudMatch ? (cloudMatch[1].match(/<a/g) || []).length : 0
   });
 });
+

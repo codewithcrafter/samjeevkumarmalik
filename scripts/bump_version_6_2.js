@@ -33,3 +33,4 @@ files.forEach(f => {
 });
 
 console.log(`Bumped cache version to v=6.2 in ${count} files.`);
+
