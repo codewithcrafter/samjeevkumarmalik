@@ -3,6 +3,9 @@ User-agent: *
 Allow: /
 Allow: /assets/
 Allow: /docs/
+Allow: /blogs/
+Allow: /*.md$
+Allow: /*.txt$
 
 # Private Administrative & Backend Areas
 Disallow: /admin/
@@ -13,3 +16,4 @@ Disallow: /*.sql$
 
 # Production Sitemap
 Sitemap: https://www.sanjeevkumarmalik.in/sitemap.xml
+

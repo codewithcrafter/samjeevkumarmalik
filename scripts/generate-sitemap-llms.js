@@ -159,7 +159,16 @@ function generateLlmsTxt(pages) {
   text += `- [Web Development Architecture (Markdown)](${BASE_URL}/docs/web-development.md): Bespoke WordPress and custom application guidelines.\n`;
   text += `- [Digital Marketing & CRO (Markdown)](${BASE_URL}/docs/digital-marketing.md): Performance marketing and landing page conversion principles.\n`;
   text += `- [Geographic Coverage (Markdown)](${BASE_URL}/docs/geo-services.md): Regional Delhi NCR coverage and global remote delivery.\n`;
-  text += `- [Contact & Discovery (Markdown)](${BASE_URL}/docs/contact.md): Booking workflow and communication options.\n\n`;
+  text += `- [Contact & Discovery (Markdown)](${BASE_URL}/docs/contact.md): Booking workflow and communication options.\n`;
+  text += `- [Blog Markdown Directory (Markdown)](${BASE_URL}/docs/blogs.md): Complete index of all technical blog guides.\n\n`;
+
+  text += `## Technical Blog Markdown Resources\n\n`;
+  blogs.forEach(b => {
+    const slug = b.url.replace(`${BASE_URL}/blogs/`, '');
+    const cleanTitle = b.title.split('—')[0].split('|')[0].trim();
+    text += `- [${cleanTitle} (Markdown)](${BASE_URL}/docs/blogs/${slug}.md): ${b.description}\n`;
+  });
+  text += `\n`;
 
   text += `## Direct Contact & Discovery\n`;
   text += `- **Phone / WhatsApp:** +91 97186 04362\n`;

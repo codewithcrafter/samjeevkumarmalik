@@ -86,34 +86,44 @@ Sanjeev Kumar Malik operates on an architect-led delivery model. Clients consult
 ## 4. Technical Blog Articles & Knowledge Base
 
 1. **Custom WordPress Plugin vs Off-The-Shelf:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/custom-wordpress-plugin-vs-off-the-shelf.md
    - Topic: Breaking down the 40-plugin bloat trap, supply chain vulnerabilities, and when bespoke code is mandatory.
 2. **Dark Mode Website Design — Worth Building?:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/dark-mode-website-design-worth-building
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/dark-mode-website-design-worth-building.md
    - Topic: Accessibility, OLED power efficiency, user preference persistence, and CSS custom property token systems.
 3. **Designing for Trust — UX Patterns That Convert:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/designing-for-trust-ux-patterns
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/designing-for-trust-ux-patterns.md
    - Topic: Micro-copy, transparent pricing, security badges, and layout patterns that build instant user trust.
 4. **E-Commerce Checkout Flow for Indian Shoppers:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/ecommerce-checkout-flow-indian-shoppers
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/ecommerce-checkout-flow-indian-shoppers.md
    - Topic: Optimizing UPI flows, Cash on Delivery (COD) verification, and reducing mobile checkout abandonment.
 5. **Headless WordPress — When It Makes Sense:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/headless-wordpress-when-it-makes-sense.md
    - Topic: Decoupled WordPress architecture with Next.js frontend, trade-offs, and enterprise use cases.
 6. **How AI Overviews Affect WordPress SEO in 2026:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/how-ai-overviews-affect-wordpress-seo-2026
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/how-ai-overviews-affect-wordpress-seo-2026.md
    - Topic: Preparing technical content, entity schema markup, and direct answers for Google SGE and AI Overviews.
 7. **Micro-Interactions in UI Design:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/micro-interactions-ui-design
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/micro-interactions-ui-design.md
    - Topic: Enhancing user experience with tactile button states, feedback loops, and performant CSS animations.
 8. **Multi-Currency & Multi-Language E-Commerce:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/multi-currency-multi-language-ecommerce
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/multi-currency-multi-language-ecommerce.md
    - Topic: Technical architecture for international storefronts, geo-IP routing, hreflang tags, and checkout currency localization.
 9. **Web Accessibility (WCAG 2.2) Compliance Guide:**
-   - URL: https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance
+   - Web Article: https://www.sanjeevkumarmalik.in/blogs/web-accessibility-wcag-2-2-compliance
+   - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/web-accessibility-wcag-2-2-compliance.md
    - Topic: Practical audit checklists for focus indicators, keyboard navigation, color contrast, and ARIA attributes.
 10. **WordPress Security Hardening Checklist:**
-    - URL: https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist
+    - Web Article: https://www.sanjeevkumarmalik.in/blogs/wordpress-security-hardening-checklist
+    - Markdown Resource: https://www.sanjeevkumarmalik.in/docs/blogs/wordpress-security-hardening-checklist.md
     - Topic: Hardening database prefixes, disabling XML-RPC, edge firewall rules, and eliminating brute-force vulnerabilities.
 
 ---
@@ -126,6 +136,7 @@ Sanjeev Kumar Malik operates on an architect-led delivery model. Clients consult
 - **Performance Marketing & CRO:** [https://www.sanjeevkumarmalik.in/docs/digital-marketing.md](https://www.sanjeevkumarmalik.in/docs/digital-marketing.md)
 - **Geographic Coverage & Delhi NCR Hubs:** [https://www.sanjeevkumarmalik.in/docs/geo-services.md](https://www.sanjeevkumarmalik.in/docs/geo-services.md)
 - **Discovery Process & Contact Channels:** [https://www.sanjeevkumarmalik.in/docs/contact.md](https://www.sanjeevkumarmalik.in/docs/contact.md)
+- **Blog Markdown Catalog:** [https://www.sanjeevkumarmalik.in/docs/blogs.md](https://www.sanjeevkumarmalik.in/docs/blogs.md)
 
 ---
 
@@ -138,3 +149,4 @@ Sanjeev Kumar Malik operates on an architect-led delivery model. Clients consult
 - **Office Location:** Delhi NCR (Saket, Hauz Khas, Dwarka, Rohini, Gurugram, Noida), India
 - **Consultation Hours:** Monday through Saturday, 09:00 - 20:00 IST
 - **Schedule Online:** [https://www.sanjeevkumarmalik.in/contact-us](https://www.sanjeevkumarmalik.in/contact-us)
+

@@ -95,3 +95,4 @@ Sanjeev Kumar Malik provides full-lifecycle web engineering across seven special
 - **Direct Inquiries:** [https://www.sanjeevkumarmalik.in/contact-us](https://www.sanjeevkumarmalik.in/contact-us)
 - **Phone / WhatsApp:** +91 97186 04362
 - **Email:** info@sanjeevkumarmalik.in
+

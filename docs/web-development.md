@@ -43,3 +43,4 @@ Every production deployment follows a comprehensive security audit:
 - **Custom Web Applications:** [https://www.sanjeevkumarmalik.in/services/custom-web-application-development](https://www.sanjeevkumarmalik.in/services/custom-web-application-development)
 - **Technical Article — Custom Plugin vs Off-The-Shelf:** [https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf](https://www.sanjeevkumarmalik.in/blogs/custom-wordpress-plugin-vs-off-the-shelf)
 - **Technical Article — Headless WordPress:** [https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense](https://www.sanjeevkumarmalik.in/blogs/headless-wordpress-when-it-makes-sense)
+
