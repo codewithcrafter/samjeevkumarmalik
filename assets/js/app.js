@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Interactive Micro-Tilt
-  const tiltCards = document.querySelectorAll('.hero-profile-card, .service-card, .comparison-sanjeev, .about-founder-card, .channel-card');
+  // 9. Interactive Micro-Tilt (Disabled on service cards per design guidelines)
+  const tiltCards = document.querySelectorAll('.hero-profile-card, .comparison-sanjeev, .about-founder-card, .channel-card');
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     tiltCards.forEach(card => {
       card.addEventListener('mousemove', (e) => {

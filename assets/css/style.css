@@ -1413,10 +1413,12 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   text-decoration: none;
   color: inherit;
+  min-width: 0;
+  width: 100%;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
   border-color: var(--border-card-hover);
 }
@@ -5857,7 +5859,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, blockquote, label {
 }
 
 .service-card-span-all {
-  grid-column: span 3;
+  grid-column: 1 / -1 !important;
 }
 
 .contact-intake-grid {
@@ -5928,7 +5930,7 @@ code {
    ========================================================================== */
 @media (max-width: 1024px) {
   .service-card-span-all {
-    grid-column: span 2;
+    grid-column: 1 / -1 !important;
   }
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
