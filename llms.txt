@@ -124,11 +124,6 @@
 - **Summary:** Schedule a direct architecture consultation with Sanjeev Kumar Malik. Sub-4 hour response time, direct founder technical review, zero sales reps. Serving Delhi NCR and global clients.
 - **Last Modified:** 2026-11-25
 
-### [](https://sanjeevkumarmalik.in/test_evidence/faq_view)
-- **URL:** https://sanjeevkumarmalik.in/test_evidence/faq_view
-- **Summary:** 
-- **Last Modified:** 2026-11-25
-
 ## Technical Competencies
 - **Frontend:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Semantic HTML5, ESNext.
 - **Backend:** Node.js, Express, PHP 8.x, Laravel, RESTful APIs, GraphQL, Webhooks.
