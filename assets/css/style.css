@@ -3194,7 +3194,9 @@ h1, h2, h3, h4, h5, h6 {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.25s ease, opacity 0.25s ease;
   padding: 0 1.5rem;
   color: var(--text-secondary);
   font-size: 0.95rem;
@@ -3225,6 +3227,8 @@ h1, h2, h3, h4, h5, h6 {
 .faq-item.active .faq-answer {
   max-height: 1200px;
   padding: 0 1.5rem 1.35rem 1.5rem;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -6313,10 +6317,16 @@ code {
     padding: 0 1.15rem !important;
     font-size: 0.9rem !important;
     line-height: 1.65 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   .faq-item.active .faq-answer {
     padding: 0 1.15rem 1.15rem 1.15rem !important;
     max-height: 1200px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   /* Bottom Docked Floating Action Bar */
@@ -6577,10 +6587,16 @@ code {
     padding: 0 1rem !important;
     font-size: 0.875rem !important;
     line-height: 1.6 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   .faq-item.active .faq-answer {
     padding: 0 1rem 1rem 1rem !important;
     max-height: 1200px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   /* Timeline on 480px */

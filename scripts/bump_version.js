@@ -23,9 +23,9 @@ let updated = 0;
 
 files.forEach(f => {
   let content = fs.readFileSync(f, 'utf8');
-  let newContent = content.replace(/style\.css\?v=[0-9.]+/g, 'style.css?v=6.4');
-  newContent = newContent.replace(/main\.js\?v=[0-9.]+/g, 'main.js?v=6.4');
-  newContent = newContent.replace(/app\.js\?v=[0-9.]+/g, 'app.js?v=6.4');
+  let newContent = content.replace(/style\.css\?v=[0-9.]+/g, 'style.css?v=6.5');
+  newContent = newContent.replace(/main\.js\?v=[0-9.]+/g, 'main.js?v=6.5');
+  newContent = newContent.replace(/app\.js\?v=[0-9.]+/g, 'app.js?v=6.5');
 
   if (newContent !== content) {
     fs.writeFileSync(f, newContent, 'utf8');
@@ -33,4 +33,4 @@ files.forEach(f => {
   }
 });
 
-console.log(`Bumped cache version to v=6.4 across ${updated} files.`);
+console.log(`Bumped cache version to v=6.5 across ${updated} files.`);
