@@ -4,6 +4,7 @@ const path = require('path');
 const pairs = [
   ['about-sanjeev-kumar-malik.html', 'about-sanjeev-kumar-malik/index.html'],
   ['contact-us.html', 'contact-us/index.html'],
+  ['services.html', 'services/index.html'],
   ['blogs.html', 'blogs/index.html']
 ];
 
