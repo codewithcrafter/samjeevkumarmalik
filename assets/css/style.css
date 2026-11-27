@@ -3,7 +3,7 @@
    Unified Multi-Page Design System
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Fonts preloaded in HTML <head> for zero-latency parallel discovery */
 
 :root {
   /* Core Colors */
@@ -7473,3 +7473,51 @@ code {
     text-align: center !important;
   }
 }
+
+/* ==========================================================================
+   PERFORMANCE & MOBILE RENDERING OPTIMIZATIONS
+   ========================================================================== */
+
+/* 1. Skip layout & rendering work for deep below-the-fold content until scrolled near */
+.faq-section,
+.testimonials-section,
+.verified-reviews-section,
+.tech-matrix-section,
+.bento-principles-grid,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+/* 2. Mobile GPU & Compositing Acceleration: Disable expensive backdrop-filter on static cards */
+@media (max-width: 768px) {
+  .section-eyebrow,
+  .hero-status-pill,
+  .service-card,
+  .blog-card,
+  .comparison-agency,
+  .comparison-sanjeev,
+  .timeline-card,
+  .bento-principle-card,
+  .tech-matrix-card,
+  .capability-card,
+  .pillar-card,
+  .process-card,
+  .toc-card,
+  .tags-card,
+  .floating-badge {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* 3. Respect prefers-reduced-motion for user accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

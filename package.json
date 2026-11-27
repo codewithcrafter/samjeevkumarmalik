@@ -4,6 +4,8 @@
   "description": "High-Performance Digital Architecture Platform & Services for Sanjeev Kumar Malik",
   "main": "assets/js/app.js",
   "scripts": {
+    "server": "php -S 127.0.0.1:8080 router.php",
+    "dev": "php -S 127.0.0.1:8080 router.php",
     "generate": "node scripts/generate-sitemap-llms.js",
     "watch": "node scripts/watch-and-sync.js",
     "build": "node scripts/generate-sitemap-llms.js"

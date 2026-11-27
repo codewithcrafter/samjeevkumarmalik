@@ -26,7 +26,13 @@ if ($pdo) {
 
   <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%232563EB'/><text x='50' y='64' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
-  <link rel="stylesheet" href="/assets/css/style.css?v=6.6">
+    <!-- Google Fonts Preconnect & Optimized Asynchronous Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css?v=6.7">
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
 {
@@ -585,6 +591,6 @@ if ($pdo) {
   </div>
 
 
-  <script src="/assets/js/app.js?v=6.6"></script>
+  <script src="/assets/js/app.js?v=6.7" defer></script>
 </body>
 </html>

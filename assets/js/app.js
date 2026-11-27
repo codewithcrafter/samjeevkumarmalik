@@ -3,7 +3,7 @@
  * Micro-interactions, Count-up, Terminal Clipboard, Filter Tabs, and Modal
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   // 1. Sticky Navbar Elevation on Scroll
   const navbar = document.getElementById('navbar');
   const siteHeader = document.getElementById('siteHeader') || document.querySelector('.site-header-full, .header-wrapper');
@@ -620,7 +620,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(widget);
   }
-  initFloatingActions();
+  const scheduleIdle = (fn) => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(fn, { timeout: 1500 });
+    } else {
+      setTimeout(fn, 60);
+    }
+  };
+
+  scheduleIdle(initFloatingActions);
 
   // 13. Dramatic 3-Second Automatic Popup Modal
   function init3SecondAutoPopup() {
@@ -762,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger precisely 3 seconds after page load
     setTimeout(openPopup, 3000);
   }
-  init3SecondAutoPopup();
+  scheduleIdle(init3SecondAutoPopup);
 
   // 14. Service Hero Forms Submission Handler
   function initServiceHeroForms() {
@@ -788,7 +796,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  initServiceHeroForms();
+  scheduleIdle(initServiceHeroForms);
 
   // 15. Article Table of Contents (TOC) Scroll-Spy & Active Link Sync
   function initTocScrollSpy() {
@@ -840,4 +848,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
